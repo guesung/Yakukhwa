@@ -5,11 +5,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import Icon from "@/components/Icon";
 
 export default function SignSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   return (
-    <section className="relative">
+    <section className="relative bg-slate-100">
       <Swiper
         spaceBetween={30}
         pagination={{
@@ -26,12 +27,15 @@ export default function SignSection() {
       </Swiper>
 
       <div
-        className="w-20 h-20 rounded-full bg-slate-300 cursor-pointer absolute inset-x-0 mx-auto bottom-30 z-10"
+        className="w-25 h-25 rounded-full bg-white cursor-pointer absolute inset-x-0 mx-auto bottom-30 z-10 flex justify-center items-center"
         onClick={() => {
           console.log(scrollRef.current);
           scrollRef.current?.scrollIntoView({ behavior: "smooth" });
         }}
-      />
+      >
+        <Icon id="arrow_down" width={16} height={16} />
+      </div>
+
       <div ref={scrollRef} />
     </section>
   );

@@ -74,3 +74,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.swiper-pagination .swiper-pagination-bullet {
+  @apply bg-black w-10 h-10
+}
+
+.swiper-pagination {
+  @apply mb-60
+}
