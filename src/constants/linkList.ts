@@ -14,7 +14,7 @@ export const MAINLINKLIST: MainLinkListType = [
   },
   {
     mainTitle: "사전신청",
-    subTitle: ["축제프로그램 사전 신청"],
+    subTitle: ["축제프로그램", " 사전 신청"],
   },
   {
     mainTitle: "축제소식",
