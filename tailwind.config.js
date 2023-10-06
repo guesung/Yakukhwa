@@ -1,4 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+const {
+  pxToRemTailwind,
+} = require('./src/style');
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -16,6 +20,7 @@ module.exports = {
       },
     },
     extend: {
+      ...pxToRemTailwind,
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
