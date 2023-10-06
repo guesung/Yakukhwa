@@ -1,9 +1,9 @@
-type LinkListType = {
+type MainLinkListType = {
   mainTitle: string;
   subTitle: string[];
 }[];
 
-export const LINKLIST: LinkListType = [
+export const MAINLINKLIST: MainLinkListType = [
   {
     mainTitle: "월출산국화축제",
     subTitle: ["축제소개", "프롤로그", "연혁", "축제갤러리"],
@@ -24,4 +24,13 @@ export const LINKLIST: LinkListType = [
     mainTitle: "여행정보",
     subTitle: ["영양맛지도", "먹거리", "살거리", "즐길거리"],
   },
+];
+
+type SubLinkListType = {
+  title: string;
+}[];
+
+export const SUBLINKLIST: SubLinkListType = [
+  { title: "영암군청" },
+  { title: "문화관광" },
 ];

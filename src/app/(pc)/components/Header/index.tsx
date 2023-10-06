@@ -1,10 +1,13 @@
-import LinkListSection from "./LinkListSection";
+import LogoSection from "./LogoSection";
+import MainLinkSection from "./MainLinkSection";
+import SideLinkSection from "./SideLinkSection";
 
-interface HeaderProps {}
 export default function Header() {
   return (
-    <header>
-      <LinkListSection />
+    <header className="flex flex-col relative">
+      <LogoSection />
+      <SideLinkSection />
+      <MainLinkSection />
     </header>
   );
 }
