@@ -35,3 +35,11 @@ yarn-error.log*
 next-env.d.ts
 
 .env
+
+.yarn/*
+!.yarn/cache // Zero-Install 
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
