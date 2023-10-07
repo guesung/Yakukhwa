@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className="mobile:overflow-hidden">{children}</body>
+      <body className="overflow-x-hidden">{children}</body>
     </html>
   );
 }

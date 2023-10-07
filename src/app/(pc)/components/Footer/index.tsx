@@ -1,11 +1,10 @@
 import HostSection from "./HostSection";
-import LogoSection from "./LogoSection";
+import LinkSection from "./LinkSection";
 
-interface FooterProps {}
 export default function Footer() {
   return (
-    <main className="flex">
-      <LogoSection />
+    <main>
+      <LinkSection />
       <HostSection />
     </main>
   );
