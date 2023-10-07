@@ -1,13 +1,11 @@
 import LogoSection from "./LogoSection";
-import MainLinkSection from "./MainLinkSection";
 import SideLinkSection from "./SideLinkSection";
 
 export default function Header() {
   return (
-    <header className="flex flex-col relative">
+    <header className="flex flex-col relative h-full">
       <LogoSection />
       <SideLinkSection />
-      <MainLinkSection />
     </header>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { MAINLINKLIST } from "@/constants";
-import { cn } from "@/utils/cn";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function MainLinkSection() {
@@ -17,17 +17,18 @@ export default function MainLinkSection() {
             className="flex items-center h-50 w-100 justify-center"
             onMouseEnter={() => setIsActive(true)}
           >
-            {linkItem.mainTitle}
+            {linkItem.mainTitle.name}
           </div>
           {isActive && (
-            <ul className="absolute top-50 flex flex-col ">
+            <ul className="absolute top-50 flex flex-col">
               {linkItem.subTitle.map((subTitle, i) => (
-                <li
+                <Link
                   key={i}
                   className="w-100 flex justify-center h-30 items-center"
+                  href={`/${linkItem.mainTitle.path}/${subTitle.path}`}
                 >
-                  {subTitle}
-                </li>
+                  {subTitle.name}
+                </Link>
               ))}
             </ul>
           )}

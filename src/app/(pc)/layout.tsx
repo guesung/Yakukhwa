@@ -1,13 +1,15 @@
 import { PropsWithChildren } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import MainLinkSection from "./components/Header/MainLinkSection";
 
 export default function layout({ children }: PropsWithChildren) {
   return (
-    <div>
+    <>
       <Header />
+      <MainLinkSection />
       {children}
       <Footer />
-    </div>
+    </>
   );
 }
