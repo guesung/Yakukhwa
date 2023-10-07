@@ -26,13 +26,13 @@ export default function MainLinkSection() {
       {MAINLINKLIST.map((linkItem, index) => (
         <div key={index} className="flex flex-col w-130">
           <div
-            className="flex items-center h-50 justify-center z-20 cursor-pointer"
+            className="flex items-center h-50 justify-center z-20 cursor-pointer text-title4"
             onMouseEnter={() => setIsActive(true)}
           >
             {linkItem.mainTitle.name}
           </div>
           {index > 0 && (
-            <p className="absolute inset-y-0 flex items-center text-gray-6 text-subtitle1">
+            <p className="absolute inset-y-0 flex items-center text-gray-6 text-title4">
               /
             </p>
           )}

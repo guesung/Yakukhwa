@@ -4,7 +4,7 @@ import { PropsWithChildren } from "react";
 export default function layout({ children }: PropsWithChildren) {
   return (
     <div className="px-50">
-      <p className="text-title1">공지사항</p>
+      <p className="text-title2">공지사항</p>
       <p className="text-subtitle2 py-10">
         영암 월출산 국화축제에서
         <br />
