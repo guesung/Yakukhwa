@@ -8,10 +8,11 @@ import "swiper/css/pagination";
 
 import { Navigation } from "swiper/modules";
 
+const pageList = [1, 2, 3];
+
 export default function ScheduleSection() {
-  const pagination = 1;
   return (
-    <section>
+    <section className="px-30 py-20">
       <Swiper
         pagination={{
           type: "fraction",
@@ -20,29 +21,21 @@ export default function ScheduleSection() {
         modules={[Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <div className="grid grid-cols-8">
-            {DateController.getDateList(new Date()).map((date) => (
-              <div key={date}>{date} </div>
-            ))}
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="grid grid-cols-8">
-            {DateController.getDateList(new Date()).map((date) => (
-              <div key={date}>{date} </div>
-            ))}
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="grid grid-cols-8">
-            {DateController.getDateList(new Date()).map((date) => (
-              <div key={date}>{date} </div>
-            ))}
-          </div>
-        </SwiperSlide>
+        {pageList.map((page) => (
+          <SwiperSlide key={page}>
+            <div className="grid grid-cols-8">
+              {DateController.getDateList(new Date(), page).map((date) => (
+                <p
+                  key={date}
+                  className="text-title4 text-gray-6 whitespace-nowrap"
+                >
+                  {date}
+                </p>
+              ))}
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
-      {/* <div>Day1</div> */}
     </section>
   );
 }

@@ -13,7 +13,10 @@ export default function MainLinkSection() {
     >
       {isActive && <div className="absolute bg-slate-50 h-300 top-0 w-full" />}
       {MAINLINKLIST.map((linkItem, index) => (
-        <div key={index} className="flex flex-col w-120">
+        <div
+          key={index}
+          className="flex flex-col w-120  after:content-['/'] after:inset-y-0 after:absolute after:flex after:items-center after:first:hidden after:text-gray-6 after:text-subtitle1"
+        >
           <div
             className="flex items-center h-50 w-100 justify-center z-20 cursor-pointer"
             onMouseEnter={() => setIsActive(true)}
