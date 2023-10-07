@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const {
   pxToRemTailwind,
+  fontSize,
 } = require('./src/style');
 
 module.exports = {
@@ -21,6 +22,7 @@ module.exports = {
     },
     extend: {
       ...pxToRemTailwind,
+      fontSize,
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
