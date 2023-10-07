@@ -15,7 +15,7 @@ export const MAINLINKLIST: MainLinkListType = [
       { name: "축제소개", path: "introduce" },
       { name: "프롤로그", path: "prologue" },
       { name: "연혁", path: "history" },
-      { name: "축제갤러리", path: "gallery" },
+      { name: "축제갤러리", path: "gallery/1" },
     ],
   },
   {
@@ -39,7 +39,7 @@ export const MAINLINKLIST: MainLinkListType = [
   {
     mainTitle: { name: "축제소식", path: "festival-news" },
     subTitle: [
-      { name: "공지사항", path: "announcement" },
+      { name: "공지사항", path: "announcement/1" },
       { name: "이벤트", path: "event" },
       { name: "축제FAQ", path: "faq" },
       { name: "보도자료", path: "press-release" },
