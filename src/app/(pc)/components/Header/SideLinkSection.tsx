@@ -2,7 +2,7 @@ import { SUBLINKLIST } from "@/constants";
 
 export default function SideLinkSection() {
   return (
-    <section className="absolute right-100 top-0 flex bg-green-100">
+    <section className="absolute right-100 top-0 flex bg-brand-300 text-white rounded-b-xl">
       {SUBLINKLIST.map((linkItem, index) => (
         <LinkItem linkItem={linkItem} key={index} />
       ))}
