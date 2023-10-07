@@ -24,7 +24,10 @@ module.exports = {
       screens: {
         'mobile': {
           'max': '450px',
-        }
+        },
+        'pc': {
+          'min': '451px',
+        },
       },
       colors: {
         ...colors,
