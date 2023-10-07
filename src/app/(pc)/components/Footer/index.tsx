@@ -1,3 +1,3 @@
 export default function index() {
-  return <footer>Footer</footer>;
+  return <footer className="h-1000">Footer</footer>;
 }

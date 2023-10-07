@@ -1,13 +1,33 @@
 export class DateController {
-  static formatDate = (date: Date) => {
-    return `${date.getMonth() + 1}.${date.getDate() - 1} ${date.getDay()}`;
+  static formatDay = (day: number) => {
+    switch (day) {
+      case 0:
+        return "SUN";
+      case 1:
+        return "MON";
+      case 2:
+        return "TUE";
+      case 3:
+        return "WED";
+      case 4:
+        return "THU";
+      case 5:
+        return "FRI";
+      case 6:
+        return "SAT";
+    }
   };
-  static getDateList = (date: Date) => {
+  static formatDate = (date: Date) => {
+    return `${date.getMonth() + 1}.${date.getDate()} ${DateController.formatDay(
+      date.getDay()
+    )}`;
+  };
+  static getDateList = (date: Date, page: number) => {
     const dateList = [];
+    date.setDate(date.getDate() + 16 * (page - 1));
     for (let i = 0; i < 16; i++) {
-      dateList.push(
-        DateController.formatDate(new Date(date.setDate(date.getDate() + 1)))
-      );
+      dateList.push(DateController.formatDate(new Date(date)));
+      date.setDate(date.getDate() + 1);
     }
     return dateList;
   };
