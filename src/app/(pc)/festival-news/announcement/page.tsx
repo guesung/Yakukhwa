@@ -22,19 +22,9 @@ interface PageProps {
 }
 
 export default function page({ searchParams: { page } }: PageProps) {
+
   return (
     <div>
-      <p className="text-title1">공지사항</p>
-      <p className="text-subtitle2 py-10">
-        영암 월출산 국화축제에서
-        <br />
-        눈길을 사로잡는 작품들의 시각적 아름다움을 느껴보세요!
-      </p>
-
-      <Spacing size={20} />
-      <hr />
-      <Spacing size={20} />
-
       <p className="flex gap-10 py-20">
         <span>공지사항</span>
         <span>묻고 답하기</span>
@@ -53,7 +43,11 @@ export default function page({ searchParams: { page } }: PageProps) {
           {dummyData.ANNOUNCEMENT.map((invoice) => (
             <TableRow key={invoice.invoice} className="h-50 text-center">
               <TableCell>{invoice.invoice}</TableCell>
-              <TableCell className="text-left">{invoice.title}</TableCell>
+              <TableCell className="text-left">
+                <Link href={`/festival-news/announcement/${invoice.invoice}`}>
+                  {invoice.title}
+                </Link>
+              </TableCell>
               <TableCell>{invoice.date}</TableCell>
             </TableRow>
           ))}
@@ -61,8 +55,6 @@ export default function page({ searchParams: { page } }: PageProps) {
 
         <TableCaption></TableCaption>
       </Table>
-
-      <PageList maxPage={10} currentPage={+page} />
     </div>
   );
 }
