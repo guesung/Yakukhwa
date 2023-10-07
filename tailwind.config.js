@@ -2,6 +2,7 @@
 const {
   pxToRemTailwind,
   fontSize,
+  colors,
 } = require('./src/style');
 
 module.exports = {
@@ -24,6 +25,7 @@ module.exports = {
       ...pxToRemTailwind,
       fontSize,
       colors: {
+        ...colors,
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
