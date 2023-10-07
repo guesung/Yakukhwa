@@ -1,4 +1,5 @@
 import { SUBLINKLIST } from "@/constants";
+import Link from "next/link";
 
 export default function SideLinkSection() {
   return (
@@ -18,7 +19,7 @@ interface LinkItemProps {
 function LinkItem({ linkItem }: LinkItemProps) {
   return (
     <div className="p-10">
-      <h3>{linkItem.title}</h3>
+      <Link href="/">{linkItem.title}</Link>
     </div>
   );
 }
