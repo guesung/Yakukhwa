@@ -7,28 +7,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import Icon from "@/components/Icon";
+import useSwiperController from "@/hooks/useSwipeController";
 import { cn } from "@/utils";
-import { useCallback, useRef, useState } from "react";
 
 const pageList = [1, 2, 3];
 
 export default function ScheduleSection() {
-  const slideRef = useRef<any>(null);
-  const [slideIndex, setSlideIndex] = useState(0);
-  const hasPrev = slideIndex > 0;
-  const hasNext = slideIndex < pageList.length - 1;
-
-  const handlePrev = useCallback(() => {
-    if (!slideRef.current || !hasPrev) return;
-    slideRef.current.swiper.slidePrev();
-    setSlideIndex((slideIndex) => slideIndex - 1);
-  }, [hasPrev]);
-
-  const handleNext = useCallback(() => {
-    if (!slideRef.current || !hasNext) return;
-    slideRef.current.swiper.slideNext();
-    setSlideIndex((slideIndex) => slideIndex + 1);
-  }, [hasNext]);
+  const { slideRef, handlePrev, handleNext, hasPrev, hasNext } =
+    useSwiperController();
 
   return (
     <section className="px-30 py-20 relative">
