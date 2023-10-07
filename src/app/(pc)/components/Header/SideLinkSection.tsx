@@ -1,8 +1,9 @@
 import { SUBLINKLIST } from "@/constants";
+import Link from "next/link";
 
 export default function SideLinkSection() {
   return (
-    <section className="absolute right-100 top-0 flex bg-green-100">
+    <section className="absolute right-100 top-0 mobile:right-0 flex bg-brand-300 text-white rounded-b-xl bg-brand-2">
       {SUBLINKLIST.map((linkItem, index) => (
         <LinkItem linkItem={linkItem} key={index} />
       ))}
@@ -18,7 +19,7 @@ interface LinkItemProps {
 function LinkItem({ linkItem }: LinkItemProps) {
   return (
     <div className="p-10">
-      <h3>{linkItem.title}</h3>
+      <Link href="/">{linkItem.title}</Link>
     </div>
   );
 }

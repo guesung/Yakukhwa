@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 const {
   pxToRemTailwind,
+  fontSize,
+  colors,
 } = require('./src/style');
 
 module.exports = {
@@ -15,13 +17,17 @@ module.exports = {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
     },
     extend: {
       ...pxToRemTailwind,
+      fontSize,
+      screens: {
+        'mobile': {
+          'max': '450px',
+        }
+      },
       colors: {
+        ...colors,
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
