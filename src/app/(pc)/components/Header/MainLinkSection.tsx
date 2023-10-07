@@ -24,16 +24,18 @@ export default function MainLinkSection() {
       </AnimatePresence>
 
       {MAINLINKLIST.map((linkItem, index) => (
-        <div
-          key={index}
-          className="flex flex-col w-120  after:content-['/'] after:inset-y-0 after:absolute after:flex after:items-center after:first:hidden after:text-gray-6 after:text-subtitle1"
-        >
+        <div key={index} className="flex flex-col w-130">
           <div
-            className="flex items-center h-50 w-100 justify-center z-20 cursor-pointer"
+            className="flex items-center h-50 justify-center z-20 cursor-pointer"
             onMouseEnter={() => setIsActive(true)}
           >
             {linkItem.mainTitle.name}
           </div>
+          {index > 0 && (
+            <p className="absolute inset-y-0 flex items-center text-gray-6 text-subtitle1">
+              /
+            </p>
+          )}
           <AnimatePresence>
             {isActive && (
               <motion.ul
