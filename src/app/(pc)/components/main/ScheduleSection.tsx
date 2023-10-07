@@ -6,12 +6,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { Navigation } from "swiper/modules";
-import { Swiper as SwiperType } from "swiper/types";
-import { useCallback, useEffect, useRef, useState } from "react";
 import Icon from "@/components/Icon";
 import { cn } from "@/utils";
-import Spacing from "@/components/Spacing";
+import { useCallback, useRef, useState } from "react";
 
 const pageList = [1, 2, 3];
 
@@ -35,7 +32,7 @@ export default function ScheduleSection() {
 
   return (
     <section className="px-30 py-20 relative">
-      <Swiper className="mySwiper" ref={slideRef}>
+      <Swiper ref={slideRef} touchAngle={0}>
         {pageList.map((page) => (
           <SwiperSlide key={page}>
             <div className="grid grid-cols-8">
