@@ -35,15 +35,20 @@ export default function ScheduleSection() {
       <Swiper ref={slideRef} touchAngle={0}>
         {pageList.map((page) => (
           <SwiperSlide key={page}>
-            <div className="grid grid-cols-8">
-              {DateController.getDateList(new Date(), page).map((date) => (
-                <p
-                  key={date}
-                  className="text-title4 text-gray-6 whitespace-nowrap"
-                >
-                  {date}
-                </p>
-              ))}
+            <div className="pc:grid pc:grid-cols-8 mobile:grid mobile:grid-rows-2 overflow-x-scroll gap-x-10">
+              {DateController.getDateList(new Date(), page).map(
+                (date, index) => (
+                  <p
+                    key={date}
+                    className={cn("text-title4 text-gray-6 whitespace-nowrap", {
+                      "row-start-1": index < 8,
+                      "row-start-2": index >= 8,
+                    })}
+                  >
+                    {date}
+                  </p>
+                )
+              )}
             </div>
           </SwiperSlide>
         ))}
