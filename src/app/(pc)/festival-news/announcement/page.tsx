@@ -16,23 +16,26 @@ import Link from "next/link";
 const pageList = [1, 2, 3, 4, 5];
 
 interface PageProps {
-  params: {
-    id: string;
+  searchParams: {
+    page: string;
   };
 }
 
-export default function page({ params: { id } }: PageProps) {
+export default function page({ searchParams: { page } }: PageProps) {
   return (
     <div>
-      <h1>공지사항</h1>
-      <h2>영암 월출산 국화축제에서</h2>
-      <h2>눈길을 사로잡는 작품들의 시각적 아름다움을 느껴보세요!</h2>
+      <p className="text-title1">공지사항</p>
+      <p className="text-subtitle2 py-10">
+        영암 월출산 국화축제에서
+        <br />
+        눈길을 사로잡는 작품들의 시각적 아름다움을 느껴보세요!
+      </p>
 
       <Spacing size={20} />
       <hr />
       <Spacing size={20} />
 
-      <p className="flex gap-10">
+      <p className="flex gap-10 py-20">
         <span>공지사항</span>
         <span>묻고 답하기</span>
       </p>
@@ -48,7 +51,7 @@ export default function page({ params: { id } }: PageProps) {
 
         <TableBody>
           {dummyData.ANNOUNCEMENT.map((invoice) => (
-            <TableRow key={invoice.invoice} className="h-40 text-center">
+            <TableRow key={invoice.invoice} className="h-50 text-center">
               <TableCell>{invoice.invoice}</TableCell>
               <TableCell className="text-left">{invoice.title}</TableCell>
               <TableCell>{invoice.date}</TableCell>
@@ -58,7 +61,8 @@ export default function page({ params: { id } }: PageProps) {
 
         <TableCaption></TableCaption>
       </Table>
-      <PageList maxPage={10} currentPage={+id} />
+
+      <PageList maxPage={10} currentPage={+page} />
     </div>
   );
 }

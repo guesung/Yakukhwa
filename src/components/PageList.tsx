@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/utils";
 import Link from "next/link";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useSearchParams } from "next/navigation";
 
 interface PageListProps {
   maxPage: number;
@@ -15,17 +15,20 @@ export default function PageList({
 }: PageListProps) {
   const pageList = Array.from({ length: maxPage }, (_, i) => i + 1);
   const pathname = usePathname();
-  const basePathname = pathname.split("/").slice(0, -1).join("/");
+  const basePathname = pathname.replace(/\?.*$/, "");
 
   return (
-    <section className={cn("flex justify-center", className)}>
+    <section className={cn("flex justify-center py-30", className)}>
       {pageList.map((page) => (
         <Link
           key={page}
-          className={cn("w-20 flex justify-center items-center", {
-            "border border-blue-200 text-blue-200": page === currentPage,
-          })}
-          href={`${basePathname}/${page}`}
+          className={cn(
+            "w-30 flex justify-center items-center hover:text-brand-2",
+            {
+              "border border-brand-2 text-brand-2": page === currentPage,
+            }
+          )}
+          href={`${basePathname}?page=${page}`}
         >
           {page}
         </Link>

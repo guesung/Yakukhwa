@@ -1,16 +1,16 @@
 import Spacing from "@/components/Spacing";
-import GallerySection from "../components/GallerySection";
+import GallerySection from "./components/GallerySection";
 import { dummyData } from "@/constants";
 import PageList from "@/components/PageList";
 
 interface PageProps {
-  params: {
+  searchParams: {
     id: string;
   };
 }
 const pageList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-export default function page({ params: { id } }: PageProps) {
+export default function page({ searchParams: { id } }: PageProps) {
   return (
     <div>
       <h1>국화갤러리</h1>
