@@ -28,7 +28,7 @@ export default function ScheduleSection() {
                     <p
                       key={date}
                       className={cn(
-                        "text-title4 text-gray-6 whitespace-nowrap",
+                        "text-title1 text-gray-6 whitespace-nowrap",
                         {
                           "row-start-1": index < 8,
                           "row-start-2": index >= 8,
