@@ -6,24 +6,32 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import Icon from "@/components/Icon";
+import Image from "next/image";
 
 export default function SignSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   return (
     <section className="relative bg-slate-100">
       <Swiper
-        spaceBetween={30}
         pagination={{
           clickable: true,
         }}
         modules={[Pagination]}
         className="mySwiper pc:h-500 mobile:h-400"
+        autoplay
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
+        {Array(3)
+          .fill(0)
+          .map((_, i) => (
+            <SwiperSlide key={i}>
+              <Image
+                src={`/images/flower.png`}
+                alt="flower"
+                fill
+                className="brightness-[30%]"
+              />
+            </SwiperSlide>
+          ))}
       </Swiper>
 
       <div

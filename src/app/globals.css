@@ -79,7 +79,7 @@
 }
 
 .swiper-pagination .swiper-pagination-bullet {
-  @apply bg-black w-10 h-10
+  @apply bg-white w-10 h-10
 }
 
 .swiper-pagination {
