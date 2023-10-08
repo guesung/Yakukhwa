@@ -60,7 +60,7 @@ export default function ScheduleSection() {
         </div>
       </article>
 
-      <article className="h-200">
+      <article className="h-200 flex flex-col justify-center">
         <div className="h-60 flex items-center">Day 1</div>
         <div className="flex gap-20">
           <div className="min-w-250 h-100 bg-brand-1" />
