@@ -1,29 +1,17 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import Icon from "@/components/Icon";
-import { fireStore } from "@/store";
-import { addDoc, collection } from "firebase/firestore";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
 export default function SignSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [value, setValue] = useState();
 
-  const onClickUpLoadButton = async () => {
-    await addDoc(collection(fireStore, `temp`), {
-      value: "a",
-    });
-  };
   return (
     <section className="relative bg-slate-100">
-      <form onSubmit={(event) => event.preventDefault()}>
-        <input onChange={(event) => setValue(event.target.value)} />
-        <button onClick={onClickUpLoadButton}>전송</button>
-      </form>
       <Swiper
         spaceBetween={30}
         pagination={{
