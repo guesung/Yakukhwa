@@ -1,16 +1,30 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import Icon from "@/components/Icon";
+import { fireStore } from "@/store";
+import { addDoc, collection } from "firebase/firestore";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-import Icon from "@/components/Icon";
 
 export default function SignSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [value, setValue] = useState();
+
+  const onClickUpLoadButton = async () => {
+    //    addDoc(collection(db       , "컬렉션이름") , { 추가할 데이터 }
+    await addDoc(collection(fireStore, `temp`), {
+      value,
+    });
+  };
   return (
     <section className="relative bg-slate-100">
+      <form onSubmit={(event) => event.preventDefault()}>
+        <input onChange={(event) => setValue(event.target.value)} />
+        <button onClick={onClickUpLoadButton}>전송</button>
+      </form>
       <Swiper
         spaceBetween={30}
         pagination={{
