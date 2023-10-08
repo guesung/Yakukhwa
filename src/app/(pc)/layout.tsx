@@ -1,13 +1,16 @@
+import { getDevice } from "@/utils/getdevice";
 import { PropsWithChildren } from "react";
 import Footer from "./components/Footer";
-import MainLinkSection from "./components/Header/MainLinkSection";
 import Header from "./components/Header";
+import MainLinkSection from "./components/Header/MainLinkSection";
 
 export default function layout({ children }: PropsWithChildren) {
+  const device = getDevice();
+
   return (
     <>
       <Header />
-      <MainLinkSection />
+      {device === "pc" && <MainLinkSection />}
       {children}
       <Footer />
     </>
