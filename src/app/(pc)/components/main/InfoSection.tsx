@@ -5,8 +5,14 @@ import Spacing from "@/components/Spacing";
 import Link from "next/link";
 import "swiper/css";
 import "swiper/css/pagination";
+import useSwiperController from "@/hooks/useSwipeController";
+import { cn } from "@/utils";
+import Icon from "@/components/Icon";
 
 export default function InfoSection() {
+  const { slideRef, handlePrev, handleNext, hasPrev, hasNext } =
+    useSwiperController({ maxPage: 6 });
+
   return (
     <section>
       <article className="flex text-center h-70 bg-brand-1 items-center text-black">
@@ -28,9 +34,34 @@ export default function InfoSection() {
               <br />
               함께 깊어가는 가을
             </p>
+
+            <div className="flex gap-20 top-100 p-20 py-10">
+              <button
+                onClick={handlePrev}
+                className={cn(
+                  "bg-white rounded-full w-40 h-40 flex justify-center items-center"
+                )}
+              >
+                <Icon id="arrow_left" />
+              </button>
+              <button
+                onClick={handleNext}
+                className={cn(
+                  "bg-white rounded-full w-40 h-40 flex justify-center items-center"
+                )}
+              >
+                <Icon id="arrow_right" fill="white" />
+              </button>
+            </div>
           </div>
+
           <div className="min-w-700">
-            <Swiper spaceBetween={20} className="mySwiper" slidesPerView={2.5}>
+            <Swiper
+              spaceBetween={20}
+              className="mySwiper"
+              slidesPerView={2.5}
+              ref={slideRef}
+            >
               {[1, 2, 3, 4, 5, 6].map((it) => (
                 <SwiperSlide key={it}>
                   <div className="bg-brand-4 rounded-xl min-h-200 max-h-300">

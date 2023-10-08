@@ -14,33 +14,36 @@ const pageList = [1, 2, 3];
 
 export default function ScheduleSection() {
   const { slideRef, handlePrev, handleNext, hasPrev, hasNext } =
-    useSwiperController();
+    useSwiperController({ maxPage: pageList.length });
 
   return (
     <section className="px-30 py-20 relative">
-      <Swiper ref={slideRef} touchAngle={0}>
-        {pageList.map((page) => (
-          <SwiperSlide key={page}>
-            <div className="pc:grid pc:grid-cols-8 mobile:grid mobile:grid-rows-2 overflow-x-scroll gap-x-10">
-              {DateController.getDateList(new Date(), page).map(
-                (date, index) => (
-                  <p
-                    key={date}
-                    className={cn("text-title4 text-gray-6 whitespace-nowrap", {
-                      "row-start-1": index < 8,
-                      "row-start-2": index >= 8,
-                    })}
-                  >
-                    {date}
-                  </p>
-                )
-              )}
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
       <article>
+        <Swiper ref={slideRef} touchAngle={0}>
+          {pageList.map((page) => (
+            <SwiperSlide key={page}>
+              <div className="pc:grid pc:grid-cols-8 mobile:grid mobile:grid-rows-2 overflow-x-scroll gap-x-10">
+                {DateController.getDateList(new Date(), page).map(
+                  (date, index) => (
+                    <p
+                      key={date}
+                      className={cn(
+                        "text-title4 text-gray-6 whitespace-nowrap",
+                        {
+                          "row-start-1": index < 8,
+                          "row-start-2": index >= 8,
+                        }
+                      )}
+                    >
+                      {date}
+                    </p>
+                  )
+                )}
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
         <div className="absolute right-80 flex gap-20 top-100">
           <button
             onClick={handlePrev}
