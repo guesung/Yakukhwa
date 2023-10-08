@@ -14,9 +14,8 @@ export default function SignSection() {
   const [value, setValue] = useState();
 
   const onClickUpLoadButton = async () => {
-    //    addDoc(collection(db       , "컬렉션이름") , { 추가할 데이터 }
     await addDoc(collection(fireStore, `temp`), {
-      value,
+      value: "a",
     });
   };
   return (

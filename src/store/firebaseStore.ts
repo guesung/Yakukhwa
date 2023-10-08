@@ -1,6 +1,6 @@
 import { config } from "@/constants";
 import { initializeApp } from "firebase/app";
-import { getFireStore } from "firebase/firesStore";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseDB = initializeApp(config.firebase);
-export const fireStore = getFireStore(firebaseDB, firebaseApp);
+export const fireStore = getFirestore(firebaseDB.firebaseApp);
