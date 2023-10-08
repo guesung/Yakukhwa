@@ -1,7 +1,7 @@
 export default function HostSection() {
   return (
-    <section className="h-240 flex">
-      <article className="w-300 flex justify-center items-center bg-brand-2">
+    <section className="h-240 flex mobile:flex-col mobile:items-center text-center">
+      <article className="w-300 h-150 flex justify-center items-center bg-brand-2">
         로고
       </article>
       <article className="flex flex-col justify-center">

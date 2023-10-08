@@ -17,7 +17,7 @@ export default function SignSection() {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper h-500"
+        className="mySwiper pc:h-500 mobile:h-400"
       >
         <SwiperSlide>Slide 1</SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>

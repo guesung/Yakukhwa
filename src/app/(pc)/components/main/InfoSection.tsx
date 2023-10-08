@@ -24,12 +24,14 @@ export default function InfoSection() {
         <span className="w-50 text-title4">+</span>
       </article>
 
-      <article className="bg-brand-2 px-40 py-30">
+      <article className="bg-brand-2 pc:px-40 mobile:px-20 py-30">
         <div className="flex">
-          <div className="min-w-250">
-            <p className="text-title2">월출산국화축제</p>
-            <p className="text-title1">둘러보기</p>
-            <p className="text-subtitle1">
+          <div className="pc:min-w-250 mobile:min-w-150 text-center">
+            <p className="pc:text-title2 mobile:text-subtitle1">
+              월출산국화축제
+            </p>
+            <p className="pc:text-title1 mobile:text-title3">둘러보기</p>
+            <p className="pc:text-subtitle1 mobile:text-subtitle2">
               그윽한 국화향기와
               <br />
               함께 깊어가는 가을
@@ -55,7 +57,7 @@ export default function InfoSection() {
             </div>
           </div>
 
-          <div className="min-w-700">
+          <div className="pc:min-w-700 mobile:min-w-500">
             <Swiper
               spaceBetween={20}
               className="mySwiper"
@@ -64,7 +66,7 @@ export default function InfoSection() {
             >
               {[1, 2, 3, 4, 5, 6].map((it) => (
                 <SwiperSlide key={it}>
-                  <div className="bg-brand-4 rounded-xl min-h-200 max-h-300">
+                  <div className="bg-brand-4 rounded-xl pc:min-h-200 pc:max-h-300 mobile:min-h-150">
                     Slide 1
                   </div>
                 </SwiperSlide>
@@ -75,10 +77,12 @@ export default function InfoSection() {
 
         <Spacing size={30} />
 
-        <div className="flex bg-white rounded-xl h-80 items-center px-30 gap-20 mobile:overflow-x-scroll whitespace-nowrap">
-          <span className="text-title4">행사문의</span>
-          <span className="text-title4">010-3434-2323</span>
-          <div className="text-title4 flex gap-20 grow justify-center">
+        <div className="flex mobile:flex-col bg-white rounded-xl pc:h-80 mobile:py-20 items-center px-30 gap-20 mobile:overflow-x-scroll whitespace-nowrap">
+          <p className="flex gap-20">
+            <span className="text-title4">행사문의</span>
+            <span className="text-title4">010-3434-2323</span>
+          </p>
+          <div className="text-title4 flex pc:gap-20 mobile:gap-10 grow justify-center">
             {["참여프로그램", "2023포스터", "오시는 길", "여행코스"].map(
               (it) => (
                 <Link
