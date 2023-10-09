@@ -1,5 +1,11 @@
 import './globals.css'
 import type { Metadata } from "next";
+import { getDevice } from "@/utils/getdevice";
+import { PropsWithChildren } from "react";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import MainLinkSection from "./components/Header/MainLinkSection";
+import SideLinkSection from "./components/Header/SideLinkSection";
 
 
 export const metadata: Metadata = {
@@ -13,14 +19,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: PropsWithChildren) {
+  const device = getDevice();
   return (
     <html lang="ko">
-      <body className="overflow-x-hidden">{children}</body>
+      <body className="overflow-x-hidden">
+        <Header />
+        {device === "pc" && <MainLinkSection />}
+        {device === "mobile" && <SideLinkSection />}
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
