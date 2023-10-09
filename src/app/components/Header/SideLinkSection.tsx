@@ -1,67 +1,55 @@
 "use client";
 
 import Icon from "@/components/Icon";
-import { Button } from "@/components/ui/button";
 import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { MAINLINKLIST } from "@/constants";
-import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function SideLinkSection() {
-  const [activeTab, setActiveTab] = useState("");
-  const handleActiveTab = (name: string) => {
-    if (activeTab === name) {
-      setActiveTab("");
-    } else {
-      setActiveTab(name);
-    }
-  };
-
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  useEffect(() => setOpen(false), [pathname]);
   return (
     <section className="absolute right-10 top-10">
-      <Sheet>
-        <SheetTrigger asChild>
+      <Sheet open={open}>
+        <SheetTrigger asChild onClick={() => setOpen(true)}>
           <Icon id="menu" />
         </SheetTrigger>
-        <SheetContent className="flex flex-col items-center py-80 text-center">
-          {MAINLINKLIST.map((linkItem) => (
-            <div key={linkItem.mainTitle.name} className="w-full">
-              <p
-                className="text-title3 py-10"
-                onClick={() => handleActiveTab(linkItem.mainTitle.name)}
+        <SheetContent
+          className="flex flex-col items-center py-80 text-center"
+          setOpen={setOpen}
+        >
+          <Accordion type="single" collapsible className="w-full">
+            {MAINLINKLIST.map((linkItem) => (
+              <AccordionItem
+                key={linkItem.mainTitle.name}
+                className="w-full border-y border-gray-2"
+                value={linkItem.mainTitle.name}
               >
-                {linkItem.mainTitle.name}
-              </p>
-              <AnimatePresence>
-                {activeTab === linkItem.mainTitle.name && (
-                  <motion.div
-                    initial={{ y: -200, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -200, opacity: 0 }}
-                  >
-                    {linkItem.subTitle.map((subTitle) => (
-                      <Link
-                        key={subTitle.name}
-                        className="text-title4 py-10 bg-brand-3 h-full w-full block"
-                        href={`/${linkItem.mainTitle.path}/${subTitle.path}`}
-                      >
-                        {subTitle.name}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose>
+                <AccordionTrigger className="text-title3 py-10 w-full">
+                  {linkItem.mainTitle.name}
+                </AccordionTrigger>
+                {linkItem.subTitle.map((subTitle) => (
+                  <AccordionContent key={subTitle.name}>
+                    <Link
+                      className="text-title4 py-10 bg-brand-3 text-white border-y border-gray-2 h-full w-full block"
+                      href={`/${linkItem.mainTitle.path}/${subTitle.path}`}
+                    >
+                      {subTitle.name}
+                    </Link>
+                  </AccordionContent>
+                ))}
+              </AccordionItem>
+            ))}
+          </Accordion>
         </SheetContent>
       </Sheet>
     </section>
