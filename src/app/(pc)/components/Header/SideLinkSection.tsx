@@ -38,25 +38,19 @@ export default function SideLinkSection() {
               >
                 {linkItem.mainTitle.name}
               </p>
-              <AnimatePresence>
-                {activeTab === linkItem.mainTitle.name && (
-                  <motion.div
-                    initial={{ y: -200, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -200, opacity: 0 }}
-                  >
-                    {linkItem.subTitle.map((subTitle) => (
-                      <Link
-                        key={subTitle.name}
-                        className="text-title4 py-10 bg-brand-3 h-full w-full block"
-                        href={`/${linkItem.mainTitle.path}/${subTitle.path}`}
-                      >
-                        {subTitle.name}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {activeTab === linkItem.mainTitle.name && (
+                <div>
+                  {linkItem.subTitle.map((subTitle) => (
+                    <Link
+                      key={subTitle.name}
+                      className="text-title4 py-10 bg-brand-3 h-full w-full block"
+                      href={`/${linkItem.mainTitle.path}/${subTitle.path}`}
+                    >
+                      {subTitle.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
           <SheetClose asChild>
