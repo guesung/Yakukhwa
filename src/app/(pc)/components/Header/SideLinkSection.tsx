@@ -23,17 +23,17 @@ export default function SideLinkSection() {
             {MAINLINKLIST.map((linkItem) => (
               <AccordionItem
                 key={linkItem.mainTitle.name}
-                className="w-full"
+                className="w-full border-y border-gray-2"
                 value={linkItem.mainTitle.name}
               >
-                <AccordionTrigger className="text-title3 py-10">
+                <AccordionTrigger className="text-title3 py-10 w-full">
                   {linkItem.mainTitle.name}
                 </AccordionTrigger>
                 <div>
                   {linkItem.subTitle.map((subTitle) => (
                     <AccordionContent key={subTitle.name}>
                       <Link
-                        className="text-title4 py-10 bg-brand-3 h-full w-full block"
+                        className="text-title4 py-10 bg-brand-3 text-white border-y border-gray-2 h-full w-full block"
                         href={`/${linkItem.mainTitle.path}/${subTitle.path}`}
                       >
                         {subTitle.name}
