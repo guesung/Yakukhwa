@@ -1,28 +1,17 @@
 "use client";
 
 import Icon from "@/components/Icon";
-import { Button } from "@/components/ui/button";
 import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { MAINLINKLIST } from "@/constants";
-import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
 
 export default function SideLinkSection() {
-  const [activeTab, setActiveTab] = useState("");
-  const handleActiveTab = (name: string) => {
-    if (activeTab === name) {
-      setActiveTab("");
-    } else {
-      setActiveTab(name);
-    }
-  };
-
   return (
     <section className="absolute right-10 top-10">
       <Sheet>
@@ -32,30 +21,44 @@ export default function SideLinkSection() {
         <SheetContent className="flex flex-col items-center py-80 text-center">
           {MAINLINKLIST.map((linkItem) => (
             <div key={linkItem.mainTitle.name} className="w-full">
-              <p
-                className="text-title3 py-10"
-                onClick={() => handleActiveTab(linkItem.mainTitle.name)}
-              >
-                {linkItem.mainTitle.name}
-              </p>
-              {activeTab === linkItem.mainTitle.name && (
-                <div>
-                  {linkItem.subTitle.map((subTitle) => (
-                    <Link
-                      key={subTitle.name}
-                      className="text-title4 py-10 bg-brand-3 h-full w-full block"
-                      href={`/${linkItem.mainTitle.path}/${subTitle.path}`}
-                    >
-                      {subTitle.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <p className="text-title3 py-10">{linkItem.mainTitle.name}</p>
+              <div>
+                {linkItem.subTitle.map((subTitle) => (
+                  <Link
+                    key={subTitle.name}
+                    className="text-title4 py-10 bg-brand-3 h-full w-full block"
+                    href={`/${linkItem.mainTitle.path}/${subTitle.path}`}
+                  >
+                    {subTitle.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           ))}
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose>
+
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1">
+              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It adheres to the WAI-ARIA design pattern.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2">
+              <AccordionTrigger>Is it styled?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It comes with default styles that matches the other
+                components&apos; aesthetic.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger>Is it animated?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It's animated by default, but you can disable it if you
+                prefer.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </SheetContent>
       </Sheet>
     </section>
