@@ -47,7 +47,7 @@ export default function MainLinkSection() {
                 {linkItem.subTitle.map((subTitle, i) => (
                   <Link
                     key={i}
-                    className="w-100 flex justify-center h-30 items-center"
+                    className="flex justify-center h-40 items-center"
                     href={
                       subTitle.outLink
                         ? subTitle.path
