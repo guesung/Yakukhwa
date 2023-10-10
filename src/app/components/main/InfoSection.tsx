@@ -1,14 +1,14 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import Icon from "@/components/Icon";
 import Spacing from "@/components/Spacing";
+import useSwiperController from "@/hooks/useSwipeController";
+import { cn } from "@/utils";
 import Link from "next/link";
 import "swiper/css";
 import "swiper/css/pagination";
-import useSwiperController from "@/hooks/useSwipeController";
-import { cn } from "@/utils";
-import Icon from "@/components/Icon";
-import Image from "next/image";
+import { InfoLinkList } from "@/constants";
 
 export default function InfoSection() {
   const { slideRef, handlePrev, handleNext, hasPrev, hasNext } =
@@ -84,17 +84,15 @@ export default function InfoSection() {
             <span className="text-title4">010-3434-2323</span>
           </p>
           <div className="text-title4 flex pc:gap-20 mobile:gap-10 grow justify-center">
-            {["참여프로그램", "2023포스터", "오시는 길", "여행코스"].map(
-              (it) => (
-                <Link
-                  href={"/"}
-                  className="bg-orange px-10 py-5 text-white rounded-lg"
-                  key={it}
-                >
-                  {it}
-                </Link>
-              )
-            )}
+            {InfoLinkList.map((linkItem) => (
+              <Link
+                href={linkItem.path}
+                className="bg-orange px-10 py-5 text-white rounded-lg"
+                key={linkItem.name}
+              >
+                {linkItem.name}
+              </Link>
+            ))}
           </div>
         </div>
       </article>
