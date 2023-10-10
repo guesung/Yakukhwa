@@ -15,7 +15,7 @@ export default function InfoSection() {
 
   return (
     <section>
-      <article className="flex text-center h-70 bg-brand-1 items-center text-black">
+      <article className="flex text-center h-70 bg-orange items-center text-white">
         <span className="w-200 text-subtitle1">행사소식</span>
         <span className="grow text-subtitle2">
           2022 월출산국화축제 스텝 모집
@@ -26,7 +26,7 @@ export default function InfoSection() {
 
       <article className="bg-brand-2 pc:px-40 mobile:px-20 py-30">
         <div className="flex">
-          <div className="pc:min-w-250 mobile:min-w-150 text-center">
+          <div className="pc:min-w-250 mobile:min-w-150 text-start">
             <p className="pc:text-title2 mobile:text-subtitle1">
               월출산국화축제
             </p>
@@ -79,7 +79,7 @@ export default function InfoSection() {
 
         <div className="flex mobile:flex-col bg-white rounded-xl pc:h-80 mobile:py-20 items-center px-30 gap-20 mobile:overflow-x-scroll whitespace-nowrap">
           <p className="flex gap-20">
-            <span className="text-title4">행사문의</span>
+            <span className="text-title4 text-orange">행사문의</span>
             <span className="text-title4">010-3434-2323</span>
           </p>
           <div className="text-title4 flex pc:gap-20 mobile:gap-10 grow justify-center">
@@ -87,7 +87,7 @@ export default function InfoSection() {
               (it) => (
                 <Link
                   href={"/"}
-                  className="bg-brand-4 px-10 py-5 text-white rounded-lg"
+                  className="bg-orange px-10 py-5 text-white rounded-lg"
                   key={it}
                 >
                   {it}

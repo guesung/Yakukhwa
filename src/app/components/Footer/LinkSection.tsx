@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function LinkSection() {
   return (
-    <section className="flex bg-brand-1 py-10 mobile:gap-10 mobile:flex-col items-center px-30">
-      <p className="text-subtitle1 grow">
+    <section className="flex bg-green pc:py-15 mobile:py-10 mobile:gap-10 mobile:flex-col items-center px-30">
+      <p className="text-subtitle1 text-white grow">
         Wallchul Mountain Chrysanthemum Festival
       </p>
       <div className="flex gap-10 w-200 justify-center">
