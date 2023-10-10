@@ -1,4 +1,3 @@
-import Spacing from "@/components/Spacing";
 import GallerySection from "./components/GallerySection";
 import { dummyData } from "@/constants";
 import PageList from "@/components/PageList";
