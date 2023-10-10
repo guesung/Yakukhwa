@@ -8,7 +8,7 @@ import MainLinkSection from "./components/Header/MainLinkSection";
 import SideLinkSection from "./components/Header/SideLinkSection";
 import { config } from "@/constants";
 
-const DEFAULT_OG_TITLE = "2023월출산국화축제";
+const DEFAULT_OG_TITLE = "2023 월출산국화축제";
 const DEFAULT_OG_DESC = "조금 더 믿을 만한 모임을 할 수 있도록 준비했어요!";
 const DEFAULT_OG_IMAGE = "/images/main_logo.png";
 

@@ -4,6 +4,7 @@ import { MAINLINKLIST } from "@/constants";
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/utils";
 
 export default function MainLinkSection() {
   const [isActive, setIsActive] = useState(false);
@@ -47,7 +48,10 @@ export default function MainLinkSection() {
                 {linkItem.subTitle.map((subTitle, i) => (
                   <Link
                     key={i}
-                    className="flex justify-center h-40 items-center"
+                    className={cn(
+                      "flex text-center justify-center h-40 items-center",
+                      { "ml-25": index === 0 }
+                    )}
                     href={
                       subTitle.outLink
                         ? subTitle.path
