@@ -7,14 +7,16 @@ interface GallerySectionProps {
 
 export default function GallerySection({ galleryList }: GallerySectionProps) {
   return (
-    <section className="gap-x-10 gap-y-20 flex flex-wrap justify-center">
+    <section className="gap-x-10 gap-y-20 grid grid-cols-2">
       {galleryList.map((gallery) => (
         <div key={gallery.id}>
           <div
             key={gallery.id}
-            className="bg-slate-200 before:block relative before:pb-[100%] w-250"
+            className="bg-slate-200 before:block relative before:pb-[100%] max-w-500 flex mx-auto"
           >
-            <Image src="/images/frame.png" fill alt="frame" />
+            <Image src="/images/frame.png" fill alt="frame" className="z-10" />
+
+            <Image key={gallery.image} src={gallery.image} fill alt={"image"} />
           </div>
           <p className="py-10 text-center">{gallery.title}</p>
         </div>

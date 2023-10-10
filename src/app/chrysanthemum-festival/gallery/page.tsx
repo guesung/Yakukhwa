@@ -5,15 +5,16 @@ import PageList from "@/components/PageList";
 
 interface PageProps {
   searchParams: {
-    id: string;
+    page: string;
   };
 }
-export default function page({ searchParams: { id } }: PageProps) {
+export default function page({ searchParams: { page } }: PageProps) {
   return (
     <div>
-      <GallerySection galleryList={dummyData.GALLERYLIST} />
-
-      <PageList maxPage={10} currentPage={+id} />
+      <GallerySection
+        galleryList={dummyData.GALLERYLIST.slice((+page - 1) * 4, +page * 4)}
+      />
+      <PageList maxPage={10} currentPage={+page} />
     </div>
   );
 }
