@@ -3,18 +3,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import Icon from "@/components/Icon";
 import Spacing from "@/components/Spacing";
+import { InfoLinkList } from "@/constants";
 import useSwiperController from "@/hooks/useSwipeController";
 import { cn } from "@/utils";
 import Link from "next/link";
 import "swiper/css";
 import "swiper/css/pagination";
-import { InfoLinkList } from "@/constants";
-import React from "react";
-import * as Dialog from "@radix-ui/react-dialog";
+
+import Modal from "@/components/Modal";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function InfoSection() {
-  const { slideRef, handlePrev, handleNext, hasPrev, hasNext } =
-    useSwiperController({ maxPage: 6 });
+  const { slideRef, handlePrev, handleNext } = useSwiperController({
+    maxPage: 6,
+  });
+  const [open, setOpen] = useState(false);
 
   return (
     <section>
@@ -99,48 +104,22 @@ export default function InfoSection() {
         </div>
       </article>
 
-      <Dialog.Root>
-        <Dialog.Trigger asChild>
-          <button className="Button violet">Edit profile</button>
-        </Dialog.Trigger>
-        <Dialog.Portal>
-          <Dialog.Overlay className="DialogOverlay" />
-          <Dialog.Content className="DialogContent">
-            <Dialog.Title className="DialogTitle">Edit profile</Dialog.Title>
-            <Dialog.Description className="DialogDescription">
-              Make changes to your profile here. Click save when you're done.
-            </Dialog.Description>
-            <fieldset className="Fieldset">
-              <label className="Label" htmlFor="name">
-                Name
-              </label>
-              <input className="Input" id="name" defaultValue="Pedro Duarte" />
-            </fieldset>
-            <fieldset className="Fieldset">
-              <label className="Label" htmlFor="username">
-                Username
-              </label>
-              <input className="Input" id="username" defaultValue="@peduarte" />
-            </fieldset>
-            <div
-              style={{
-                display: "flex",
-                marginTop: 25,
-                justifyContent: "flex-end",
-              }}
-            >
-              <Dialog.Close asChild>
-                <button className="Button green">Save changes</button>
-              </Dialog.Close>
-            </div>
-            <Dialog.Close asChild>
-              <button className="IconButton" aria-label="Close">
-                close
-              </button>
-            </Dialog.Close>
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
+      <Sheet>
+        <SheetTrigger asChild>
+          <Icon id="menu" onClick={() => setOpen(true)} />
+        </SheetTrigger>
+
+        {open && (
+          <Modal setOpen={setOpen}>
+            <Image
+              src="/images/poster_2023.jpeg"
+              width={800}
+              height={1000}
+              alt="poster"
+            />
+          </Modal>
+        )}
+      </Sheet>
     </section>
   );
 }
