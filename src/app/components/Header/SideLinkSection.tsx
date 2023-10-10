@@ -17,6 +17,7 @@ export default function SideLinkSection() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   useEffect(() => setOpen(false), [pathname]);
+
   return (
     <section className="absolute right-10 top-10">
       <Sheet open={open}>

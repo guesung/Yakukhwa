@@ -17,7 +17,6 @@ export const MAINLINKLIST: MainLinkListType = [
       { name: "프롤로그", path: "prologue" },
       { name: "연혁", path: "history" },
       { name: "축제갤러리", path: "gallery?page=1" },
-      { name: "포스터", path: "poster" },
     ],
   },
   {

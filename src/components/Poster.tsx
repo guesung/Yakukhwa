@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function page() {
+export default function Poster() {
   return (
     <main className="flex justify-center py-50">
       <Image
