@@ -26,13 +26,6 @@ export default function InfoSection() {
       </article>
 
       <article className="bg-yellow pc:px-40 mobile:px-20 py-30">
-        <Image
-          src="/images/flower_big.png"
-          alt="flower"
-          width={100}
-          height={100}
-          className="absolute"
-        />
         <div className="flex">
           <div className="pc:min-w-250 mobile:min-w-150 text-start">
             <p className="pc:text-title2 mobile:text-subtitle1">
