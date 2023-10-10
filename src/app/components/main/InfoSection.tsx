@@ -1,18 +1,25 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import Icon from "@/components/Icon";
 import Spacing from "@/components/Spacing";
+import { InfoLinkList } from "@/constants";
+import useSwiperController from "@/hooks/useSwipeController";
+import { cn } from "@/utils";
 import Link from "next/link";
 import "swiper/css";
 import "swiper/css/pagination";
-import useSwiperController from "@/hooks/useSwipeController";
-import { cn } from "@/utils";
-import Icon from "@/components/Icon";
+
+import Modal from "@/components/Modal";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function InfoSection() {
-  const { slideRef, handlePrev, handleNext, hasPrev, hasNext } =
-    useSwiperController({ maxPage: 6 });
+  const { slideRef, handlePrev, handleNext } = useSwiperController({
+    maxPage: 6,
+  });
+  const [open, setOpen] = useState(false);
 
   return (
     <section>
@@ -84,17 +91,35 @@ export default function InfoSection() {
             <span className="text-title4">010-3434-2323</span>
           </p>
           <div className="text-title4 flex pc:gap-20 mobile:gap-10 grow justify-center">
-            {["참여프로그램", "2023포스터", "오시는 길", "여행코스"].map(
-              (it) => (
-                <Link
-                  href={"/"}
-                  className="bg-orange px-10 py-5 text-white rounded-lg"
-                  key={it}
-                >
-                  {it}
-                </Link>
-              )
-            )}
+            {InfoLinkList.map((linkItem) => (
+              <div
+                className="bg-orange px-10 py-5 text-white rounded-lg cursor-pointer"
+                key={linkItem.name}
+              >
+                {linkItem.name === "2023포스터" ? (
+                  <Sheet>
+                    <SheetTrigger asChild>
+                      <p onClick={() => setOpen(true)}>2023포스터</p>
+                    </SheetTrigger>
+
+                    {open && (
+                      <Modal setOpen={setOpen}>
+                        <Image
+                          src="/images/poster_2023.jpeg"
+                          width={800}
+                          height={1000}
+                          alt="poster"
+                        />
+                      </Modal>
+                    )}
+                  </Sheet>
+                ) : (
+                  <Link href={linkItem.path} key={linkItem.name}>
+                    {linkItem.name}
+                  </Link>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </article>

@@ -66,15 +66,19 @@
   }
 }
 
+@font-face{
+  font-family:"BMJUA";
+  font-weight:400;
+  src:url("/fonts/BMJUA_ttf.ttf") format("truetype");
+}
 
 
- 
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground ;
   }
 }
 

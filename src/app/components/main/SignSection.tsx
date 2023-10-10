@@ -17,7 +17,7 @@ export default function SignSection() {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper pc:h-500 mobile:h-400"
+        className="mySwiper pc:h-700 mobile:h-400"
         autoplay
       >
         {Array(3)

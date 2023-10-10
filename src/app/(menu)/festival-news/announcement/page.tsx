@@ -1,5 +1,3 @@
-import PageList from "@/components/PageList";
-import Spacing from "@/components/Spacing";
 import {
   Table,
   TableBody,
@@ -10,7 +8,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { dummyData } from "@/constants";
-import { cn } from "@/utils";
 import Link from "next/link";
 
 const pageList = [1, 2, 3, 4, 5];
@@ -22,7 +19,6 @@ interface PageProps {
 }
 
 export default function page({ searchParams: { page } }: PageProps) {
-
   return (
     <div>
       <p className="flex gap-10 py-20">

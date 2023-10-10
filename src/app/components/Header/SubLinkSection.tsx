@@ -13,14 +13,14 @@ export default function SubLinkSection() {
 
 interface LinkItemProps {
   linkItem: {
-    title: string;
+    name: string;
     path: string;
   };
 }
 function LinkItem({ linkItem }: LinkItemProps) {
   return (
     <div className="p-10">
-      <Link href={linkItem.path}>{linkItem.title}</Link>
+      <Link href={linkItem.path}>{linkItem.name}</Link>
     </div>
   );
 }

@@ -1,13 +1,13 @@
+type LinkType = {
+  name: string;
+  path: string;
+  outLink?: boolean;
+};
+
+
 type MainLinkListType = {
-  mainTitle: {
-    name: string;
-    path: string;
-  };
-  subTitle: {
-    name: string;
-    path: string;
-    outLink?: boolean;
-  }[];
+  mainTitle: LinkType;
+  subTitle: LinkType[];
 }[];
 export const MAINLINKLIST: MainLinkListType = [
   {
@@ -58,12 +58,34 @@ export const MAINLINKLIST: MainLinkListType = [
 ];
 
 
-type SubLinkListType = {
-  title: string;
-  path: string;
-}[];
+type SubLinkListType = LinkType[];
 
 export const SUBLINKLIST: SubLinkListType = [
-  { title: "영암군청", path: 'http://www.yeongam.go.kr' },
-  { title: "문화관광", path: 'https://www.yeongam.go.kr/home/tour' },
+  { name: "영암군청", path: 'http://www.yeongam.go.kr' },
+  { name: "문화관광", path: 'https://www.yeongam.go.kr/home/tour' },
 ];
+
+type InfoLinkListType = LinkType[];
+
+export const InfoLinkList: InfoLinkListType = [
+  {
+    name: "참여프로그램",
+    path: "/",
+  },
+  {
+    name: "2023포스터",
+    path: "/poster",
+  },
+  {
+    name: "오시는 길",
+    path: "/chrysanthemum-festival/prologue",
+  },
+  {
+    name: "여행코스",
+    path: "/",
+  },
+]
+
+
+
+

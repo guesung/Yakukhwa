@@ -18,14 +18,14 @@ const SheetPortal = ({ className, ...props }: any) => (
 );
 SheetPortal.displayName = SheetPrimitive.Portal.displayName;
 
-type AType = { setOpen: (open: boolean) => void };
+type AType = { setOpen?: (open: boolean) => void };
 
 const SheetOverlay = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay> & AType
 >(({ className, setOpen, ...props }, ref) => (
   <SheetPrimitive.Overlay
-    onClick={() => setOpen(false)}
+    onClick={() => setOpen && setOpen(false)}
     className={cn(
       "fixed inset-0 z-50 bg-black bg-opacity-70 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       className
@@ -47,6 +47,8 @@ const sheetVariants = cva(
         left: "inset-y-0 left-0 h-full w-3/4 border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm",
         right:
           "inset-y-0 right-0 h-full w-1/2 border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm",
+        center:
+          "inset-0 m-auto h-1/2 w-1/2 border data-[state=closed]:scale-out data-[state=open]:scale-in",
       },
     },
     defaultVariants: {
@@ -58,7 +60,7 @@ const sheetVariants = cva(
 interface SheetContentProps
   extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
     VariantProps<typeof sheetVariants> {
-  setOpen: (open: boolean) => void;
+  setOpen?: (open: boolean) => void;
 }
 
 const SheetContent = React.forwardRef<
