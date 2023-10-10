@@ -92,34 +92,37 @@ export default function InfoSection() {
           </p>
           <div className="text-title4 flex pc:gap-20 mobile:gap-10 grow justify-center">
             {InfoLinkList.map((linkItem) => (
-              <Link
-                href={linkItem.path}
-                className="bg-orange px-10 py-5 text-white rounded-lg"
+              <div
+                className="bg-orange px-10 py-5 text-white rounded-lg cursor-pointer"
                 key={linkItem.name}
               >
-                {linkItem.name}
-              </Link>
+                {linkItem.name === "2023포스터" ? (
+                  <Sheet>
+                    <SheetTrigger asChild>
+                      <p onClick={() => setOpen(true)}>2023포스터</p>
+                    </SheetTrigger>
+
+                    {open && (
+                      <Modal setOpen={setOpen}>
+                        <Image
+                          src="/images/poster_2023.jpeg"
+                          width={800}
+                          height={1000}
+                          alt="poster"
+                        />
+                      </Modal>
+                    )}
+                  </Sheet>
+                ) : (
+                  <Link href={linkItem.path} key={linkItem.name}>
+                    {linkItem.name}
+                  </Link>
+                )}
+              </div>
             ))}
           </div>
         </div>
       </article>
-
-      <Sheet>
-        <SheetTrigger asChild>
-          <Icon id="menu" onClick={() => setOpen(true)} />
-        </SheetTrigger>
-
-        {open && (
-          <Modal setOpen={setOpen}>
-            <Image
-              src="/images/poster_2023.jpeg"
-              width={800}
-              height={1000}
-              alt="poster"
-            />
-          </Modal>
-        )}
-      </Sheet>
     </section>
   );
 }
