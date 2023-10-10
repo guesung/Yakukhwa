@@ -9,6 +9,7 @@ export default function LinkSection() {
       </p>
       <div className="flex gap-10 w-200 justify-center">
         <Icon id="facebook" width={32} height={32} />
+        <Image src="/images/blog.png" width={32} height={32} alt="blog" />
         <Icon id="youtube" width={32} height={32} />
         <Icon id="instagram" width={32} height={32} />
       </div>
