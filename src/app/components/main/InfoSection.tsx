@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import useSwiperController from "@/hooks/useSwipeController";
 import { cn } from "@/utils";
 import Icon from "@/components/Icon";
+import Image from "next/image";
 
 export default function InfoSection() {
   const { slideRef, handlePrev, handleNext, hasPrev, hasNext } =
@@ -24,7 +25,14 @@ export default function InfoSection() {
         <span className="w-50 text-title4">+</span>
       </article>
 
-      <article className="bg-brand-2 pc:px-40 mobile:px-20 py-30">
+      <article className="bg-yellow pc:px-40 mobile:px-20 py-30">
+        <Image
+          src="/images/flower_big.png"
+          alt="flower"
+          width={100}
+          height={100}
+          className="absolute"
+        />
         <div className="flex">
           <div className="pc:min-w-250 mobile:min-w-150 text-start">
             <p className="pc:text-title2 mobile:text-subtitle1">
@@ -66,7 +74,7 @@ export default function InfoSection() {
             >
               {[1, 2, 3, 4, 5, 6].map((it) => (
                 <SwiperSlide key={it}>
-                  <div className="bg-brand-4 rounded-xl pc:min-h-200 pc:max-h-300 mobile:min-h-150">
+                  <div className="bg-white rounded-xl pc:min-h-200 pc:max-h-300 mobile:min-h-150">
                     Slide 1
                   </div>
                 </SwiperSlide>
