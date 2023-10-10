@@ -1,17 +1,16 @@
+"use client";
 import Spacing from "@/components/Spacing";
 import { MAINLINKLIST } from "@/constants";
 import { cn } from "@/utils";
-import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { PropsWithChildren } from "react";
 
-export default function layout({ children }: PropsWithChildren) {
-  const headersList = headers();
-  const uri = headersList.get("x-url") || "";
-
-  const currentmainTitle = uri.split("/")[3];
-  const currentsubTitle = uri.split("/")[4].split("?")[0];
+export default function MenuLayout({ children }: PropsWithChildren) {
+  const pathname = usePathname();
+  const currentmainTitle = pathname.split("/")[1];
+  const currentsubTitle = pathname.split("/")[2].split("?")[0];
   const subTitleList = MAINLINKLIST.find(
     (linkItem) => linkItem.mainTitle.path === currentmainTitle
   )?.subTitle;
