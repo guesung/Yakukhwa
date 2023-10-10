@@ -24,9 +24,9 @@ export default function MainLinkSection() {
       </AnimatePresence>
 
       {MAINLINKLIST.map((linkItem, index) => (
-        <div key={index} className="flex">
+        <div key={index} className="flex z-20">
           <div
-            className="flex items-center h-50 justify-center z-20 cursor-pointer text-title4"
+            className="flex items-center h-50 justify-center cursor-pointer text-title4"
             onMouseEnter={() => setIsActive(true)}
           >
             {linkItem.mainTitle.name}
