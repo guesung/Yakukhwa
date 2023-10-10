@@ -24,15 +24,15 @@ export default function MainLinkSection() {
       </AnimatePresence>
 
       {MAINLINKLIST.map((linkItem, index) => (
-        <div key={index} className="flex flex-col w-130">
+        <div key={index} className="flex z-20">
           <div
-            className="flex items-center h-50 justify-center z-20 cursor-pointer text-title4"
+            className="flex items-center h-50 justify-center cursor-pointer text-title4"
             onMouseEnter={() => setIsActive(true)}
           >
             {linkItem.mainTitle.name}
           </div>
-          {index > 0 && (
-            <p className="absolute inset-y-0 flex items-center text-gray-6 text-title4">
+          {index < MAINLINKLIST.length - 1 && (
+            <p className="inset-y-0 flex mx-20 items-center text-gray-6 text-title4">
               /
             </p>
           )}
@@ -47,7 +47,7 @@ export default function MainLinkSection() {
                 {linkItem.subTitle.map((subTitle, i) => (
                   <Link
                     key={i}
-                    className="w-100 flex justify-center h-30 items-center"
+                    className="flex justify-center h-40 items-center"
                     href={
                       subTitle.outLink
                         ? subTitle.path
