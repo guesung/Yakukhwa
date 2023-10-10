@@ -15,7 +15,6 @@ export default function layout({ children }: PropsWithChildren) {
   const subTitleList = MAINLINKLIST.find(
     (linkItem) => linkItem.mainTitle.path === currentmainTitle
   )?.subTitle;
-  console.log(subTitleList, currentmainTitle, currentsubTitle);
 
   return (
     <div className="px-50">
