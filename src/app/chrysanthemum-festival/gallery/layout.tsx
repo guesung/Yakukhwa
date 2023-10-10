@@ -1,17 +1,21 @@
 import Spacing from "@/components/Spacing";
-import Image from "next/image";
-import { PropsWithChildren } from "react";
-import { headers } from "next/headers";
 import { MAINLINKLIST } from "@/constants";
+import { cn } from "@/utils";
+import { headers } from "next/headers";
+import Image from "next/image";
+import Link from "next/link";
+import { PropsWithChildren } from "react";
+
 export default function layout({ children }: PropsWithChildren) {
   const headersList = headers();
   const uri = headersList.get("x-url") || "";
 
-  const mainTitle = uri.split("/")[3];
-  const subTitle = MAINLINKLIST.find(
-    (linkItem) => linkItem.mainTitle.path === mainTitle
+  const currentmainTitle = uri.split("/")[3];
+  const currentsubTitle = uri.split("/")[4].split("?")[0];
+  const subTitleList = MAINLINKLIST.find(
+    (linkItem) => linkItem.mainTitle.path === currentmainTitle
   )?.subTitle;
-  console.log(subTitle);
+  console.log(subTitleList, currentmainTitle, currentsubTitle);
 
   return (
     <div className="px-50">
@@ -31,6 +35,20 @@ export default function layout({ children }: PropsWithChildren) {
       </article>
 
       <Spacing size={70} />
+
+      <article className="flex w-full h-50 justify-center border-b">
+        {subTitleList?.map((subTitle) => (
+          <Link
+            href={`/${currentmainTitle}/${subTitle.path}`}
+            key={subTitle.name}
+            className={cn("w-120 text-center text-title4", {
+              "text-orange": subTitle.path.split("?")[0] === currentsubTitle,
+            })}
+          >
+            {subTitle.name}
+          </Link>
+        ))}
+      </article>
 
       {children}
     </div>
