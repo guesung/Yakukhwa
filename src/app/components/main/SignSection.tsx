@@ -37,7 +37,6 @@ export default function SignSection() {
       <div
         className="w-25 h-25 rounded-full bg-white cursor-pointer absolute inset-x-0 mx-auto bottom-30 z-10 flex justify-center items-center"
         onClick={() => {
-          console.log(scrollRef.current);
           scrollRef.current?.scrollIntoView({ behavior: "smooth" });
         }}
       >

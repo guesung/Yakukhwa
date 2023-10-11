@@ -2,12 +2,17 @@
 
 import { MAINLINKLIST } from "@/constants";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/utils";
+import { usePathname } from "next/navigation";
 
 export default function MainLinkSection() {
   const [isActive, setIsActive] = useState(false);
+  const pathname = usePathname();
+  useEffect(() => {
+    setIsActive(false);
+  }, [pathname]);
   return (
     <section
       className="flex justify-center sticky z-20 top-0 bg-white text-center"
@@ -26,12 +31,17 @@ export default function MainLinkSection() {
 
       {MAINLINKLIST.map((linkItem, index) => (
         <div key={index} className="flex z-20">
-          <div
+          <Link
+            href={
+              linkItem.subTitle[0].outLink
+                ? linkItem.subTitle[0].path
+                : `/${linkItem.mainTitle.path}/${linkItem.subTitle[0].path}`
+            }
             className="flex items-center h-50 justify-center cursor-pointer text-title4"
             onMouseEnter={() => setIsActive(true)}
           >
             {linkItem.mainTitle.name}
-          </div>
+          </Link>
           {index < MAINLINKLIST.length - 1 && (
             <p className="inset-y-0 flex mx-20 items-center text-gray-6 text-title4">
               /
