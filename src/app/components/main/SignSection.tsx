@@ -20,22 +20,13 @@ export default function SignSection() {
         className="mySwiper pc:h-700 mobile:h-400"
         autoplay
       >
-        {Array(3)
-          .fill(0)
-          .map((_, i) => (
-            <SwiperSlide key={i}>
-              <Image
-                src={`/images/flower.png`}
-                alt="flower"
-                fill
-                className="brightness-[30%]"
-              />
-            </SwiperSlide>
-          ))}
+        <SwiperSlide>
+          <Image src={`/images/main_image.jpeg`} alt="flower" fill />
+        </SwiperSlide>
       </Swiper>
 
       <div
-        className="w-25 h-25 rounded-full bg-white cursor-pointer absolute inset-x-0 mx-auto bottom-30 z-10 flex justify-center items-center"
+        className="w-30 h-30 rounded-full bg-white cursor-pointer absolute inset-x-0 mx-auto bottom-30 z-10 flex justify-center items-center"
         onClick={() => {
           scrollRef.current?.scrollIntoView({ behavior: "smooth" });
         }}
