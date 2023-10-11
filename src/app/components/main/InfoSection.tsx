@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import Icon from "@/components/Icon";
 import Spacing from "@/components/Spacing";
-import { InfoLinkList } from "@/constants";
+import { InfoLinkList, dummyData } from "@/constants";
 import useSwiperController from "@/hooks/useSwipeController";
 import { cn } from "@/utils";
 import Link from "next/link";
@@ -77,10 +77,15 @@ export default function InfoSection() {
               slidesPerView={2.5}
               ref={slideRef}
             >
-              {[1, 2, 3, 4, 5, 6].map((it) => (
-                <SwiperSlide key={it}>
-                  <div className="bg-white rounded-xl pc:min-h-200 pc:max-h-300 mobile:min-h-150">
-                    Slide 1
+              {dummyData.GALLERYLIST.map((image) => (
+                <SwiperSlide key={image.id}>
+                  <div className="pc:min-h-200 pc:max-h-300 mobile:min-h-150">
+                    <Image
+                      src={image.image}
+                      fill
+                      alt="image"
+                      className="rounded-xl"
+                    />
                   </div>
                 </SwiperSlide>
               ))}
