@@ -2,12 +2,17 @@
 
 import { MAINLINKLIST } from "@/constants";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/utils";
+import { usePathname } from "next/navigation";
 
 export default function MainLinkSection() {
   const [isActive, setIsActive] = useState(false);
+  const pathname = usePathname();
+  useEffect(() => {
+    setIsActive(false);
+  }, [pathname]);
   return (
     <section
       className="flex justify-center sticky z-20 top-0 bg-white text-center"
