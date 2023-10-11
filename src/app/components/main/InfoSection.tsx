@@ -24,7 +24,12 @@ export default function InfoSection() {
   return (
     <section>
       <article className="flex text-center h-70 bg-orange items-center text-white">
-        <span className="pc:w-200 mobile:w-100 text-subtitle1">행사소식</span>
+        <Link
+          href="/festival-news/announcement?page=1"
+          className="pc:w-200 mobile:w-100 text-subtitle1"
+        >
+          행사소식
+        </Link>
         <span className="grow text-subtitle2">
           2022 월출산국화축제 스텝 모집
         </span>
