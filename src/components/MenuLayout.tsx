@@ -17,7 +17,7 @@ export default function MenuLayout({ children }: PropsWithChildren) {
 
   return (
     <div className="px-50">
-      <Spacing size={70} />
+      <Spacing size={20} />
       <article className="relative w-full h-150 flex items-center">
         <Image src="/images/subtitle_background.jpeg" fill alt="subtitle" />
         <p className="text-title2 py-10 absolute text-white top-0 z-10 text-center w-full h-full flex flex-col justify-center">
@@ -27,13 +27,14 @@ export default function MenuLayout({ children }: PropsWithChildren) {
         </p>
       </article>
 
-      <article className="flex w-full h-80 justify-center border-b gap-50">
+      <article className="flex w-full h-60 justify-center border-b gap-50">
         {subTitleList?.map((subTitle) => (
           <Link
             href={`/${currentmainTitle}/${subTitle.path}`}
             key={subTitle.name}
             className={cn("text-center flex items-center text-title4", {
-              "text-orange": subTitle.path.split("?")[0] === currentsubTitle,
+              "text-orange border-b-2 border-orange":
+                subTitle.path.split("?")[0] === currentsubTitle,
             })}
           >
             {subTitle.name}
