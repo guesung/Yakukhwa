@@ -22,7 +22,7 @@ export default function ScheduleSection() {
         <Swiper ref={slideRef} touchAngle={0}>
           {pageList.map((page) => (
             <SwiperSlide key={page}>
-              <div className="pc:grid pc:grid-cols-8 mobile:grid mobile:grid-rows-2 overflow-x-scroll gap-x-10">
+              <div className="pc:grid pc:grid-cols-8 overflow-hidden gap-x-10">
                 {DateController.getDateList(new Date(), page).map(
                   (date, index) => (
                     <p

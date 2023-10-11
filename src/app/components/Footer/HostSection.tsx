@@ -3,7 +3,6 @@ import Image from "next/image";
 
 export default function HostSection() {
   const device = getDevice();
-  console.log(device);
   return (
     <section className="h-240 flex mobile:flex-col mobile:items-center text-center">
       <article className="w-300 mobile:h-100 flex justify-center items-center relativ">

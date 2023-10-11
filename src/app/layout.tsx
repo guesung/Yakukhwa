@@ -41,7 +41,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   const device = getDevice();
   return (
     <html lang="ko">
-      <body className="overflow-x-hidden font-[BMJUA]">
+      <body className="overflow-x-hidden font-[BMJUA] min-w-900">
         <Header />
         {device === "pc" && <MainLinkSection />}
         {device === "mobile" && <SideLinkSection />}
