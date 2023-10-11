@@ -32,7 +32,7 @@ export default function MenuLayout({ children }: PropsWithChildren) {
         </p>
       </article>
 
-      <Spacing size={70} />
+      <Spacing size={80} />
 
       <article className="flex w-full h-50 justify-center border-b">
         {subTitleList?.map((subTitle) => (
