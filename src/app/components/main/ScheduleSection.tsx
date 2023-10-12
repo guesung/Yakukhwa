@@ -64,7 +64,7 @@ export default function ScheduleSection() {
 
       <article className="h-200 flex flex-col justify-center">
         <div className="h-60 flex items-center">Day 1</div>
-        <div className="flex gap-20">
+        <div className="flex gap-20 justify-center">
           {[1, 2, 3, 4].map((it) => (
             <div
               className=" bg-white border flex py-10 items-center px-10"
