@@ -21,11 +21,6 @@ interface PageProps {
 export default function page({ searchParams: { page } }: PageProps) {
   return (
     <div>
-      <p className="flex gap-10 py-20">
-        <span>공지사항</span>
-        <span>묻고 답하기</span>
-      </p>
-
       <Table>
         <TableHeader className="h-50 text-center">
           <TableRow>
