@@ -38,8 +38,10 @@ export const metadata: Metadata = {
   },
   other: {
     "google-site-verification": "_wjQIw1jKiIQ5ZSQ9rChkLwbUXzy8ootBWLuClcnNUU",
+    "naver-site-verification": "5b6bd47d800bcd7af5934122259c7694362726ab",
   },
 };
+
 
 export default function RootLayout({ children }: PropsWithChildren) {
   const device = getDevice();
