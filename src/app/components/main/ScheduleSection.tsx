@@ -1,6 +1,7 @@
 "use client";
 import { DateController } from "@/utils/DateController";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -9,6 +10,7 @@ import "swiper/css/pagination";
 import Icon from "@/components/Icon";
 import useSwiperController from "@/hooks/useSwipeController";
 import { cn } from "@/utils";
+import Spacing from "@/components/Spacing";
 
 const pageList = [1, 2, 3];
 
@@ -62,11 +64,23 @@ export default function ScheduleSection() {
 
       <article className="h-200 flex flex-col justify-center">
         <div className="h-60 flex items-center">Day 1</div>
-        <div className="flex gap-20">
-          <div className="min-w-250 h-100 bg-brand-1" />
-          <div className="min-w-250 h-100 bg-brand-1" />
-          <div className="min-w-250 h-100 bg-brand-1" />
-          <div className="min-w-250 h-100 bg-brand-1" />
+        <div className="flex gap-20 justify-center">
+          {[1, 2, 3, 4].map((it) => (
+            <div
+              className=" bg-white border flex py-10 items-center px-10"
+              key={it}
+            >
+              <Avatar className="w-80 h-80">
+                <AvatarImage src="https://github.com/shadcn.png" />
+              </Avatar>
+              <Spacing size={10} direction="horizontal" />
+              <p className="text-subtitle1">
+                11:00
+                <br />
+                영암프린지마당
+              </p>
+            </div>
+          ))}
         </div>
       </article>
     </section>

@@ -44,7 +44,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="ko">
       <body
         className={cn("overflow-x-hidden font-[BMJUA]", {
-          "min-w-900": device === "pc",
+          "min-w-1000": device === "pc",
         })}
       >
         <Header />
