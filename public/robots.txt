@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.yakukhwa.com/
+
+# Sitemaps
+Sitemap: https://www.yakukhwa.com/sitemap.xml
