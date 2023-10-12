@@ -12,7 +12,7 @@ import Spacing from "@/components/Spacing";
 import useSwiperController from "@/hooks/useSwipeController";
 import { cn } from "@/utils";
 import { useState } from "react";
-import { festivalDateArray } from "@/constants";
+import { DUMMY_SCHEDULE_LIST, dummyData, festivalDateArray } from "@/constants";
 
 const pageList = [1, 2, 3];
 
@@ -75,19 +75,19 @@ export default function ScheduleSection() {
       <article className="h-200 flex flex-col justify-center">
         <div className="h-60 flex items-center">Day {numberOfDay}</div>
         <div className="flex gap-20 justify-center">
-          {[1, 2, 3, 4].map((it) => (
+          {DUMMY_SCHEDULE_LIST[numberOfDay].map((schedule) => (
             <div
               className=" bg-white border flex py-10 items-center px-10"
-              key={it}
+              key={schedule.time}
             >
               <Avatar className="w-80 h-80">
                 <AvatarImage src="https://github.com/shadcn.png" />
               </Avatar>
               <Spacing size={10} direction="horizontal" />
               <p className="text-subtitle1">
-                11:00
+                {schedule.time}
                 <br />
-                영암프린지마당
+                {schedule.place}
               </p>
             </div>
           ))}
