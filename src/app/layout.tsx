@@ -11,7 +11,7 @@ import { cn } from "@/utils";
 import Head from "next/head";
 
 const DEFAULT_OG_TITLE = "2023 월출산국화축제";
-const DEFAULT_OG_DESC = "조금 더 믿을 만한 모임을 할 수 있도록 준비했어요!";
+const DEFAULT_OG_DESC = "2023 월출산국화축제";
 const DEFAULT_OG_IMAGE = "/images/main_logo.png";
 
 export const metadata = {
