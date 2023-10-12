@@ -8,6 +8,7 @@ import MainLinkSection from "./components/Header/MainLinkSection";
 import SideLinkSection from "./components/Header/SideLinkSection";
 import { config } from "@/constants";
 import { cn } from "@/utils";
+import Head from "next/head";
 
 const DEFAULT_OG_TITLE = "2023 월출산국화축제";
 const DEFAULT_OG_DESC = "조금 더 믿을 만한 모임을 할 수 있도록 준비했어요!";
@@ -42,6 +43,12 @@ export default function RootLayout({ children }: PropsWithChildren) {
   const device = getDevice();
   return (
     <html lang="ko">
+      <Head>
+        <meta
+          name="google-site-verification"
+          content="_wjQIw1jKiIQ5ZSQ9rChkLwbUXzy8ootBWLuClcnNUU"
+        />
+      </Head>
       <body
         className={cn("overflow-x-hidden font-[BMJUA]", {
           "min-w-1000": device === "pc",
