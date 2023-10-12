@@ -43,12 +43,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
   const device = getDevice();
   return (
     <html lang="ko">
-      <Head>
-        <meta
-          name="google-site-verification"
-          content="_wjQIw1jKiIQ5ZSQ9rChkLwbUXzy8ootBWLuClcnNUU"
-        />
-      </Head>
+      <meta
+        name="google-site-verification"
+        content="_wjQIw1jKiIQ5ZSQ9rChkLwbUXzy8ootBWLuClcnNUU"
+      />
       <body
         className={cn("overflow-x-hidden font-[BMJUA]", {
           "min-w-1000": device === "pc",
