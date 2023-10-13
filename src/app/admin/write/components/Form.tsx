@@ -11,7 +11,7 @@ export default function Form({ category }: FormProps) {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data: any) => {
-    postData(category, data.id, data);
+    postData(category, "5", data);
   };
 
   return (
@@ -20,9 +20,6 @@ export default function Form({ category }: FormProps) {
       <div className="text-title1">
         제목 : <input {...register("title")} className="border" />
       </div>
-      <p className="py-30 text-subtitle2">
-        ID :<input {...register("id")} className="border" />
-      </p>
       <p className="text-subtitle2">
         작성 날짜 : <input {...register("date")} className="border" />
       </p>
