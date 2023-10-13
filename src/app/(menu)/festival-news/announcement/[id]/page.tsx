@@ -1,5 +1,4 @@
 import Posting from "@/components/Posting";
-import Spacing from "@/components/Spacing";
 import { getData } from "@/utils/firebaseController";
 
 interface PageProps {
