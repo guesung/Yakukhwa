@@ -1,6 +1,7 @@
 "use client";
 import Spacing from "@/components/Spacing";
 import { postData } from "@/utils/firebaseController";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 interface FormProps {
@@ -9,9 +10,12 @@ interface FormProps {
 
 export default function BoardForm({ category }: FormProps) {
   const { register, handleSubmit } = useForm();
+  const router = useRouter();
 
   const onSubmit = (data: any) => {
     postData(category, data);
+    router.refresh();
+    router.back();
   };
 
   return (

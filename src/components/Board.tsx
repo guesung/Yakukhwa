@@ -1,4 +1,5 @@
 "use client";
+import { Posting } from "@/app/type";
 import {
   Table,
   TableBody,
@@ -11,7 +12,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface BoardProps {
-  list: any[];
+  list: Posting[];
 }
 
 export default function Board({ list }: BoardProps) {
