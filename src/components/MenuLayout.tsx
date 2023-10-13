@@ -2,7 +2,7 @@
 import Spacing from "@/components/Spacing";
 import { MAINLINKLIST } from "@/constants";
 import { cn } from "@/utils";
-import { isAdmin } from "@/utils/userController";
+import { getIsAdmin } from "@/utils/userController";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -15,6 +15,7 @@ export default function MenuLayout({ children }: PropsWithChildren) {
   const subTitleList = MAINLINKLIST.find(
     (linkItem) => linkItem.mainTitle.path === currentmainTitle
   )?.subTitle;
+  const isAdmin = getIsAdmin();
 
   return (
     <div className="px-50">
@@ -41,7 +42,7 @@ export default function MenuLayout({ children }: PropsWithChildren) {
             {subTitle.name}
           </Link>
         ))}
-        {isAdmin() && (
+        {isAdmin && (
           <Link
             className="absolute right-0 inset-y-0 my-auto flex items-center"
             href={`/admin/write?category=${currentsubTitle}`}
