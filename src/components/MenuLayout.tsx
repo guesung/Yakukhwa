@@ -2,6 +2,7 @@
 import Spacing from "@/components/Spacing";
 import { MAINLINKLIST } from "@/constants";
 import { cn } from "@/utils";
+import { isAdmin } from "@/utils/userController";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -27,7 +28,7 @@ export default function MenuLayout({ children }: PropsWithChildren) {
         </p>
       </article>
 
-      <article className="flex w-full h-60 justify-center border-b gap-50">
+      <article className="flex relative w-full h-60 justify-center border-b gap-50">
         {subTitleList?.map((subTitle) => (
           <Link
             href={`/${currentmainTitle}/${subTitle.path}`}
@@ -40,6 +41,14 @@ export default function MenuLayout({ children }: PropsWithChildren) {
             {subTitle.name}
           </Link>
         ))}
+        {isAdmin() && (
+          <Link
+            className="absolute right-0 inset-y-0 my-auto flex items-center"
+            href={`/admin/write?category=${currentsubTitle}`}
+          >
+            글쓰기 / 수정하기
+          </Link>
+        )}
       </article>
 
       {children}
