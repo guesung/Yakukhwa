@@ -66,20 +66,24 @@
   }
 }
 
+@font-face{
+  font-family:"BMJUA";
+  font-weight:400;
+  src:url("/fonts/BMJUA_ttf.ttf") format("truetype");
+}
 
 
- 
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground ;
   }
 }
 
 .swiper-pagination .swiper-pagination-bullet {
-  @apply bg-black w-10 h-10
+  @apply bg-white w-10 h-10
 }
 
 .swiper-pagination {

@@ -1,12 +1,13 @@
+type LinkType = {
+  name: string;
+  path: string;
+  outLink?: boolean;
+};
+
+
 type MainLinkListType = {
-  mainTitle: {
-    name: string;
-    path: string;
-  };
-  subTitle: {
-    name: string;
-    path: string;
-  }[];
+  mainTitle: LinkType;
+  subTitle: LinkType[];
 }[];
 export const MAINLINKLIST: MainLinkListType = [
   {
@@ -48,20 +49,43 @@ export const MAINLINKLIST: MainLinkListType = [
   {
     mainTitle: { name: "여행정보", path: "travel-info" },
     subTitle: [
-      { name: "영양맛지도", path: "nutrition-map" },
-      { name: "먹거리", path: "food" },
-      { name: "살거리", path: "shopping" },
-      { name: "즐길거리", path: "entertainment" },
+      { name: "영양맛지도", path: "https://www.yeongam.go.kr/home/tour/food/food_03_02/yeongam.go", outLink: true },
+      { name: "먹거리", path: "https://www.yeongam.go.kr/home/tour/food/yeongam.go", outLink: true },
+      { name: "살거리", path: "https://www.yeongam.go.kr/home/tour/shopping/yeongam.go", outLink: true },
+      { name: "즐길거리", path: "https://www.yeongam.go.kr/home/tour/enjoy/yeongam.go", outLink: true },
     ],
   },
 ];
 
 
-type SubLinkListType = {
-  title: string;
-}[];
+type SubLinkListType = LinkType[];
 
 export const SUBLINKLIST: SubLinkListType = [
-  { title: "영암군청" },
-  { title: "문화관광" },
+  { name: "영암군청", path: 'http://www.yeongam.go.kr' },
+  { name: "문화관광", path: 'https://www.yeongam.go.kr/home/tour' },
 ];
+
+type InfoLinkListType = LinkType[];
+
+export const InfoLinkList: InfoLinkListType = [
+  {
+    name: "참여프로그램",
+    path: "/",
+  },
+  {
+    name: "2023포스터",
+    path: "/poster",
+  },
+  {
+    name: "오시는 길",
+    path: "/chrysanthemum-festival/prologue",
+  },
+  {
+    name: "여행코스",
+    path: "/",
+  },
+]
+
+
+
+
