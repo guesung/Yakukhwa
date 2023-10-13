@@ -20,7 +20,7 @@ interface PageProps {
 
 export default function page({ searchParams: { page } }: PageProps) {
   return (
-    <div>
+    <div className="px-50">
       <Table>
         <TableHeader className="h-50 text-center">
           <TableRow>
