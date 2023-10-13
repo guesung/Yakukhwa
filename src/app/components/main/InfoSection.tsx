@@ -14,6 +14,7 @@ import Modal from "@/components/Modal";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
 import { useState } from "react";
+import { Autoplay } from "swiper/modules";
 
 export default function InfoSection() {
   const { slideRef, handlePrev, handleNext } = useSwiperController({
@@ -76,6 +77,11 @@ export default function InfoSection() {
               className="mySwiper"
               slidesPerView={2.5}
               ref={slideRef}
+              modules={[Autoplay]}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
             >
               {dummyData.GALLERYLIST.map((image) => (
                 <SwiperSlide key={image.id}>
