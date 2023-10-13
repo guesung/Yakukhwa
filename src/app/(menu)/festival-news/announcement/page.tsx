@@ -10,15 +10,13 @@ import {
 import { dummyData } from "@/constants";
 import Link from "next/link";
 
-const pageList = [1, 2, 3, 4, 5];
-
 interface PageProps {
   searchParams: {
     page: string;
   };
 }
 
-export default function page({ searchParams: { page } }: PageProps) {
+export default async function page({ searchParams: { page } }: PageProps) {
   return (
     <div className="px-50">
       <Table>
@@ -32,10 +30,10 @@ export default function page({ searchParams: { page } }: PageProps) {
 
         <TableBody>
           {dummyData.ANNOUNCEMENT.map((invoice) => (
-            <TableRow key={invoice.invoice} className="h-50 text-center">
-              <TableCell>{invoice.invoice}</TableCell>
+            <TableRow key={invoice.id} className="h-50 text-center">
+              <TableCell>{invoice.id}</TableCell>
               <TableCell className="text-left">
-                <Link href={`/festival-news/announcement/${invoice.invoice}`}>
+                <Link href={`/festival-news/announcement/${invoice.id}`}>
                   {invoice.title}
                 </Link>
               </TableCell>

@@ -1,4 +1,5 @@
 export * from "./linkList";
 export * from "./dummyData";
-export * from './config'
+export * from "./url";
+export * from "./firebase";
 export * from './festivalDateArray'

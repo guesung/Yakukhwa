@@ -1,11 +1,14 @@
 import { getDevice } from "@/utils/getdevice";
+import axios from "axios";
+import { ref } from "firebase/database";
 import InfoSection from "./components/main/InfoSection";
+import MobileScheduleSection from "./components/main/MobileScheduleSection";
 import ScheduleSection from "./components/main/ScheduleSection";
 import SignSection from "./components/main/SignSection";
-import MobileScheduleSection from "./components/main/MobileScheduleSection";
 
-export default function page() {
+export default async function page() {
   const device = getDevice();
+
   return (
     <main>
       <SignSection />
