@@ -18,10 +18,12 @@ export class DateController {
     }
   };
   static formatDate = (date: Date) => {
-    return `${date.getMonth() + 1}.${date.getDate()} ${DateController.formatDay(
-      date.getDay()
-    )}`;
+    return {
+      date: `${date.getMonth() + 1}.${date.getDate()}`,
+      day: DateController.formatDay(date.getDay())
+    }
   };
+
   static getDateList = (date: Date, page: number) => {
     const dateList = [];
     date.setDate(date.getDate() + 16 * (page - 1));
