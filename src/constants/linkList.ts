@@ -70,19 +70,11 @@ type InfoLinkListType = LinkType[];
 export const InfoLinkList: InfoLinkListType = [
   {
     name: "참여프로그램",
-    path: "/",
+    path: "/program/schedule",
   },
   {
     name: "2023포스터",
     path: "/poster",
-  },
-  {
-    name: "오시는 길",
-    path: "/chrysanthemum-festival/prologue",
-  },
-  {
-    name: "여행코스",
-    path: "/",
   },
 ]
 
