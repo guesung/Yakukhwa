@@ -8,7 +8,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { dummyData } from "@/constants";
-import { queryData } from "@/utils/firebaseController";
 import Link from "next/link";
 
 interface PageProps {
@@ -18,9 +17,6 @@ interface PageProps {
 }
 
 export default async function page({ searchParams: { page } }: PageProps) {
-  const data = await queryData({ document: "cities" });
-  console.log(data);
-
   return (
     <div>
       <Table>
