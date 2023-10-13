@@ -7,11 +7,11 @@ interface FormProps {
   category: string;
 }
 
-export default function Form({ category }: FormProps) {
+export default function BoardForm({ category }: FormProps) {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data: any) => {
-    postData(category, "5", data);
+    postData(category, data);
   };
 
   return (
