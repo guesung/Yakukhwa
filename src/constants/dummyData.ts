@@ -1,27 +1,27 @@
 export const dummyData = {
   ANNOUNCEMENT: [
     {
-      invoice: "1",
+      id: "1",
       title: "Paid",
       date: "2023년 10월 7일",
     },
     {
-      invoice: "2",
+      id: "2",
       title: "Pending",
       date: "2023년 10월 7일",
     },
     {
-      invoice: "3",
+      id: "3",
       title: "Unpaid",
       date: "2023년 10월 7일",
     },
     {
-      invoice: "4",
+      id: "4",
       title: "Paid",
       date: "2023년 10월 7일",
     },
     {
-      invoice: "5",
+      id: "5",
       title: "Paid",
       date: "2023년 10월 7일",
     },
@@ -66,7 +66,7 @@ export const dummyData = {
   ],
 };
 export interface AnnouncementType {
-  invoice: string;
+  id: string;
   title: string;
   date: string;
 }
