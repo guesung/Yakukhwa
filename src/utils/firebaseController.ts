@@ -37,3 +37,9 @@ export const deleteData = async (table: string, key: string) => {
   const db = getDB()
   await deleteDoc(doc(db, table, key));
 }
+
+export const patchData = async (table: string, key: string, data: any) => {
+  const db = getDB()
+  const ref = collection(db, table);
+  await setDoc(doc(ref, key), data)
+}
