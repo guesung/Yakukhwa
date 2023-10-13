@@ -1,13 +1,14 @@
 import { cn } from "@/utils";
 import { getDevice } from "@/utils/getdevice";
 import type { Metadata } from "next";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, Suspense } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import MainLinkSection from "./components/Header/MainLinkSection";
 import SideLinkSection from "./components/Header/SideLinkSection";
 import "./globals.css";
 import { BASE_WEB_URL } from "@/constants";
+import Analytics from "@/components/Analytics";
 
 const DEFAULT_OG_TITLE = "2023 월출산국화축제";
 const DEFAULT_OG_DESC = "2023 월출산국화축제";
@@ -51,6 +52,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
           "min-w-1000": device === "pc",
         })}
       >
+        <Suspense>
+          <Analytics />
+        </Suspense>
         <Header />
         {device === "pc" && <MainLinkSection />}
         {device === "mobile" && <SideLinkSection />}
