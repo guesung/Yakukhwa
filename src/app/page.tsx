@@ -1,16 +1,13 @@
 import { getDevice } from "@/utils/getdevice";
+import axios from "axios";
+import { ref } from "firebase/database";
 import InfoSection from "./components/main/InfoSection";
+import MobileScheduleSection from "./components/main/MobileScheduleSection";
 import ScheduleSection from "./components/main/ScheduleSection";
 import SignSection from "./components/main/SignSection";
-import MobileScheduleSection from "./components/main/MobileScheduleSection";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "@/firebase/firebaseClient";
-import { fireStore } from "@/store/firebaseStore";
 
 export default async function page() {
   const device = getDevice();
-  const querySnapshot = await getDocs(collection(fireStore, "temp"));
-  console.log(querySnapshot);
 
   return (
     <main>
