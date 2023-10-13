@@ -1,4 +1,4 @@
-import Form from "./components/Form";
+import BoardForm from "./components/BoardForm";
 
 interface PageProps {
   searchParams: {
@@ -9,7 +9,7 @@ interface PageProps {
 export default async function page({ searchParams: { category } }: PageProps) {
   return (
     <div>
-      <Form category={category} />
+      <BoardForm category={category} />
     </div>
   );
 }
