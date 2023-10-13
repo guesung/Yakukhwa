@@ -1,42 +1,34 @@
-const isServer = typeof window === 'undefined';
+export const setServerCookie = async (key: string, value: string, options?: { expires?: Date }) => {
+  const { cookies } = await import('next/headers');
+  cookies().set(key, value, {
+    expires: options?.expires,
+  });
+  return;
+}
 
-export const setCookie = async (key: string, value: string, options?: { expires?: Date }) => {
-  // 서버 측 쿠키
-  if (isServer) {
-    const { cookies } = await import('next/headers');
-    cookies().set(key, value, {
-      expires: options?.expires,
-    });
-    return;
-  }
-
-  // 클라이언트 측 쿠키
+export const setClientCookie = (key: string, value: string, options?: { expires?: Date }) => {
   document.cookie = `${key}=${value}; path=/; ${options?.expires ? `expires=${options.expires.toUTCString()}` : ''
     }`;
-};
+}
 
-export const getCookie = async (key: string) => {
-  // 서버측 쿠키
-  if (isServer) {
-    const { cookies } = await import('next/headers');
-    return cookies().get(key);
-  }
-
-  // 클라이언트 측 쿠키
+export const getClientCookie = (key: string) => {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${key}=`);
-
   return parts.pop()?.split(';').shift();
 };
 
-export const removeCookie = async (key: string) => {
-  // 서버측 쿠키
-  if (isServer) {
-    const { cookies } = await import('next/headers');
-    cookies().set(key, '');
-    return;
-  }
+export const getServerCookie = async (key: string) => {
+  const { cookies } = await import('next/headers');
+  return cookies().get(key);
+}
 
-  // 클라이언트 측 쿠키
+
+export const removeServerCookie = async (key: string) => {
+  const { cookies } = await import('next/headers');
+  cookies().set(key, '');
+  return;
+
+}
+export const removeClientCookie = (key: string) => {
   document.cookie = `${key}=; expires=Thu, 01 Jan 1999 00:00:10 GMT;`;
-};
+}

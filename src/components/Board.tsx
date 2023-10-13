@@ -9,7 +9,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { deleteData } from "@/utils/firebaseController";
-import { getIsAdmin } from "@/utils/userController";
+import { getClientIsAdmin } from "@/utils/userController";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -19,7 +19,7 @@ interface BoardProps {
 
 export default function Board({ list }: BoardProps) {
   const pathname = usePathname();
-  const isAdmin = getIsAdmin();
+  const isAdmin = getClientIsAdmin();
   const handleDelete = async (id: string) => {
     if (confirm("정말로 삭제하시겠습니까?")) {
       await deleteData("announcement", id);

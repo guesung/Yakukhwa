@@ -1,6 +1,6 @@
 "use client";
 
-import { setCookie } from "@/utils/cookieController";
+import { setClientCookie } from "@/utils/cookieController";
 import { useForm } from "react-hook-form";
 
 type Inputs = {
@@ -10,7 +10,7 @@ type Inputs = {
 export default function Login() {
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit = (data: Inputs) => {
-    setCookie("password", data.password);
+    setClientCookie("password", data.password);
   };
 
   return (

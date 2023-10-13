@@ -2,7 +2,7 @@
 import Spacing from "@/components/Spacing";
 import { MAINLINKLIST } from "@/constants";
 import { cn } from "@/utils";
-import { getIsAdmin } from "@/utils/userController";
+import { getClientIsAdmin } from "@/utils/userController";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -15,7 +15,7 @@ export default function MenuLayout({ children }: PropsWithChildren) {
   const subTitleList = MAINLINKLIST.find(
     (linkItem) => linkItem.mainTitle.path === currentmainTitle
   )?.subTitle;
-  const isAdmin = getIsAdmin();
+  const isAdmin = getClientIsAdmin();
 
   return (
     <div className="px-50">
