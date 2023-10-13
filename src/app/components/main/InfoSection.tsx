@@ -97,8 +97,8 @@ export default function InfoSection() {
 
         <div className="flex mobile:flex-col bg-white rounded-xl pc:h-80 mobile:py-20 items-center px-30 gap-20 mobile:overflow-x-scroll whitespace-nowrap">
           <p className="flex gap-20">
-            <span className="text-title4 text-orange">행사문의</span>
-            <span className="text-title4">010-3434-2323</span>
+            <span className="text-title4 text-orange">문의전화</span>
+            <span className="text-title4">061-470-2346</span>
           </p>
           <div className="text-title4 flex pc:gap-20 mobile:gap-10 grow justify-center">
             {InfoLinkList.map((linkItem) => (
