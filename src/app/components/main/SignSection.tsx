@@ -3,11 +3,10 @@ import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import Icon from "@/components/Icon";
+import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-import Icon from "@/components/Icon";
-import Image from "next/image";
 
 export default function SignSection() {
   const scrollRef = useRef<HTMLDivElement>(null);

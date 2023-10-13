@@ -1,4 +1,3 @@
-import { config } from "@/constants";
 import { cn } from "@/utils";
 import { getDevice } from "@/utils/getdevice";
 import type { Metadata } from "next";
@@ -8,13 +7,14 @@ import Header from "./components/Header";
 import MainLinkSection from "./components/Header/MainLinkSection";
 import SideLinkSection from "./components/Header/SideLinkSection";
 import "./globals.css";
+import { BASE_WEB_URL } from "@/constants";
 
 const DEFAULT_OG_TITLE = "2023 월출산국화축제";
 const DEFAULT_OG_DESC = "2023 월출산국화축제";
 const DEFAULT_OG_IMAGE = "/images/main_logo.png";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(config.BASE_WEB_URL),
+  metadataBase: new URL(BASE_WEB_URL),
   title: {
     template: `${DEFAULT_OG_TITLE} / %s `,
     default: DEFAULT_OG_TITLE,
@@ -41,7 +41,6 @@ export const metadata: Metadata = {
     "naver-site-verification": "5b6bd47d800bcd7af5934122259c7694362726ab",
   },
 };
-
 
 export default function RootLayout({ children }: PropsWithChildren) {
   const device = getDevice();
