@@ -25,6 +25,9 @@ export default function BoardForm({ category }: FormProps) {
         제목 : <input {...register("title")} className="border" />
       </div>
       <p className="text-subtitle2">
+        ID : <input {...register("id")} className="border" />
+      </p>
+      <p className="text-subtitle2">
         작성 날짜 : <input {...register("date")} className="border" />
       </p>
       <div className="py-30 whitespace-pre-wrap text-subtitle1">
