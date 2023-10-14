@@ -64,9 +64,13 @@ export default function InfoSection() {
             </div>
           </div>
 
-          <div className=" mobile:min-w-500 pc:min-w-700">
+          <div
+            className={cn('mx-auto  mobile:min-w-500 pc:min-w-700 ', {
+              'pc:max-w-700': width < 1400,
+              'pc:max-w-1200': width > 1400,
+            })}
+          >
             <Swiper
-              // spaceBetween={20}
               className="mySwiper"
               slidesPerView={width > 1400 ? 3 : 2}
               ref={slideRef}
