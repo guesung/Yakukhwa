@@ -1,5 +1,7 @@
+'use client';
 import Spacing from '@/components/Spacing';
 import { MAINLINKLIST } from '@/constants';
+import { useGetPath } from '@/hooks';
 import { cn } from '@/utils';
 import { getPath } from '@/utils/getPath';
 import Image from 'next/image';
@@ -11,7 +13,7 @@ interface MenuLayoutProps extends PropsWithChildren {
 }
 
 export default function MenuLayout({ isAdmin, children }: MenuLayoutProps) {
-  const { mainTitle: currentmainTitle, subTitle: currentsubTitle } = getPath();
+  const { mainTitle: currentmainTitle, subTitle: currentsubTitle } = useGetPath();
   const subTitleList = MAINLINKLIST.find(
     (linkItem) => linkItem.mainTitle.path === currentmainTitle
   )?.subTitle;
