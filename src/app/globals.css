@@ -89,15 +89,17 @@
   @apply mb-60;
 }
 
+
 * {
-  font-size: 3.7vw;
+  font-size: 20px;
 }
 
-@media (min-width: 420px) {
+@media (max-width: 1000px) {
   * {
     font-size: 16px;
   }
 }
+
 
 ::-webkit-scrollbar {
   display: none;
