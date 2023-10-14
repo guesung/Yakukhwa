@@ -24,6 +24,9 @@ module.exports = {
         pc: {
           min: '451px',
         },
+        'pc-overflow': {
+          min: '1400px',
+        },
       },
       colors: {
         ...colors,
