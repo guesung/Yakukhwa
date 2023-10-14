@@ -9,6 +9,7 @@ import {
   query,
   setDoc,
 } from 'firebase/firestore';
+import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 
 const FIREBASE_CONFIG = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -51,4 +52,11 @@ export const deleteData = async (table: string, key: string) => {
 export const patchData = async (table: string, key: string, data: any) => {
   const ref = collection(db, table);
   await setDoc(doc(ref, key), data);
+};
+
+export const uploadImage = async (title: string, file: File) => {
+  const storageRef = ref(getStorage(), title);
+  const snapshot = await uploadBytes(storageRef, file);
+  const imageUrl = await getDownloadURL(snapshot.ref);
+  return imageUrl;
 };
