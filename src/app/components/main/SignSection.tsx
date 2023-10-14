@@ -18,7 +18,7 @@ export default function SignSection() {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper relative mobile:h-400"
+        className="mySwiper relative"
         autoplay
       >
         <SwiperSlide>
@@ -31,7 +31,7 @@ export default function SignSection() {
           />
         </SwiperSlide>
         <div
-          className="absolute inset-x-0 bottom-30 z-10 mx-auto flex h-30 w-30 cursor-pointer items-center justify-center rounded-full bg-white"
+          className="absolute inset-x-0 bottom-20 z-10 mx-auto flex h-30 w-30 cursor-pointer items-center justify-center rounded-full bg-white"
           onClick={() => {
             scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
           }}

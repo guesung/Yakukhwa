@@ -59,7 +59,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         {device === 'pc' && <MainLinkSection />}
         {device === 'mobile' && <SideLinkSection />}
         <div className="w-screen pc-overflow:flex pc-overflow:justify-center">
-          <div className="min-w-1000 max-w-1400">{children}</div>
+          <div className="pc:min-w-1000 pc:max-w-1400">{children}</div>
         </div>
         <Footer />
       </body>
