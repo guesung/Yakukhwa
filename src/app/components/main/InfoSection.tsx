@@ -76,7 +76,7 @@ export default function InfoSection() {
             >
               {dummyData.GALLERYLIST.map((image) => (
                 <SwiperSlide key={image.id}>
-                  <div className="mobile:min-h-150 pc:max-h-300 pc:min-h-200">
+                  <div className="relative mobile:min-h-150 pc:h-250 pc:w-350">
                     <Image src={image.image} fill alt="galleryImage" className="rounded-xl" />
                   </div>
                 </SwiperSlide>

@@ -48,8 +48,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="ko">
       <body
-        className={cn('overflow-x-hidden font-[BMJUA]', {
-          'min-w-1000': device === 'pc',
+        className={cn('font-[BMJUA]', {
+          'min-w-1400': device === 'pc',
         })}
       >
         <Suspense>
@@ -58,7 +58,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <Header />
         {device === 'pc' && <MainLinkSection />}
         {device === 'mobile' && <SideLinkSection />}
-        {children}
+        <div className="w-screen pc-overflow:flex pc-overflow:justify-center">
+          <div className="w-1400">{children}</div>
+        </div>
         <Footer />
       </body>
     </html>
