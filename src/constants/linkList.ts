@@ -17,7 +17,7 @@ export const MAINLINKLIST: MainLinkListType = [
       { name: '축제소개', path: 'introduce', banner: '월출산국화축제란?' },
       { name: '프롤로그', path: 'prologue', banner: '월출산국화축제 발자취' },
       { name: '연혁', path: 'history', banner: '프롤로그' },
-      { name: '축제갤러리', path: 'gallery?page=1', banner: '축제갤러리' },
+      { name: '축제갤러리', path: 'gallery', banner: '축제갤러리' },
     ],
   },
   {

@@ -3,7 +3,6 @@ import Spacing from '@/components/Spacing';
 import { MAINLINKLIST } from '@/constants';
 import { useGetPath } from '@/hooks';
 import { cn } from '@/utils';
-import { getPath } from '@/utils/getPath';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PropsWithChildren } from 'react';
@@ -20,16 +19,10 @@ export default function MenuLayout({ isAdmin, children }: MenuLayoutProps) {
   const banner = subTitleList?.find((subTitle) => subTitle.path === currentsubTitle)?.banner;
 
   return (
-    <div className="px-50">
+    <div>
       <Spacing size={20} />
       <article className="relative  items-center">
-        <Image
-          src="/images/subtitle_background.png"
-          width={1000}
-          height={100}
-          alt="subtitle"
-          className="mx-auto"
-        />
+        <Image src="/images/subtitle_background.png" width={1400} height={100} alt="subtitle" />
         <p className="absolute top-0 z-10 flex h-full w-full flex-col justify-center py-10 text-center text-title2 ">
           {banner}
         </p>
