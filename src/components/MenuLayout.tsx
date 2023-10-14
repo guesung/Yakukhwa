@@ -23,7 +23,13 @@ export default function MenuLayout({ isAdmin, children }: MenuLayoutProps) {
     <div className="px-50">
       <Spacing size={20} />
       <article className="relative  items-center">
-        <Image src="/images/subtitle_background.png" width={1000} height={100} alt="subtitle" />
+        <Image
+          src="/images/subtitle_background.png"
+          width={1000}
+          height={100}
+          alt="subtitle"
+          className="mx-auto"
+        />
         <p className="absolute top-0 z-10 flex h-full w-full flex-col justify-center py-10 text-center text-title2 ">
           {banner}
         </p>
