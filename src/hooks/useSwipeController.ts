@@ -1,13 +1,11 @@
-"use client";
-import { useCallback, useRef, useState } from "react";
+'use client';
+import { useCallback, useRef, useState } from 'react';
 
 interface UseSwiperControllerProps {
   maxPage: number;
 }
 
-export default function useSwiperController({
-  maxPage,
-}: UseSwiperControllerProps) {
+export default function useSwiperController({ maxPage }: UseSwiperControllerProps) {
   const [slideIndex, setSlideIndex] = useState(0);
   const slideRef = useRef<any>(null);
   const hasPrev = slideIndex > 0;

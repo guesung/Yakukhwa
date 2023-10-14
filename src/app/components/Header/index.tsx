@@ -1,14 +1,14 @@
-import { getDevice } from "@/utils/getdevice";
-import LogoSection from "./LogoSection";
-import SubLinkSection from "./SubLinkSection";
+import { getDevice } from '@/utils/getdevice';
+import LogoSection from './LogoSection';
+import SubLinkSection from './SubLinkSection';
 
 export default function Header() {
   const device = getDevice();
 
   return (
-    <header className="flex flex-col relative h-full">
+    <header className="relative flex h-full flex-col">
       <LogoSection />
-      {device === "pc" && <SubLinkSection />}
+      {device === 'pc' && <SubLinkSection />}
     </header>
   );
 }

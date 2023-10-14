@@ -1,13 +1,11 @@
-import Icon from "@/components/Icon";
-import Image from "next/image";
+import Icon from '@/components/Icon';
+import Image from 'next/image';
 
 export default function LinkSection() {
   return (
-    <section className="flex bg-green pc:py-15 mobile:py-10 mobile:gap-10 mobile:flex-col items-center px-30">
-      <p className="text-subtitle1 text-white grow">
-        Wallchul Mountain Chrysanthemum Festival
-      </p>
-      <div className="flex gap-10 w-200 justify-center">
+    <section className="flex items-center bg-green px-30 mobile:flex-col mobile:gap-10 mobile:py-10 pc:py-15">
+      <p className="grow text-subtitle1 text-white">Wallchul Mountain Chrysanthemum Festival</p>
+      <div className="flex w-200 justify-center gap-10">
         <Icon id="facebook" width={32} height={32} />
         <Image src="/images/blog.png" width={32} height={32} alt="blog" />
         <Icon id="youtube" width={32} height={32} />

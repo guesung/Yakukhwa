@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import Icon from "@/components/Icon";
+import Icon from '@/components/Icon';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { MAINLINKLIST } from "@/constants";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+} from '@/components/ui/accordion';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { MAINLINKLIST } from '@/constants';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function SideLinkSection() {
   const pathname = usePathname();
@@ -24,10 +24,7 @@ export default function SideLinkSection() {
         <SheetTrigger asChild onClick={() => setOpen(true)}>
           <Icon id="menu" />
         </SheetTrigger>
-        <SheetContent
-          className="flex flex-col items-center py-80 text-center"
-          setOpen={setOpen}
-        >
+        <SheetContent className="flex flex-col items-center py-80 text-center" setOpen={setOpen}>
           <Accordion type="single" collapsible className="w-full">
             {MAINLINKLIST.map((linkItem) => (
               <AccordionItem
@@ -35,13 +32,13 @@ export default function SideLinkSection() {
                 className="w-full border-y border-gray-2"
                 value={linkItem.mainTitle.name}
               >
-                <AccordionTrigger className="text-title3 py-10 w-full">
+                <AccordionTrigger className="w-full py-10 text-title3">
                   {linkItem.mainTitle.name}
                 </AccordionTrigger>
                 {linkItem.subTitle.map((subTitle) => (
                   <AccordionContent key={subTitle.name}>
                     <Link
-                      className="text-title4 py-10 bg-brand-3 text-white border-y border-gray-2 h-full w-full block"
+                      className="block h-full w-full border-y border-gray-2 bg-brand-3 py-10 text-title4 text-white"
                       href={`/${linkItem.mainTitle.path}/${subTitle.path}`}
                     >
                       {subTitle.name}

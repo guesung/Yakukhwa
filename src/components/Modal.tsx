@@ -1,7 +1,7 @@
-import { PropsWithChildren } from "react";
-import { SheetOverlay, SheetPortal } from "./ui/sheet";
-import * as SheetPrimitive from "@radix-ui/react-dialog";
-import { AnimatePresence, motion } from "framer-motion";
+import { SheetOverlay, SheetPortal } from './ui/sheet';
+import * as SheetPrimitive from '@radix-ui/react-dialog';
+import { AnimatePresence, motion } from 'framer-motion';
+import { PropsWithChildren } from 'react';
 
 interface ModalProps extends PropsWithChildren {
   setOpen: (open: boolean) => void;
@@ -16,7 +16,7 @@ export default function Modal({ children, setOpen, ...props }: ModalProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed z-50 shadow-lg m-auto inset-0 flex justify-center items-center bg-black"
+            className="fixed inset-0 z-50 m-auto flex items-center justify-center bg-black shadow-lg"
             onClick={() => setOpen(false)}
           >
             {children}

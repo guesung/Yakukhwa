@@ -2,26 +2,26 @@ export class DateController {
   static formatDay = (day: number) => {
     switch (day) {
       case 0:
-        return "SUN";
+        return 'SUN';
       case 1:
-        return "MON";
+        return 'MON';
       case 2:
-        return "TUE";
+        return 'TUE';
       case 3:
-        return "WED";
+        return 'WED';
       case 4:
-        return "THU";
+        return 'THU';
       case 5:
-        return "FRI";
+        return 'FRI';
       case 6:
-        return "SAT";
+        return 'SAT';
     }
   };
   static formatDate = (date: Date) => {
     return {
       date: `${date.getMonth() + 1}.${date.getDate()}`,
-      day: DateController.formatDay(date.getDay())
-    }
+      day: DateController.formatDay(date.getDay()),
+    };
   };
 
   static getDateList = (date: Date, page: number) => {

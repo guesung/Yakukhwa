@@ -1,4 +1,4 @@
-import NoContent from "@/components/NoContent";
+import NoContent from '@/components/NoContent';
 
 export default function page() {
   return (

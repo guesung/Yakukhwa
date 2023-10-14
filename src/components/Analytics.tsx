@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
-import { usePathname, useSearchParams } from "next/navigation";
-import Script from "next/script";
-import { useEffect } from "react";
-
-import { config } from "@/config";
+import { config } from '@/config';
+import { usePathname, useSearchParams } from 'next/navigation';
+import Script from 'next/script';
+import { useEffect } from 'react';
 
 type WindowWithDataLayer = Window & {
   dataLayer: Array<Record<string, any>>;
@@ -13,9 +12,9 @@ type WindowWithDataLayer = Window & {
 declare const window: WindowWithDataLayer;
 
 const pageview = (url: string) => {
-  if (typeof window.dataLayer !== "undefined") {
+  if (typeof window.dataLayer !== 'undefined') {
     window.dataLayer.push({
-      event: "pageview",
+      event: 'pageview',
       page: url,
     });
   }
@@ -31,7 +30,7 @@ export default function Analytics() {
     }
   }, [pathname, searchParams]);
 
-  if (process.env.NEXT_PUBLIC_VERCEL_ENV !== "production") {
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production') {
     return null;
   }
 
@@ -42,7 +41,7 @@ export default function Analytics() {
           src={`https://www.googletagmanager.com/ns.html?id=${config.gaId}`}
           height="0"
           width="0"
-          style={{ display: "none", visibility: "hidden" }}
+          style={{ display: 'none', visibility: 'hidden' }}
         />
       </noscript>
       <Script

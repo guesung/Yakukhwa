@@ -1,5 +1,5 @@
-import Board from "@/components/Board";
-import { getData } from "@/utils/firebaseController";
+import Board from '@/components/Board';
+import { getData } from '@/utils/firebaseController';
 
 interface PageProps {
   searchParams: {
@@ -8,6 +8,6 @@ interface PageProps {
 }
 
 export default async function page({ searchParams: { page } }: PageProps) {
-  const announcementList = await getData("announcement");
+  const announcementList = await getData('announcement');
   return <Board list={announcementList} />;
 }
