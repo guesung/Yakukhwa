@@ -85,6 +85,7 @@ export default function InfoSection() {
                 disableOnInteraction: false,
               }}
               spaceBetween={20}
+              loop={true}
             >
               {dummyData.GALLERYLIST.map((image) => (
                 <SwiperSlide key={image.id}>
