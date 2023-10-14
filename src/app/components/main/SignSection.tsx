@@ -12,28 +12,33 @@ export default function SignSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="relative bg-slate-100">
+    <section>
       <Swiper
         pagination={{
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper mobile:h-400 pc:h-700"
+        className="mySwiper relative mobile:h-400"
         autoplay
       >
         <SwiperSlide>
-          <Image src={`/images/main_image.jpeg`} alt="flower" fill />
+          <Image
+            src={`/images/main_image.jpeg`}
+            alt="flower"
+            width={1000}
+            height={1000}
+            className="mx-auto"
+          />
         </SwiperSlide>
+        <div
+          className="absolute inset-x-0 bottom-30 z-10 mx-auto flex h-30 w-30 cursor-pointer items-center justify-center rounded-full bg-white"
+          onClick={() => {
+            scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          <Icon id="arrow_down" width={16} height={16} />
+        </div>
       </Swiper>
-
-      <div
-        className="absolute inset-x-0 bottom-30 z-10 mx-auto flex h-30 w-30 cursor-pointer items-center justify-center rounded-full bg-white"
-        onClick={() => {
-          scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
-        }}
-      >
-        <Icon id="arrow_down" width={16} height={16} />
-      </div>
 
       <div ref={scrollRef} />
     </section>
