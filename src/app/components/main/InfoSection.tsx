@@ -64,9 +64,9 @@ export default function InfoSection() {
             </div>
           </div>
 
-          <div className="overflow-hidden mobile:min-w-500 pc:min-w-700">
+          <div className=" mobile:min-w-500 pc:min-w-700">
             <Swiper
-              spaceBetween={20}
+              // spaceBetween={20}
               className="mySwiper"
               slidesPerView={width > 1400 ? 3 : 2}
               ref={slideRef}
@@ -78,7 +78,7 @@ export default function InfoSection() {
             >
               {dummyData.GALLERYLIST.map((image) => (
                 <SwiperSlide key={image.id}>
-                  <div className="relative mobile:min-h-150 pc:h-250 pc:w-350">
+                  <div className="relative mobile:min-h-150 pc:h-250 pc:w-330">
                     <Image src={image.image} fill alt="galleryImage" className="rounded-xl" />
                   </div>
                 </SwiperSlide>

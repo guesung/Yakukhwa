@@ -4,3 +4,12 @@ export type Posting = {
   date: string;
   content: string;
 };
+
+export type CardType = {
+  id: string;
+  title: string;
+  date: string;
+  place: string;
+  content: string;
+  image?: string;
+};
