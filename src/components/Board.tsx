@@ -1,5 +1,5 @@
-"use client";
-import { Posting } from "@/app/type";
+'use client';
+import { Posting } from '@/app/type';
 import {
   Table,
   TableBody,
@@ -7,11 +7,11 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { deleteData } from "@/utils/firebaseController";
-import { getClientIsAdmin } from "@/utils/userController";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+} from '@/components/ui/table';
+import { deleteData } from '@/utils/firebaseController';
+import { getClientIsAdmin } from '@/utils/userController';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface BoardProps {
   list: Posting[];
@@ -21,9 +21,9 @@ export default function Board({ list }: BoardProps) {
   const pathname = usePathname();
   const isAdmin = getClientIsAdmin();
   const handleDelete = async (id: string) => {
-    if (confirm("정말로 삭제하시겠습니까?")) {
-      await deleteData("announcement", id);
-      alert("삭제되었습니다.");
+    if (confirm('정말로 삭제하시겠습니까?')) {
+      await deleteData('announcement', id);
+      alert('삭제되었습니다.');
     }
   };
 
@@ -40,15 +40,15 @@ export default function Board({ list }: BoardProps) {
 
         <TableBody>
           {list.map((item, index) => (
-            <TableRow key={item.id} className="h-50 text-center relative">
+            <TableRow key={item.id} className="relative h-50 text-center">
               <TableCell className="shrink">{index + 1}</TableCell>
-              <TableCell className="text-left px-20">
+              <TableCell className="px-20 text-left">
                 <Link href={`${pathname}/${item.id}`}>{item.title}</Link>
               </TableCell>
               <TableCell className="w-40">{item.date}</TableCell>
               {isAdmin && (
                 <td
-                  className="w-30 cursor-pointer absolute right-0 inset-y-0 my-auto flex items-center"
+                  className="absolute inset-y-0 right-0 my-auto flex w-30 cursor-pointer items-center"
                   onClick={() => handleDelete(item.id)}
                 >
                   삭제

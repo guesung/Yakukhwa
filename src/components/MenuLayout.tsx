@@ -1,17 +1,17 @@
-"use client";
-import Spacing from "@/components/Spacing";
-import { MAINLINKLIST } from "@/constants";
-import { cn } from "@/utils";
-import { getClientIsAdmin } from "@/utils/userController";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { PropsWithChildren } from "react";
+'use client';
+import Spacing from '@/components/Spacing';
+import { MAINLINKLIST } from '@/constants';
+import { cn } from '@/utils';
+import { getClientIsAdmin } from '@/utils/userController';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { PropsWithChildren } from 'react';
 
 export default function MenuLayout({ children }: PropsWithChildren) {
   const pathname = usePathname();
-  const currentmainTitle = pathname.split("/")[1];
-  const currentsubTitle = pathname.split("/")[2].split("?")[0];
+  const currentmainTitle = pathname.split('/')[1];
+  const currentsubTitle = pathname.split('/')[2].split('?')[0];
   const subTitleList = MAINLINKLIST.find(
     (linkItem) => linkItem.mainTitle.path === currentmainTitle
   )?.subTitle;
@@ -20,23 +20,23 @@ export default function MenuLayout({ children }: PropsWithChildren) {
   return (
     <div className="px-50">
       <Spacing size={20} />
-      <article className="relative w-full h-150 flex items-center">
+      <article className="relative flex h-150 w-full items-center">
         <Image src="/images/subtitle_background.jpeg" fill alt="subtitle" />
-        <p className="text-title2 py-10 absolute text-white top-0 z-10 text-center w-full h-full flex flex-col justify-center">
+        <p className="absolute top-0 z-10 flex h-full w-full flex-col justify-center py-10 text-center text-title2 text-white">
           영암 월출산 국화축제에서
           <br />
           눈길을 사로잡는 작품들의 시각적 아름다움을 느껴보세요!
         </p>
       </article>
 
-      <article className="flex relative w-full h-60 justify-center border-b gap-50">
+      <article className="relative flex h-60 w-full justify-center gap-50 border-b">
         {subTitleList?.map((subTitle) => (
           <Link
             href={`/${currentmainTitle}/${subTitle.path}`}
             key={subTitle.name}
-            className={cn("text-center flex items-center text-title4", {
-              "text-orange border-b-2 border-orange":
-                subTitle.path.split("?")[0] === currentsubTitle,
+            className={cn('flex items-center text-center text-title4', {
+              'border-b-2 border-orange text-orange':
+                subTitle.path.split('?')[0] === currentsubTitle,
             })}
           >
             {subTitle.name}
@@ -44,7 +44,7 @@ export default function MenuLayout({ children }: PropsWithChildren) {
         ))}
         {isAdmin && (
           <Link
-            className="absolute right-0 inset-y-0 my-auto flex items-center"
+            className="absolute inset-y-0 right-0 my-auto flex items-center"
             href={`/admin/write?category=${currentsubTitle}`}
           >
             글쓰기 / 수정하기

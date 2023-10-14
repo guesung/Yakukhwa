@@ -1,5 +1,5 @@
-import Posting from "@/components/Posting";
-import { getData } from "@/utils/firebaseController";
+import Posting from '@/components/Posting';
+import { getData } from '@/utils/firebaseController';
 
 interface PageProps {
   params: {
@@ -8,7 +8,7 @@ interface PageProps {
 }
 
 export default async function page({ params: { id } }: PageProps) {
-  const announcementList = await getData("announcement");
+  const announcementList = await getData('announcement');
   const announcementItem = announcementList.find((item) => item.id === id);
 
   return <Posting data={announcementItem} />;

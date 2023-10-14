@@ -1,5 +1,5 @@
-import HostSection from "./HostSection";
-import LinkSection from "./LinkSection";
+import HostSection from './HostSection';
+import LinkSection from './LinkSection';
 
 export default function Footer() {
   return (

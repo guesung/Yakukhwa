@@ -3,4 +3,4 @@ export type Posting = {
   title: string;
   date: string;
   content: string;
-}
+};

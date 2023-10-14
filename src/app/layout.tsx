@@ -1,18 +1,18 @@
-import { cn } from "@/utils";
-import { getDevice } from "@/utils/getdevice";
-import type { Metadata } from "next";
-import { PropsWithChildren, Suspense } from "react";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import MainLinkSection from "./components/Header/MainLinkSection";
-import SideLinkSection from "./components/Header/SideLinkSection";
-import "./globals.css";
-import { BASE_WEB_URL } from "@/constants";
-import Analytics from "@/components/Analytics";
+import { cn } from '@/utils';
+import { getDevice } from '@/utils/getdevice';
+import type { Metadata } from 'next';
+import { PropsWithChildren, Suspense } from 'react';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import MainLinkSection from './components/Header/MainLinkSection';
+import SideLinkSection from './components/Header/SideLinkSection';
+import './globals.css';
+import { BASE_WEB_URL } from '@/constants';
+import Analytics from '@/components/Analytics';
 
-const DEFAULT_OG_TITLE = "2023 월출산국화축제";
-const DEFAULT_OG_DESC = "2023 월출산국화축제";
-const DEFAULT_OG_IMAGE = "/images/main_logo.png";
+const DEFAULT_OG_TITLE = '2023 월출산국화축제';
+const DEFAULT_OG_DESC = '2023 월출산국화축제';
+const DEFAULT_OG_IMAGE = '/images/main_logo.png';
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_WEB_URL),
@@ -32,14 +32,14 @@ export const metadata: Metadata = {
     images: [DEFAULT_OG_IMAGE],
   },
   viewport: {
-    width: "device-width",
+    width: 'device-width',
     initialScale: 1,
     maximumScale: 1,
     userScalable: false,
   },
   other: {
-    "google-site-verification": "_wjQIw1jKiIQ5ZSQ9rChkLwbUXzy8ootBWLuClcnNUU",
-    "naver-site-verification": "5b6bd47d800bcd7af5934122259c7694362726ab",
+    'google-site-verification': '_wjQIw1jKiIQ5ZSQ9rChkLwbUXzy8ootBWLuClcnNUU',
+    'naver-site-verification': '5b6bd47d800bcd7af5934122259c7694362726ab',
   },
 };
 
@@ -48,16 +48,16 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="ko">
       <body
-        className={cn("overflow-x-hidden font-[BMJUA]", {
-          "min-w-1000": device === "pc",
+        className={cn('overflow-x-hidden font-[BMJUA]', {
+          'min-w-1000': device === 'pc',
         })}
       >
         <Suspense>
           <Analytics />
         </Suspense>
         <Header />
-        {device === "pc" && <MainLinkSection />}
-        {device === "mobile" && <SideLinkSection />}
+        {device === 'pc' && <MainLinkSection />}
+        {device === 'mobile' && <SideLinkSection />}
         {children}
         <Footer />
       </body>

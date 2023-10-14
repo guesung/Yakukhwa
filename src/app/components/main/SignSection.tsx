@@ -1,12 +1,12 @@
-"use client";
-import { useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+'use client';
+import { useRef } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import Icon from "@/components/Icon";
-import Image from "next/image";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import Icon from '@/components/Icon';
+import Image from 'next/image';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
 
 export default function SignSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -18,7 +18,7 @@ export default function SignSection() {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper pc:h-700 mobile:h-400"
+        className="mySwiper mobile:h-400 pc:h-700"
         autoplay
       >
         <SwiperSlide>
@@ -27,9 +27,9 @@ export default function SignSection() {
       </Swiper>
 
       <div
-        className="w-30 h-30 rounded-full bg-white cursor-pointer absolute inset-x-0 mx-auto bottom-30 z-10 flex justify-center items-center"
+        className="absolute inset-x-0 bottom-30 z-10 mx-auto flex h-30 w-30 cursor-pointer items-center justify-center rounded-full bg-white"
         onClick={() => {
-          scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+          scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
         }}
       >
         <Icon id="arrow_down" width={16} height={16} />

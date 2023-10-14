@@ -1,5 +1,5 @@
-import { Posting } from "@/app/type";
-import Spacing from "./Spacing";
+import Spacing from './Spacing';
+import { Posting } from '@/app/type';
 
 interface PostingProps {
   data: Posting;
@@ -11,9 +11,7 @@ export default function Posting({ data }: PostingProps) {
       <p className="text-title1">{data.title}</p>
       <p className="py-30 text-subtitle2">{data.date} </p>
       <hr />
-      <div className="py-30 whitespace-pre-wrap text-subtitle1">
-        {data.content}
-      </div>
+      <div className="whitespace-pre-wrap py-30 text-subtitle1">{data.content}</div>
     </section>
   );
 }
