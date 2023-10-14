@@ -3,7 +3,7 @@ import { config } from '@/config';
 
 export const getServerIsAdmin = async () => {
   const password = await getServerCookie('password');
-  return password === config.adminPassword;
+  return password?.value === config.adminPassword;
 };
 
 export const getClientIsAdmin = () => {

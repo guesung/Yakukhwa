@@ -9,17 +9,17 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { deleteData } from '@/utils/firebaseController';
-import { getClientIsAdmin } from '@/utils/userController';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 interface BoardProps {
-  list: Posting[];
+  boardList: Posting[];
+  isAdmin: boolean;
 }
 
-export default function Board({ list }: BoardProps) {
+export default function Board({ boardList, isAdmin }: BoardProps) {
   const pathname = usePathname();
-  const isAdmin = getClientIsAdmin();
+
   const handleDelete = async (id: string) => {
     if (confirm('정말로 삭제하시겠습니까?')) {
       await deleteData('announcement', id);
@@ -39,7 +39,7 @@ export default function Board({ list }: BoardProps) {
         </TableHeader>
 
         <TableBody>
-          {list.map((item, index) => (
+          {boardList.map((item, index) => (
             <TableRow key={item.id} className="relative h-50 text-center">
               <TableCell className="shrink">{index + 1}</TableCell>
               <TableCell className="px-20 text-left">

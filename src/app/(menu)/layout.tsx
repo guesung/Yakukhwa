@@ -1,12 +1,14 @@
 import MenuLayout from '@/components/MenuLayout';
 import { getDevice } from '@/utils/getdevice';
+import { getServerIsAdmin } from '@/utils/userController';
 import { PropsWithChildren } from 'react';
 
-export default function layout({ children }: PropsWithChildren) {
+export default async function layout({ children }: PropsWithChildren) {
   const device = getDevice();
+  const isAdmin = await getServerIsAdmin();
   return (
     <>
-      {device === 'pc' && <MenuLayout />}
+      {device === 'pc' && <MenuLayout isAdmin={isAdmin} />}
       {children}
     </>
   );
