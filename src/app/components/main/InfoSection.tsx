@@ -15,6 +15,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Autoplay } from 'swiper/modules';
 import { useWindowSize } from '@/hooks';
+import { getDevice } from '@/utils/getdevice';
 
 export default function InfoSection() {
   const { slideRef, handlePrev, handleNext } = useSwiperController({
@@ -51,15 +52,19 @@ export default function InfoSection() {
             <div className="top-100 flex gap-20 p-20 py-10">
               <button
                 onClick={handlePrev}
-                className={cn('flex h-40 w-40 items-center justify-center rounded-full bg-white')}
+                className={cn(
+                  'flex items-center justify-center rounded-full bg-white mobile:h-30 mobile:w-30 pc:h-40 pc:w-40'
+                )}
               >
-                <Icon id="arrow_left" />
+                <Icon id="arrow_left" width={20} height={20} />
               </button>
               <button
                 onClick={handleNext}
-                className={cn('flex h-40 w-40 items-center justify-center rounded-full bg-white')}
+                className={cn(
+                  'flex items-center justify-center rounded-full bg-white mobile:h-30 mobile:w-30 pc:h-40 pc:w-40'
+                )}
               >
-                <Icon id="arrow_right" fill="white" />
+                <Icon id="arrow_right" width={20} height={20} />
               </button>
             </div>
           </div>
@@ -79,6 +84,7 @@ export default function InfoSection() {
                 delay: 3000,
                 disableOnInteraction: false,
               }}
+              spaceBetween={20}
             >
               {dummyData.GALLERYLIST.map((image) => (
                 <SwiperSlide key={image.id}>
