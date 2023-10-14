@@ -1,3 +1,5 @@
+import { CardType } from '@/app/type';
+
 export const dummyData = {
   ANNOUNCEMENT: [
     {
@@ -374,3 +376,46 @@ type Schedule = {
 type ScehduleList = {
   [key: number]: Schedule[];
 };
+
+export const DUMMYCARD_LIST: CardType[] = [
+  {
+    id: '1',
+    title: '첫 번째 카드',
+    date: '2023-10-14',
+    place: '예시 장소 1',
+    content: '이것은 첫 번째 카드의 내용입니다.',
+    image: '/images/gallery/1.jpeg',
+  },
+  {
+    id: '2',
+    title: '두 번째 카드',
+    date: '2023-10-15',
+    place: '예시 장소 2',
+    content: '이것은 두 번째 카드의 내용입니다.',
+    image: '/images/gallery/1.jpeg',
+  },
+  {
+    id: '3',
+    title: '세 번째 카드',
+    date: '2023-10-16',
+    place: '예시 장소 3',
+    content: '이것은 세 번째 카드의 내용입니다.',
+    image: '/images/gallery/1.jpeg',
+  },
+  {
+    id: '4',
+    title: '세 번째 카드',
+    date: '2023-10-16',
+    place: '예시 장소 3',
+    content: '이것은 세 번째 카드의 내용입니다.',
+    image: '/images/gallery/1.jpeg',
+  },
+  {
+    id: '5',
+    title: '세 번째 카드',
+    date: '2023-10-16',
+    place: '예시 장소 3',
+    content: '이것은 세 번째 카드의 내용입니다.',
+    image: '/images/gallery/1.jpeg',
+  },
+];

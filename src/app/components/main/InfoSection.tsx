@@ -14,12 +14,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Autoplay } from 'swiper/modules';
+import { useWindowSize } from '@/hooks';
 
 export default function InfoSection() {
   const { slideRef, handlePrev, handleNext } = useSwiperController({
     maxPage: 6,
   });
   const [open, setOpen] = useState(false);
+  const { width = 1400 } = useWindowSize();
 
   return (
     <section>
@@ -62,11 +64,11 @@ export default function InfoSection() {
             </div>
           </div>
 
-          <div className="mobile:min-w-500 pc:min-w-700">
+          <div className=" mobile:min-w-500 pc:min-w-700">
             <Swiper
-              spaceBetween={20}
+              // spaceBetween={20}
               className="mySwiper"
-              slidesPerView={2.5}
+              slidesPerView={width > 1400 ? 3 : 2}
               ref={slideRef}
               modules={[Autoplay]}
               autoplay={{
@@ -76,7 +78,7 @@ export default function InfoSection() {
             >
               {dummyData.GALLERYLIST.map((image) => (
                 <SwiperSlide key={image.id}>
-                  <div className="relative mobile:min-h-150 pc:h-250 pc:w-350">
+                  <div className="relative mobile:min-h-150 pc:h-250 pc:w-330">
                     <Image src={image.image} fill alt="galleryImage" className="rounded-xl" />
                   </div>
                 </SwiperSlide>
