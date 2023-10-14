@@ -1,10 +1,9 @@
-'use client';
 import Spacing from '@/components/Spacing';
 import { MAINLINKLIST } from '@/constants';
 import { cn } from '@/utils';
+import { getPath } from '@/utils/getPath';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { PropsWithChildren } from 'react';
 
 interface MenuLayoutProps extends PropsWithChildren {
@@ -12,9 +11,7 @@ interface MenuLayoutProps extends PropsWithChildren {
 }
 
 export default function MenuLayout({ isAdmin, children }: MenuLayoutProps) {
-  const pathname = usePathname();
-  const currentmainTitle = pathname.split('/')[1];
-  const currentsubTitle = pathname.split('/')[2].split('?')[0];
+  const { mainTitle: currentmainTitle, subTitle: currentsubTitle } = getPath();
   const subTitleList = MAINLINKLIST.find(
     (linkItem) => linkItem.mainTitle.path === currentmainTitle
   )?.subTitle;
