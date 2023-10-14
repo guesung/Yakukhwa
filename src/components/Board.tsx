@@ -13,11 +13,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 interface BoardProps {
-  list: Posting[];
+  boardList: Posting[];
   isAdmin: boolean;
 }
 
-export default function Board({ list, isAdmin }: BoardProps) {
+export default function Board({ boardList, isAdmin }: BoardProps) {
   const pathname = usePathname();
 
   const handleDelete = async (id: string) => {
@@ -39,7 +39,7 @@ export default function Board({ list, isAdmin }: BoardProps) {
         </TableHeader>
 
         <TableBody>
-          {list.map((item, index) => (
+          {boardList.map((item, index) => (
             <TableRow key={item.id} className="relative h-50 text-center">
               <TableCell className="shrink">{index + 1}</TableCell>
               <TableCell className="px-20 text-left">

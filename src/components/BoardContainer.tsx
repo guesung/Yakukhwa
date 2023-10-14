@@ -6,6 +6,7 @@ import { getPath } from '@/utils/getPath';
 export default async function BoardContainer() {
   const isAdmin = getIsAdmin();
   const { subTitle } = getPath();
-  const announcementList = await getData(subTitle || '');
-  return <Board list={announcementList} isAdmin={isAdmin} />;
+  const boardList = await getData(subTitle || '');
+
+  return <Board boardList={boardList} isAdmin={isAdmin} />;
 }
