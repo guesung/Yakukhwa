@@ -2,6 +2,7 @@ type LinkType = {
   name: string;
   path: string;
   outLink?: boolean;
+  banner?: string;
 };
 
 type MainLinkListType = Array<{
@@ -12,37 +13,37 @@ export const MAINLINKLIST: MainLinkListType = [
   {
     mainTitle: { name: '월출산국화축제', path: 'chrysanthemum-festival' },
     subTitle: [
-      { name: '축제소개', path: 'introduce' },
-      { name: '프롤로그', path: 'prologue' },
-      { name: '연혁', path: 'history' },
-      { name: '축제갤러리', path: 'gallery?page=1' },
+      { name: '축제소개', path: 'introduce', banner: '월출산국화축제란?' },
+      { name: '프롤로그', path: 'prologue', banner: '월출산국화축제 발자취' },
+      { name: '연혁', path: 'history', banner: '프롤로그' },
+      { name: '축제갤러리', path: 'gallery?page=1', banner: '축제갤러리' },
     ],
   },
   {
     mainTitle: { name: '프로그램', path: 'program' },
     subTitle: [
-      { name: '축제일정표', path: 'schedule' },
-      { name: '행사장 안내', path: 'venue' },
-      { name: '놀GO', path: 'fun-go' },
-      { name: '먹GO', path: 'eat-go' },
-      { name: '자GO', path: 'sleep-go' },
-      { name: '사GO', path: 'shop-go' },
+      { name: '축제일정표', path: 'schedule', banner: '축제일정표' },
+      { name: '행사장 안내', path: 'venue', banner: '행사장안내' },
+      { name: '놀GO', path: 'fun-go', banner: '놀GO' },
+      { name: '먹GO', path: 'eat-go', banner: '먹GO' },
+      { name: '자GO', path: 'sleep-go', banner: '자GO' },
+      { name: '사GO', path: 'shop-go', banner: '사GO' },
     ],
   },
   {
     mainTitle: { name: '사전신청', path: 'pre-application' },
     subTitle: [
-      { name: '축제프로그램', path: 'festival-program' },
-      { name: '사전 신청', path: 'pre-registration' },
+      { name: '축제프로그램', path: 'festival-program', banner: '축제프로그램' },
+      { name: '사전 신청', path: 'pre-registration', banner: '사전신청' },
     ],
   },
   {
     mainTitle: { name: '축제소식', path: 'festival-news' },
     subTitle: [
-      { name: '공지사항', path: 'announcement?page=1' },
-      { name: '이벤트', path: 'event' },
-      { name: '축제FAQ', path: 'faq' },
-      { name: '보도자료', path: 'press-release' },
+      { name: '공지사항', path: 'announcement?page=1', banner: '축제소식' },
+      { name: '이벤트', path: 'event', banner: '이벤트' },
+      { name: '축제FAQ', path: 'faq', banner: '축제FAQ' },
+      { name: '보도자료', path: 'press-release', banner: '보도자료' },
     ],
   },
   {

@@ -15,16 +15,15 @@ export default function MenuLayout({ isAdmin, children }: MenuLayoutProps) {
   const subTitleList = MAINLINKLIST.find(
     (linkItem) => linkItem.mainTitle.path === currentmainTitle
   )?.subTitle;
+  const banner = subTitleList?.find((subTitle) => subTitle.path === currentsubTitle)?.banner;
 
   return (
     <div className="px-50">
       <Spacing size={20} />
-      <article className="relative flex h-150 w-full items-center">
-        <Image src="/images/subtitle_background.jpeg" fill alt="subtitle" />
-        <p className="absolute top-0 z-10 flex h-full w-full flex-col justify-center py-10 text-center text-title2 text-white">
-          영암 월출산 국화축제에서
-          <br />
-          눈길을 사로잡는 작품들의 시각적 아름다움을 느껴보세요!
+      <article className="relative  items-center">
+        <Image src="/images/subtitle_background.png" width={1000} height={100} alt="subtitle" />
+        <p className="absolute top-0 z-10 flex h-full w-full flex-col justify-center py-10 text-center text-title2 ">
+          {banner}
         </p>
       </article>
 
