@@ -1,5 +1,5 @@
 const pxToRem: { [key: string]: string } = {};
-for (let i = 0; i <= 1024; i++) {
+for (let i = 0; i <= 2048; i++) {
   pxToRem[i.toString()] = `${(i * 0.0625).toFixed(4)}rem`;
 }
 
