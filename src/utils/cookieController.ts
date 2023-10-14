@@ -13,6 +13,7 @@ export const setClientCookie = (key: string, value: string, options?: { expires?
 };
 
 export const getClientCookie = (key: string) => {
+  if (typeof window === 'undefined') return;
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${key}=`);
   return parts.pop()?.split(';').shift();
