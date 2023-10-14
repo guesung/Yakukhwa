@@ -384,7 +384,7 @@ export const DUMMYCARD_LIST: CardType[] = [
     date: '2023-10-14',
     place: '예시 장소 1',
     content: '이것은 첫 번째 카드의 내용입니다.',
-    image: '/images/gallery/1.jpeg',
+    imageUrl: '/images/gallery/1.jpeg',
   },
   {
     id: '2',
@@ -392,7 +392,7 @@ export const DUMMYCARD_LIST: CardType[] = [
     date: '2023-10-15',
     place: '예시 장소 2',
     content: '이것은 두 번째 카드의 내용입니다.',
-    image: '/images/gallery/1.jpeg',
+    imageUrl: '/images/gallery/1.jpeg',
   },
   {
     id: '3',
@@ -400,7 +400,7 @@ export const DUMMYCARD_LIST: CardType[] = [
     date: '2023-10-16',
     place: '예시 장소 3',
     content: '이것은 세 번째 카드의 내용입니다.',
-    image: '/images/gallery/1.jpeg',
+    imageUrl: '/images/gallery/1.jpeg',
   },
   {
     id: '4',
@@ -408,7 +408,7 @@ export const DUMMYCARD_LIST: CardType[] = [
     date: '2023-10-16',
     place: '예시 장소 3',
     content: '이것은 세 번째 카드의 내용입니다.',
-    image: '/images/gallery/1.jpeg',
+    imageUrl: '/images/gallery/1.jpeg',
   },
   {
     id: '5',
@@ -416,6 +416,6 @@ export const DUMMYCARD_LIST: CardType[] = [
     date: '2023-10-16',
     place: '예시 장소 3',
     content: '이것은 세 번째 카드의 내용입니다.',
-    image: '/images/gallery/1.jpeg',
+    imageUrl: '/images/gallery/1.jpeg',
   },
 ];

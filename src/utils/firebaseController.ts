@@ -21,9 +21,9 @@ const FIREBASE_CONFIG = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-const app = initializeApp(FIREBASE_CONFIG);
-const db = getFirestore(app);
-const auth = getAuth(app);
+export const app = initializeApp(FIREBASE_CONFIG);
+export const db = getFirestore(app);
+export const auth = getAuth(app);
 
 export const getData = async (table: string) => {
   const q = query(collection(db, table));

@@ -21,12 +21,12 @@ interface CardItemProps {
 }
 
 function CardItem({ card }: CardItemProps) {
-  const { id, title, date, place, content, image } = card;
+  const { id, title, date, place, content, imageUrl } = card;
 
   return (
     <article className="flex w-380 flex-col rounded-t-xl rounded-bl-xl shadow-xl">
       <div className="relative h-200">
-        {image && <Image src={image} alt={title} fill className="rounded-t-xl" />}
+        {imageUrl && <Image src={imageUrl} alt={title} fill className="rounded-t-xl" />}
       </div>
       <div className="h-200 p-20">
         <h1 className="text-subtitle1">{title}</h1>
