@@ -20,7 +20,7 @@ interface GalleryItemProps {
 }
 
 function GalleryItem({ gallery }: GalleryItemProps) {
-  const { id, title, image } = gallery;
+  const { id, title, imageUrl } = gallery;
 
   return (
     <article>
@@ -30,7 +30,7 @@ function GalleryItem({ gallery }: GalleryItemProps) {
       >
         <Image src="/images/frame.png" fill alt="frame" className="z-10" />
 
-        <Image key={image} src={image} width={400} height={400} alt="gallery" />
+        <Image src={imageUrl} width={400} height={400} alt={title} />
       </div>
       <p className="py-10 text-center">{title}</p>
     </article>

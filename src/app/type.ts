@@ -17,5 +17,5 @@ export type CardType = {
 export interface GalleryType {
   id: string;
   title: string;
-  image: string;
+  imageUrl: string;
 }
