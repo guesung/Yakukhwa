@@ -11,5 +11,5 @@ export type CardType = {
   date: string;
   place: string;
   content: string;
-  image?: string;
+  imageUrl?: string;
 };

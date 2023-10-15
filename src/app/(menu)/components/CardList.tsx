@@ -1,32 +1,52 @@
+'use client';
 import { CardType } from '@/app/type';
 import Spacing from '@/components/Spacing';
+import { deleteData } from '@/utils';
 import Image from 'next/image';
 
 interface CardListProps {
   cardList: CardType[];
+  isAdmin: boolean;
+  category: string;
 }
 
-export default function CardList({ cardList }: CardListProps) {
+export default function CardList({ cardList, ...props }: CardListProps) {
   return (
-    <article className="flex flex-wrap justify-center gap-30">
+    <section className="flex flex-wrap justify-center gap-30">
       {cardList.map((card) => (
-        <CardItem key={card.id} card={card} />
+        <CardItem key={card.id} card={card} {...props} />
       ))}
-    </article>
+    </section>
   );
 }
 
 interface CardItemProps {
   card: CardType;
+  isAdmin: boolean;
+  category: string;
 }
 
-function CardItem({ card }: CardItemProps) {
-  const { id, title, date, place, content, image } = card;
+function CardItem({ card, isAdmin, category }: CardItemProps) {
+  const { id, title, date, place, content, imageUrl } = card;
+  const handleDeleteCard = async (id: string) => {
+    if (confirm('정말로 삭제하시겠습니까?')) {
+      await deleteData(category, id);
+      alert('삭제되었습니다.');
+    }
+  };
 
   return (
     <article className="flex w-380 flex-col rounded-t-xl rounded-bl-xl shadow-xl">
       <div className="relative h-200">
-        {image && <Image src={image} alt={title} fill className="rounded-t-xl" />}
+        {imageUrl && <Image src={imageUrl} alt={title} fill className="rounded-t-xl" />}
+        {isAdmin && (
+          <span
+            className="absolute right-10 top-10 text-title3"
+            onClick={() => handleDeleteCard(id)}
+          >
+            X
+          </span>
+        )}
       </div>
       <div className="h-200 p-20">
         <h1 className="text-subtitle1">{title}</h1>

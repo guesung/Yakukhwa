@@ -1,6 +1,6 @@
 import { getData } from '@/utils';
 import { getIsAdmin } from '@/utils/getIsAdmin';
-import Board from './Board';
+import BoardList from './BoardList';
 import { getPath } from '@/utils/getPath';
 
 export default async function BoardContainer() {
@@ -8,5 +8,5 @@ export default async function BoardContainer() {
   const { subTitle } = getPath();
   const boardList = await getData(subTitle);
 
-  return <Board boardList={boardList} isAdmin={isAdmin} />;
+  return <BoardList boardList={boardList} isAdmin={isAdmin} />;
 }
