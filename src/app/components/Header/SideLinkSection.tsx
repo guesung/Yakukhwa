@@ -39,7 +39,7 @@ export default function SideLinkSection() {
                   <AccordionContent key={subTitle.name}>
                     <Link
                       className="block h-full w-full border-y border-gray-2 bg-brand-3 py-10 text-title4 text-white"
-                      href={`/${linkItem.mainTitle.path}/${subTitle.path}`}
+                      href={`/${linkItem.mainTitle.path}/${subTitle.path}?page=1`}
                     >
                       {subTitle.name}
                     </Link>

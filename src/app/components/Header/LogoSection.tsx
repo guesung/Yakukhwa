@@ -6,7 +6,7 @@ export default function LogoSection() {
   const device = getDevice();
   return (
     <Link
-      className="flex items-center px-20 py-20 mobile:justify-start pc:justify-center "
+      className="items-center px-20 py-20 mobile:w-200 mobile:justify-start pc:flex pc:justify-center"
       href="/"
     >
       <Image

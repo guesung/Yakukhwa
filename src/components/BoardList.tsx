@@ -19,7 +19,7 @@ interface BoardListProps {
 
 export default function BoardList({ boardList, isAdmin }: BoardListProps) {
   return (
-    <section className="px-50">
+    <section className="pc:px-50">
       <Table>
         <TableHeader className="h-50 text-center">
           <TableRow>
