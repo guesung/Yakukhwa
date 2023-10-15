@@ -13,7 +13,7 @@ export default async function GalleryContainer() {
 
   return (
     <main>
-      <GalleryList galleryList={boardList} isAdmin={isAdmin} />
+      <GalleryList galleryList={boardList} isAdmin={isAdmin} category={subTitle} />
       <PageList maxPage={10} currentPage={+page} />
     </main>
   );

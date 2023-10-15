@@ -16,6 +16,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Autoplay } from 'swiper/modules';
+import { useRouter } from 'next/navigation';
 
 interface InfoSectionProps {
   galleryList: GalleryType[];
@@ -26,6 +27,7 @@ export default function InfoSection({ galleryList }: InfoSectionProps) {
     maxPage: 6,
   });
   const [open, setOpen] = useState(false);
+  const router = useRouter();
   const { width = 1400 } = useWindowSize();
 
   return (
@@ -91,11 +93,14 @@ export default function InfoSection({ galleryList }: InfoSectionProps) {
               spaceBetween={20}
               loop={true}
             >
-              {galleryList.map((image) => (
-                <SwiperSlide key={image.id}>
-                  <div className="relative mobile:min-h-150 pc:h-250 pc:w-330">
-                    <Image src={image.imageUrl} fill alt="galleryImage" className="rounded-xl" />
-                  </div>
+              {galleryList.map((gallery) => (
+                <SwiperSlide key={gallery.id}>
+                  <Link
+                    className="relative block cursor-pointer mobile:min-h-150 pc:h-250 pc:w-330"
+                    href="/chrysanthemum-festival/gallery?page=1"
+                  >
+                    <Image src={gallery.imageUrl} fill alt={gallery.title} className="rounded-xl" />
+                  </Link>
                 </SwiperSlide>
               ))}
             </Swiper>
