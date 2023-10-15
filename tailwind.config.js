@@ -19,10 +19,10 @@ module.exports = {
       fontSize,
       screens: {
         mobile: {
-          max: '450px',
+          max: '1000px',
         },
         pc: {
-          min: '451px',
+          min: '1001px',
         },
         'pc-overflow': {
           min: '1400px',

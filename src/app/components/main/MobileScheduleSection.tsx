@@ -10,6 +10,7 @@ export default function MobileScheduleSection() {
       alt="축제일정 바로가기"
       width={450}
       height={200}
+      className="mx-auto"
       onClick={() => router.push('/program/schedule')}
     />
   );

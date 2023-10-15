@@ -8,13 +8,15 @@ import { getData } from '@/utils';
 export default async function page() {
   const device = getDevice();
   const galleryList = await getData('gallery');
+  const announcementList = await getData('announcement');
+  const mainImageList = await getData('main-image');
 
   return (
     <main>
-      <SignSection />
+      <SignSection mainImageList={mainImageList} />
       {device === 'pc' && <ScheduleSection />}
       {device === 'mobile' && <MobileScheduleSection />}
-      <InfoSection galleryList={galleryList} />
+      <InfoSection galleryList={galleryList} announcementList={announcementList} />
     </main>
   );
 }
