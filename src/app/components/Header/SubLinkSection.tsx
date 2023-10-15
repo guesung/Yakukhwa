@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function SubLinkSection() {
   return (
-    <section className="bg-brand-300 absolute right-100 top-0 flex rounded-b-xl bg-green text-white mobile:right-0">
+    <section className="bg-brand-300 absolute right-100 top-0 flex rounded-b-xl bg-green text-white ">
       {SUBLINKLIST.map((linkItem, index) => (
         <LinkItem linkItem={linkItem} key={index} />
       ))}

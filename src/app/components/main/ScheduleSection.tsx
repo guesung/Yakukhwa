@@ -14,7 +14,7 @@ import 'swiper/css/pagination';
 import Icon from '@/components/Icon';
 import Spacing from '@/components/Spacing';
 
-const pageList = [1, 2, 3];
+const pageList = [1];
 
 export default function ScheduleSection() {
   const { slideRef, handlePrev, handleNext, hasPrev, hasNext } = useSwiperController({
@@ -32,12 +32,12 @@ export default function ScheduleSection() {
         <Swiper ref={slideRef} touchAngle={0}>
           {pageList.map((page) => (
             <SwiperSlide key={page}>
-              <div className="gap-x-10 overflow-hidden pc:grid pc:grid-cols-8">
+              <div className="grid grid-cols-8 gap-x-10 overflow-hidden">
                 {DateController.getDateList(new Date(), page).map((date, index) => (
                   <p
                     key={date.date}
                     className={cn('whitespace-nowrap text-title4 text-gray-6', {
-                      'cursor-pointer text-black': festivalDateArray.includes(date.date),
+                      'cursor-pointer text-black': numberOfDay === index + 1,
                       'row-start-1': index < 8,
                       'row-start-2': index >= 8,
                     })}
@@ -51,14 +51,14 @@ export default function ScheduleSection() {
           ))}
         </Swiper>
 
-        <div className="absolute right-80 top-100 flex gap-20">
+        {/* <div className="absolute right-80 top-100 flex gap-20">
           <button onClick={handlePrev} className={cn({ 'opacity-20': !hasPrev })}>
             <Icon id="arrow_left" />
           </button>
           <button onClick={handleNext} className={cn({ 'opacity-20': !hasNext })}>
             <Icon id="arrow_right" fill="white" />
           </button>
-        </div>
+        </div> */}
       </article>
 
       <article className="flex h-200 flex-col justify-center">
