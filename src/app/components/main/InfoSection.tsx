@@ -16,7 +16,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Autoplay } from 'swiper/modules';
-import { useRouter } from 'next/navigation';
 
 interface InfoSectionProps {
   galleryList: GalleryType[];
@@ -27,7 +26,6 @@ export default function InfoSection({ galleryList }: InfoSectionProps) {
     maxPage: 6,
   });
   const [open, setOpen] = useState(false);
-  const router = useRouter();
   const { width = 1400 } = useWindowSize();
 
   return (
