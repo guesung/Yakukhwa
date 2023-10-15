@@ -71,16 +71,13 @@ export const MAINLINKLIST: MainLinkListType = [
       },
     ],
   },
+];
+
+export const ADMIN_LINK_LIST: LinkType[] = [
   {
-    mainTitle: { name: '어드민', path: 'admin' },
-    subTitle: [
-      {
-        name: '메인 이미지',
-        path: 'main-image',
-        banner: '메인 이미지',
-        type: 'gallery',
-      },
-    ],
+    name: '메인 이미지',
+    path: 'main-image',
+    type: 'gallery',
   },
 ];
 
