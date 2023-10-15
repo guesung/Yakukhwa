@@ -73,6 +73,19 @@ export const MAINLINKLIST: MainLinkListType = [
   },
 ];
 
+export const ADMIN_LINK_LIST: LinkType[] = [
+  {
+    name: '메인 이미지',
+    path: 'main-image',
+    type: 'gallery',
+  },
+  {
+    name: '스케줄',
+    path: 'schedule',
+    type: 'schedule',
+  },
+];
+
 type SubLinkListType = LinkType[];
 
 export const SUBLINKLIST: SubLinkListType = [
