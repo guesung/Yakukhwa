@@ -52,6 +52,8 @@ export default function MenuLayout({ isAdmin, children }: MenuLayoutProps) {
         )}
       </article>
 
+      <Spacing size={30} />
+
       {children}
     </div>
   );
