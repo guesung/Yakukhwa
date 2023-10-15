@@ -74,7 +74,7 @@ export default function InfoSection({ galleryList }: InfoSectionProps) {
           </div>
 
           <div
-            className={cn('mx-auto  mobile:min-w-500 pc:min-w-700 ', {
+            className={cn('mx-auto mobile:min-w-400 pc:min-w-700 ', {
               'pc:max-w-700': width < 1400,
               'pc:max-w-1200': width > 1400,
             })}
@@ -89,7 +89,7 @@ export default function InfoSection({ galleryList }: InfoSectionProps) {
                 disableOnInteraction: false,
               }}
               spaceBetween={20}
-              loop={true}
+              loop
             >
               {galleryList.map((gallery) => (
                 <SwiperSlide key={gallery.id}>
