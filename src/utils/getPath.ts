@@ -6,6 +6,8 @@ export const getPath = () => {
   if (!url) return { mainTitle: '', subTitle: '' };
   const mainTitle = url.split('/')[3];
   const subTitle = url.split('/')[4].split('?')[0];
-  const searchParams = url.split('/')[5];
-  return { mainTitle, subTitle, searchParams };
+  const params = url.split('/')[5];
+  const [key, value] = url.split('?')[1].split('=');
+  const searchParams = { [key]: value };
+  return { mainTitle, subTitle, params, searchParams };
 };

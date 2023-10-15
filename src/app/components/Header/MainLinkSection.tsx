@@ -13,6 +13,7 @@ export default function MainLinkSection() {
   useEffect(() => {
     setIsActive(false);
   }, [pathname]);
+
   return (
     <section
       className="sticky top-0 z-20 flex justify-center bg-white text-center"
@@ -35,7 +36,7 @@ export default function MainLinkSection() {
             href={
               linkItem.subTitle[0].outLink
                 ? linkItem.subTitle[0].path
-                : `/${linkItem.mainTitle.path}/${linkItem.subTitle[0].path}`
+                : `/${linkItem.mainTitle.path}/${linkItem.subTitle[0].path}?page=1`
             }
             className="flex h-50 cursor-pointer items-center justify-center text-title4"
             onMouseEnter={() => setIsActive(true)}
@@ -62,7 +63,7 @@ export default function MainLinkSection() {
                     href={
                       subTitle.outLink
                         ? subTitle.path
-                        : `/${linkItem.mainTitle.path}/${subTitle.path}`
+                        : `/${linkItem.mainTitle.path}/${subTitle.path}?page=1`
                     }
                   >
                     {subTitle.name}

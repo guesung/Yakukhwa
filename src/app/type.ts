@@ -13,3 +13,9 @@ export type CardType = {
   content: string;
   imageUrl?: string;
 };
+
+export interface GalleryType {
+  id: string;
+  title: string;
+  imageUrl: string;
+}

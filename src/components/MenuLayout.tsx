@@ -17,6 +17,7 @@ export default function MenuLayout({ isAdmin, children }: MenuLayoutProps) {
     (linkItem) => linkItem.mainTitle.path === currentmainTitle
   )?.subTitle;
   const banner = subTitleList?.find((subTitle) => subTitle.path === currentsubTitle)?.banner;
+  const type = subTitleList?.find((subTitle) => subTitle.path === currentsubTitle)?.type;
 
   return (
     <div>
@@ -31,7 +32,7 @@ export default function MenuLayout({ isAdmin, children }: MenuLayoutProps) {
       <article className="relative flex h-60 w-full justify-center gap-50 border-b">
         {subTitleList?.map((subTitle) => (
           <Link
-            href={`/${currentmainTitle}/${subTitle.path}`}
+            href={`/${currentmainTitle}/${subTitle.path}?page=1`}
             key={subTitle.name}
             className={cn('flex items-center text-center text-title4', {
               'border-b-2 border-orange text-orange':
@@ -41,7 +42,7 @@ export default function MenuLayout({ isAdmin, children }: MenuLayoutProps) {
             {subTitle.name}
           </Link>
         ))}
-        {isAdmin && (
+        {isAdmin && type && (
           <Link
             className="absolute inset-y-0 right-0 my-auto flex items-center"
             href={`/admin/write?category=${currentsubTitle}`}
@@ -50,6 +51,8 @@ export default function MenuLayout({ isAdmin, children }: MenuLayoutProps) {
           </Link>
         )}
       </article>
+
+      <Spacing size={30} />
 
       {children}
     </div>

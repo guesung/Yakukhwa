@@ -17,7 +17,7 @@ export const MAINLINKLIST: MainLinkListType = [
       { name: '축제소개', path: 'introduce', banner: '월출산국화축제란?' },
       { name: '프롤로그', path: 'prologue', banner: '월출산국화축제 발자취' },
       { name: '연혁', path: 'history', banner: '프롤로그' },
-      { name: '축제갤러리', path: 'gallery', banner: '축제갤러리' },
+      { name: '축제갤러리', path: 'gallery', banner: '축제갤러리', type: 'gallery' },
     ],
   },
   {
@@ -41,7 +41,7 @@ export const MAINLINKLIST: MainLinkListType = [
   {
     mainTitle: { name: '축제소식', path: 'festival-news' },
     subTitle: [
-      { name: '공지사항', path: 'announcement?page=1', banner: '축제소식', type: 'board' },
+      { name: '공지사항', path: 'announcement', banner: '축제소식', type: 'board' },
       { name: '이벤트', path: 'event', banner: '이벤트' },
       { name: '축제FAQ', path: 'faq', banner: '축제FAQ', type: 'board' },
       { name: '보도자료', path: 'press-release', banner: '보도자료' },
