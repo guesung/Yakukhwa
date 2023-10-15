@@ -25,8 +25,8 @@ export default function SignSection() {
           <Image
             src={`/images/main_image.jpeg`}
             alt="flower"
-            width={1000}
-            height={1000}
+            width={1400}
+            height={1400}
             className="mx-auto"
           />
         </SwiperSlide>
