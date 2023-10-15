@@ -72,12 +72,6 @@ export interface AnnouncementType {
   date: string;
 }
 
-export interface GalleryListType {
-  id: string;
-  title: string;
-  image: string;
-}
-
 export const DUMMY_SCHEDULE_LIST: ScehduleList = {
   1: [
     {
