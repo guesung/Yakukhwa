@@ -1,23 +1,27 @@
 'use client';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import Icon from '@/components/Icon';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { GalleryType } from '@/app/type';
 import Modal from '@/components/Modal';
 import Spacing from '@/components/Spacing';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
-import { InfoLinkList, dummyData } from '@/constants';
+import { InfoLinkList } from '@/constants';
+import { useWindowSize } from '@/hooks';
 import useSwiperController from '@/hooks/useSwipeController';
 import { cn } from '@/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Autoplay } from 'swiper/modules';
-import { useWindowSize } from '@/hooks';
-import { getDevice } from '@/utils/getdevice';
 
-export default function InfoSection() {
+interface InfoSectionProps {
+  galleryList: GalleryType[];
+}
+
+export default function InfoSection({ galleryList }: InfoSectionProps) {
   const { slideRef, handlePrev, handleNext } = useSwiperController({
     maxPage: 6,
   });
@@ -87,10 +91,10 @@ export default function InfoSection() {
               spaceBetween={20}
               loop={true}
             >
-              {dummyData.GALLERYLIST.map((image) => (
+              {galleryList.map((image) => (
                 <SwiperSlide key={image.id}>
                   <div className="relative mobile:min-h-150 pc:h-250 pc:w-330">
-                    <Image src={image.image} fill alt="galleryImage" className="rounded-xl" />
+                    <Image src={image.imageUrl} fill alt="galleryImage" className="rounded-xl" />
                   </div>
                 </SwiperSlide>
               ))}
