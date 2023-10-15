@@ -22,9 +22,7 @@ interface InfoSectionProps {
 }
 
 export default function InfoSection({ galleryList }: InfoSectionProps) {
-  const { slideRef, handlePrev, handleNext } = useSwiperController({
-    maxPage: 6,
-  });
+  const { slideRef, handlePrev, handleNext } = useSwiperController({ maxPage: Infinity });
   const [open, setOpen] = useState(false);
   const { width = 1400 } = useWindowSize();
 
@@ -89,7 +87,7 @@ export default function InfoSection({ galleryList }: InfoSectionProps) {
                 disableOnInteraction: false,
               }}
               spaceBetween={20}
-              loop
+              loop={true}
             >
               {galleryList.map((gallery) => (
                 <SwiperSlide key={gallery.id}>
