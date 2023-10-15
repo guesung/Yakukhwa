@@ -40,7 +40,7 @@ export const MAINLINKLIST: MainLinkListType = [
   {
     mainTitle: { name: '축제소식', path: 'festival-news' },
     subTitle: [
-      { name: '공지사항', path: 'announcement?page=1', banner: '축제소식' },
+      { name: '공지사항', path: 'announcement?page=1', banner: '축제소식', type: 'board' },
       { name: '이벤트', path: 'event', banner: '이벤트' },
       { name: '축제FAQ', path: 'faq', banner: '축제FAQ' },
       { name: '보도자료', path: 'press-release', banner: '보도자료' },
