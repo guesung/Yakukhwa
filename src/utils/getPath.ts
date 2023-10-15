@@ -9,6 +9,5 @@ export const getPath = () => {
   const params = url.split('/')[5];
   const [key, value] = url.split('?')[1].split('=');
   const searchParams = { [key]: value };
-  console.log(searchParams);
   return { mainTitle, subTitle, params, searchParams };
 };

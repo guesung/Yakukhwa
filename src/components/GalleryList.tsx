@@ -3,9 +3,10 @@ import Image from 'next/image';
 
 interface GallerySectionProps {
   galleryList: GalleryType[];
+  isAdmin: boolean;
 }
 
-export default function GalleryList({ galleryList }: GallerySectionProps) {
+export default function GalleryList({ galleryList, isAdmin }: GallerySectionProps) {
   return (
     <section className="grid grid-cols-2 gap-x-10 gap-y-20">
       {galleryList.map((gallery) => (

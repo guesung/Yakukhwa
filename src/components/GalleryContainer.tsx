@@ -1,15 +1,19 @@
-import { dummyData } from '@/constants';
 import PageList from '@/components/PageList';
-import GalleryList from './GalleryList';
 import { getPath } from '@/utils/getPath';
+import GalleryList from './GalleryList';
 
-export default function GalleryContainer() {
-  const { mainTitle, subTitle, searchParams } = getPath();
+import { getData } from '@/utils';
+import { getIsAdmin } from '@/utils/getIsAdmin';
+
+export default async function GalleryContainer() {
+  const { subTitle, searchParams } = getPath();
   const page = searchParams?.page || '1';
+  const isAdmin = getIsAdmin();
+  const boardList = await getData(subTitle);
 
   return (
     <main>
-      <GalleryList galleryList={dummyData.GALLERYLIST.slice((+page - 1) * 4, +page * 4)} />
+      <GalleryList galleryList={boardList} isAdmin={isAdmin} />
       <PageList maxPage={10} currentPage={+page} />
     </main>
   );
