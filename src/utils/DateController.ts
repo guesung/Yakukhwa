@@ -25,8 +25,11 @@ export class DateController {
   };
 
   static getDateList = (date: Date, page: number) => {
+    const startDate = new Date(date);
+    startDate.setMonth(10);
+    startDate.setDate(28);
     const dateList = [];
-    date.setDate(date.getDate() + 16 * (page - 1));
+    date.setDate(startDate.getDate() + 16 * (page - 1));
     for (let i = 0; i < 16; i++) {
       dateList.push(DateController.formatDate(new Date(date)));
       date.setDate(date.getDate() + 1);
