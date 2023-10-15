@@ -7,8 +7,13 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
+import { GalleryType } from '@/app/type';
 
-export default function SignSection() {
+interface SignSectionProps {
+  mainImageList: GalleryType[];
+}
+
+export default function SignSection({ mainImageList }: SignSectionProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -21,15 +26,18 @@ export default function SignSection() {
         className="mySwiper relative"
         autoplay
       >
-        <SwiperSlide>
-          <Image
-            src={`/images/main_image.jpeg`}
-            alt="flower"
-            width={1400}
-            height={1400}
-            className="mx-auto"
-          />
-        </SwiperSlide>
+        {mainImageList.map((mainImage) => (
+          <SwiperSlide key={mainImage.id}>
+            <Image
+              src={mainImage.imageUrl}
+              alt={mainImage.title}
+              width={1400}
+              height={1400}
+              className="mx-auto"
+            />
+          </SwiperSlide>
+        ))}
+
         <div
           className="absolute inset-x-0 bottom-20 z-10 mx-auto flex h-30 w-30 cursor-pointer items-center justify-center rounded-full bg-white"
           onClick={() => {

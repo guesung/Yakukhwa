@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { GalleryType } from '@/app/type';
+import { GalleryType, Posting } from '@/app/type';
 import Modal from '@/components/Modal';
 import Spacing from '@/components/Spacing';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
@@ -19,9 +19,10 @@ import { Autoplay } from 'swiper/modules';
 
 interface InfoSectionProps {
   galleryList: GalleryType[];
+  announcementList: Posting[];
 }
 
-export default function InfoSection({ galleryList }: InfoSectionProps) {
+export default function InfoSection({ galleryList, announcementList }: InfoSectionProps) {
   const { slideRef, handlePrev, handleNext } = useSwiperController({ maxPage: Infinity });
   const [open, setOpen] = useState(false);
   const { width = 1400 } = useWindowSize();
@@ -35,8 +36,13 @@ export default function InfoSection({ galleryList }: InfoSectionProps) {
         >
           행사소식
         </Link>
-        <span className="grow text-subtitle2">2022 월출산국화축제 스텝 모집</span>
-        <span className="w-100 text-subtitle2">2022-08-11</span>
+        <Link
+          href={`/festival-news/announcement/${announcementList[0].id}`}
+          className="grow text-subtitle2"
+        >
+          {announcementList[0].title}
+        </Link>
+        <span className="w-100 text-subtitle2">{announcementList[0].date}</span>
         <span className="text-title4 mobile:w-30 pc:w-50">+</span>
       </article>
 

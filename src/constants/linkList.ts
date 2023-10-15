@@ -71,6 +71,17 @@ export const MAINLINKLIST: MainLinkListType = [
       },
     ],
   },
+  {
+    mainTitle: { name: '어드민', path: 'admin' },
+    subTitle: [
+      {
+        name: '메인 이미지',
+        path: 'main-image',
+        banner: '메인 이미지',
+        type: 'gallery',
+      },
+    ],
+  },
 ];
 
 type SubLinkListType = LinkType[];
