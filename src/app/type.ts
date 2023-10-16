@@ -25,5 +25,6 @@ export interface Schedule {
   scheduleList: Array<{
     time: string;
     place: string;
+    imageUrl: string;
   }>;
 }
