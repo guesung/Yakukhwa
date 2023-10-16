@@ -1,4 +1,4 @@
-import Posting from '@/components/Posting/Posting';
+import Posting from './Posting';
 import { getData } from '@/utils/firebaseController';
 import { getPath } from '@/utils/getPath';
 
