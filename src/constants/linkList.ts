@@ -79,6 +79,11 @@ export const ADMIN_LINK_LIST: LinkType[] = [
     path: 'main-image',
     type: 'gallery',
   },
+  {
+    name: '스케줄',
+    path: 'schedule',
+    type: 'schedule',
+  },
 ];
 
 type SubLinkListType = LinkType[];

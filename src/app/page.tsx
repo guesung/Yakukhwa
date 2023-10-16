@@ -10,11 +10,12 @@ export default async function page() {
   const galleryList = await getData('gallery');
   const announcementList = await getData('announcement');
   const mainImageList = await getData('main-image');
+  const scheduleList = await getData('schedule');
 
   return (
     <main>
       <SignSection mainImageList={mainImageList} />
-      {device === 'pc' && <ScheduleSection />}
+      {device === 'pc' && <ScheduleSection scheduleList={scheduleList} />}
       {device === 'mobile' && <MobileScheduleSection />}
       <InfoSection galleryList={galleryList} announcementList={announcementList} />
     </main>

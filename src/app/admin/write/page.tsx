@@ -2,6 +2,7 @@ import { ADMIN_LINK_LIST, MAINLINKLIST } from '@/constants';
 import BoardForm from './components/BoardForm';
 import CardForm from './components/CardForm';
 import GalleryForm from './components/GalleryForm';
+import ScheduleForm from './components/ScheduleForm';
 
 interface PageProps {
   searchParams: {
@@ -20,6 +21,7 @@ export default async function page({ searchParams: { category } }: PageProps) {
       {type === 'board' && <BoardForm category={category} />}
       {type === 'card' && <CardForm category={category} />}
       {type === 'gallery' && <GalleryForm category={category} />}
+      {type === 'schedule' && <ScheduleForm category={category} />}
     </main>
   );
 }

@@ -19,3 +19,12 @@ export interface GalleryType {
   title: string;
   imageUrl: string;
 }
+
+export interface Schedule {
+  date: string;
+  scheduleList: Array<{
+    time: string;
+    place: string;
+    imageUrl: string;
+  }>;
+}
