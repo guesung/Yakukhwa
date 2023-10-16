@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { useGetPath } from '@/hooks';
 import { deleteData } from '@/utils/firebaseController';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -47,9 +48,10 @@ interface BoardItemProps {
 
 function BoardItem({ board, isAdmin, index }: BoardItemProps) {
   const { id, title, date } = board;
+  const { subTitle } = useGetPath();
   const handleDelete = async (id: string) => {
     if (confirm('정말로 삭제하시겠습니까?')) {
-      await deleteData('announcement', id);
+      await deleteData(subTitle, id);
       alert('삭제되었습니다.');
     }
   };
