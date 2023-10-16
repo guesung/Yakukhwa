@@ -7,15 +7,15 @@ import Header from './components/Header';
 import MainLinkSection from './components/Header/MainLinkSection';
 import SideLinkSection from './components/Header/SideLinkSection';
 import './globals.css';
-import { BASE_WEB_URL } from '@/constants';
 import Analytics from '@/components/Analytics';
+import { config } from '@/config';
 
 const DEFAULT_OG_TITLE = '2023 월출산국화축제';
 const DEFAULT_OG_DESC = '2023 월출산국화축제';
 const DEFAULT_OG_IMAGE = '/images/main_logo.png';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(BASE_WEB_URL),
+  metadataBase: new URL(config.baseUrl),
   title: {
     template: `${DEFAULT_OG_TITLE} / %s `,
     default: DEFAULT_OG_TITLE,
