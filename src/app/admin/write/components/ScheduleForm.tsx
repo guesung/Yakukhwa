@@ -1,4 +1,5 @@
 'use client';
+import Input from '@/components/Input';
 import { postData, uploadImage } from '@/utils';
 import { useRouter } from 'next/navigation';
 import { useFieldArray, useForm } from 'react-hook-form';
@@ -38,8 +39,8 @@ export default function ScheduleForm({ category }: FormProps) {
         image: '',
       })),
     });
-    // router.refresh();
-    // router.back();
+    router.refresh();
+    router.back();
   };
 
   return (
@@ -51,27 +52,21 @@ export default function ScheduleForm({ category }: FormProps) {
             <div key={field.id}>
               <section key={field.id}>
                 시간 :
-                <input
+                <Input
                   placeholder="time"
-                  {...register(`scheduleList.${index}.time` as const, {
+                  register={register(`scheduleList.${index}.time` as const, {
                     required: true,
                   })}
-                  className="border"
                 />
                 장소 :
-                <input
+                <Input
                   placeholder="place"
-                  {...register(`scheduleList.${index}.place` as const, {
+                  register={register(`scheduleList.${index}.place` as const, {
                     required: true,
                   })}
-                  className="border"
                 />
                 이미지 :
-                <input
-                  {...register(`scheduleList.${index}.image` as const)}
-                  className="border"
-                  type="file"
-                />
+                <Input register={register(`scheduleList.${index}.image` as const)} type="file" />
                 <button type="button" onClick={() => remove(index)}>
                   제거
                 </button>

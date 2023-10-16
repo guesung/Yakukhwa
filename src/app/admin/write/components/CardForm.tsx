@@ -1,4 +1,5 @@
 'use client';
+import Input from '@/components/Input';
 import Spacing from '@/components/Spacing';
 import { postData, uploadImage } from '@/utils';
 import { useRouter } from 'next/navigation';
@@ -31,22 +32,22 @@ export default function CardForm({ category }: FormProps) {
     <form className="px-50" onSubmit={handleSubmit(onSubmit)}>
       <Spacing size={30} />
       <div className="text-title1">
-        제목 : <input {...register('title')} className="border" required />
+        제목 : <Input register={register('title')} required />
       </div>
       <p className="text-subtitle2">
-        ID : <input {...register('id')} className="border" />
+        ID : <Input register={register('id')} />
       </p>
       <p className="text-subtitle2">
-        일시 : <input {...register('date')} className="border" required />
+        일시 : <Input register={register('date')} required />
       </p>
       <p className="text-subtitle2">
-        장소 : <input {...register('place')} className="border" required />
+        장소 : <Input register={register('place')} required />
       </p>
       <div className="whitespace-pre-wrap py-30 text-subtitle1">
         내용 <textarea {...register('content')} className="w-full border" required />
       </div>
       <div>
-        사진 <input {...register('image')} className="border" type="file" />
+        사진 <Input register={register('image')} type="file" />
       </div>
       <button className="h-50 w-100 border">제출</button>
     </form>
