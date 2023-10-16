@@ -1,4 +1,4 @@
-import { ADMIN_LINK_LIST, MAINLINKLIST } from '@/constants';
+import { ADMIN_LINK_LIST, MAIN_LINK_LIST } from '@/constants';
 import BoardForm from './components/BoardForm';
 import CardForm from './components/CardForm';
 import GalleryForm from './components/GalleryForm';
@@ -12,7 +12,7 @@ interface PageProps {
 }
 
 export default async function page({ searchParams: { category } }: PageProps) {
-  const type = MAINLINKLIST.flatMap((mainLink) =>
+  const type = MAIN_LINK_LIST.flatMap((mainLink) =>
     [...mainLink.subTitle, ...ADMIN_LINK_LIST].find((sub) => sub.path === category)
   ).find((item) => item !== undefined)?.type;
 

@@ -8,7 +8,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { MAINLINKLIST } from '@/constants';
+import { MAIN_LINK_LIST } from '@/constants';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -26,7 +26,7 @@ export default function SideLinkSection() {
         </SheetTrigger>
         <SheetContent className="flex flex-col items-center py-80 text-center" setOpen={setOpen}>
           <Accordion type="single" collapsible className="w-full">
-            {MAINLINKLIST.map((linkItem) => (
+            {MAIN_LINK_LIST.map((linkItem) => (
               <AccordionItem
                 key={linkItem.mainTitle.name}
                 className="w-full border-y border-gray-2"

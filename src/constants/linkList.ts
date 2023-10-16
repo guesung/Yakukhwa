@@ -10,7 +10,8 @@ type MainLinkListType = Array<{
   mainTitle: LinkType;
   subTitle: LinkType[];
 }>;
-export const MAINLINKLIST: MainLinkListType = [
+
+export const MAIN_LINK_LIST: MainLinkListType = [
   {
     mainTitle: { name: '월출산국화축제', path: 'chrysanthemum-festival' },
     subTitle: [
@@ -86,16 +87,12 @@ export const ADMIN_LINK_LIST: LinkType[] = [
   },
 ];
 
-type SubLinkListType = LinkType[];
-
-export const SUBLINKLIST: SubLinkListType = [
+export const SUBLINKLIST: LinkType[] = [
   { name: '영암군청', path: 'http://www.yeongam.go.kr' },
   { name: '문화관광', path: 'https://www.yeongam.go.kr/home/tour' },
 ];
 
-type InfoLinkListType = LinkType[];
-
-export const InfoLinkList: InfoLinkListType = [
+export const InfoLinkList: LinkType[] = [
   {
     name: '참여프로그램',
     path: '/program/schedule',
