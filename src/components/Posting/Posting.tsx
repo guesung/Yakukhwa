@@ -1,4 +1,4 @@
-import Spacing from './Spacing';
+import Spacing from '../Spacing';
 import { Posting } from '@/app/type';
 
 interface PostingProps {

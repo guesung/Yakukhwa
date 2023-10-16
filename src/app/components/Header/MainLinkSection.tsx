@@ -1,6 +1,6 @@
 'use client';
 
-import { MAINLINKLIST } from '@/constants';
+import { MAIN_LINK_LIST } from '@/constants';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -30,7 +30,7 @@ export default function MainLinkSection() {
         )}
       </AnimatePresence>
 
-      {MAINLINKLIST.map((linkItem, index) => (
+      {MAIN_LINK_LIST.map((linkItem, index) => (
         <div key={index} className="z-20 flex">
           <Link
             href={
@@ -43,7 +43,7 @@ export default function MainLinkSection() {
           >
             {linkItem.mainTitle.name}
           </Link>
-          {index < MAINLINKLIST.length - 1 && (
+          {index < MAIN_LINK_LIST.length - 1 && (
             <p className="inset-y-0 mx-20 flex items-center text-title4 text-gray-6">/</p>
           )}
           <AnimatePresence>
