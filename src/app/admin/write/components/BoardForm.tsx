@@ -32,7 +32,7 @@ export default function BoardForm({ category }: FormProps) {
         작성 날짜 : <Input register={register('date')} required />
       </p>
       <div className="whitespace-pre-wrap py-30 text-subtitle1">
-        내용 <textarea {...register('content')} className="w-full border" required />
+        내용 <textarea {...register('content')} className="h-600 w-full border" required />
       </div>
       <button className="h-50 w-100 border">제출</button>
     </form>
