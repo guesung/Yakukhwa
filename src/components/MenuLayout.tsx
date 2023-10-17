@@ -47,7 +47,7 @@ export default function MenuLayout({ isAdmin, children }: MenuLayoutProps) {
             className="absolute inset-y-0 right-0 my-auto flex items-center"
             href={`/admin/write?category=${currentsubTitle}`}
           >
-            글쓰기 / 수정하기
+            글쓰기
           </Link>
         )}
       </article>
