@@ -29,22 +29,24 @@ export default function InfoSection({ galleryList, announcementList }: InfoSecti
 
   return (
     <section>
-      <article className="flex h-70 items-center bg-orange text-center text-white">
-        <Link
-          href="/festival-news/announcement?page=1"
-          className="text-subtitle1 mobile:w-100 pc:w-200"
-        >
-          행사소식
-        </Link>
-        <Link
-          href={`/festival-news/announcement/${announcementList[0].id}`}
-          className="grow text-subtitle2"
-        >
-          {announcementList[0].title}
-        </Link>
-        <span className="w-100 text-subtitle2">{announcementList[0].date}</span>
-        <span className="text-title4 mobile:w-30 pc:w-50">+</span>
-      </article>
+      {announcementList.length > 0 && (
+        <article className="flex h-70 items-center bg-orange text-center text-white">
+          <Link
+            href="/festival-news/announcement?page=1"
+            className="text-subtitle1 mobile:w-100 pc:w-200"
+          >
+            행사소식
+          </Link>
+          <Link
+            href={`/festival-news/announcement/${announcementList[0].id}`}
+            className="grow text-subtitle2"
+          >
+            {announcementList[0].title}
+          </Link>
+          <span className="w-100 text-subtitle2">{announcementList[0].date}</span>
+          <span className="text-title4 mobile:w-30 pc:w-50">+</span>
+        </article>
+      )}
 
       <article className="bg-yellow py-30 mobile:px-20 pc:px-40">
         <div className="flex">

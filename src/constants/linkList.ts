@@ -44,7 +44,7 @@ export const MAIN_LINK_LIST: MainLinkListType = [
       { name: '공지사항', path: 'announcement', banner: '축제소식', type: 'board' },
       { name: '이벤트', path: 'event', banner: '이벤트' },
       { name: '축제FAQ', path: 'faq', banner: '축제FAQ', type: 'board' },
-      { name: '보도자료', path: 'press-release', banner: '보도자료' },
+      { name: '보도자료', path: 'press-release', banner: '보도자료', type: 'board' },
     ],
   },
   {
