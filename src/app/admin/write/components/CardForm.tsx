@@ -3,6 +3,7 @@ import { CardType } from '@/app/type';
 import Input from '@/components/Input';
 import Spacing from '@/components/Spacing';
 import { postData, uploadImage } from '@/utils';
+import { clear } from 'console';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 
@@ -18,6 +19,7 @@ interface InputType {
   place: string;
   content: string;
   image: FileList;
+  imageUrl?: string;
 }
 
 export default function CardForm({ category, postingItem }: FormProps) {
@@ -27,6 +29,11 @@ export default function CardForm({ category, postingItem }: FormProps) {
   const router = useRouter();
 
   const onSubmit = async ({ image, title, ...props }: InputType) => {
+    if (image.length === 0 && postingItem.imageUrl) {
+      await postData(category, { title, ...props });
+      router.back();
+    }
+
     const imageUrl = await uploadImage(title, image[0]);
     await postData(category, { imageUrl, title, ...props });
     router.back();
