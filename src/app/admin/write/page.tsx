@@ -19,10 +19,11 @@ export default async function page({ searchParams: { category, id } }: PageProps
   const postingList = await getData(category);
   const postingItem = postingList.find((item) => item.id === id);
 
+  console.log(postingItem);
   return (
     <main>
       {type === 'board' && <BoardForm category={category} postingItem={postingItem} />}
-      {type === 'card' && <CardForm category={category} />}
+      {type === 'card' && <CardForm category={category} postingItem={postingItem} />}
       {type === 'gallery' && <GalleryForm category={category} />}
       {type === 'schedule' && <ScheduleForm category={category} postingItem={postingItem} />}
     </main>

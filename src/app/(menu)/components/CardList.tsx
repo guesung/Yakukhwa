@@ -3,6 +3,7 @@ import { CardType } from '@/app/type';
 import Spacing from '@/components/Spacing';
 import { deleteData } from '@/utils';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface CardListProps {
   cardList: CardType[];
@@ -40,12 +41,10 @@ function CardItem({ card, isAdmin, category }: CardItemProps) {
       <div className="relative h-200">
         {imageUrl && <Image src={imageUrl} alt={title} fill className="rounded-t-xl" />}
         {isAdmin && (
-          <span
-            className="absolute right-10 top-10 text-title3"
-            onClick={() => handleDeleteCard(id)}
-          >
-            X
-          </span>
+          <div className="absolute right-10 top-10 flex gap-10 text-title3">
+            <Link href={`/admin/write?category=${category}&id=${id}`}>수정</Link>
+            <span onClick={() => handleDeleteCard(id)}>X</span>
+          </div>
         )}
       </div>
       <div className="h-200 p-20">

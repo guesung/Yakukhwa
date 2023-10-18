@@ -30,9 +30,6 @@ export default function CardForm({ category }: FormProps) {
       <div className="text-title1">
         제목 : <Input register={register('title')} required />
       </div>
-      <p className="text-subtitle2">
-        ID : <Input register={register('id')} />
-      </p>
       <div>
         사진 <Input register={register('image')} type="file" />
       </div>
