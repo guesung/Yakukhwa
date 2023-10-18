@@ -44,7 +44,12 @@ export default function InfoSection({ galleryList, announcementList }: InfoSecti
             {announcementList[0].title}
           </Link>
           <span className="w-100 text-subtitle2">{announcementList[0].date}</span>
-          <span className="text-title4 mobile:w-30 pc:w-50">+</span>
+          <Link
+            className="text-title4 mobile:w-30 pc:w-50"
+            href="/festival-news/announcement?page=1"
+          >
+            +
+          </Link>
         </article>
       )}
 
