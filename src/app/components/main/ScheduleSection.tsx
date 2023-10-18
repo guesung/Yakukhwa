@@ -1,6 +1,6 @@
 'use client';
 import { festivalDateArray } from '@/constants';
-import { cn } from '@/utils';
+import { cn, postData } from '@/utils';
 import { useState } from 'react';
 
 import 'swiper/css';
@@ -12,6 +12,7 @@ import Icon from '@/components/Icon';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import Spacing from '@/components/Spacing';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 interface ScheduleSectionProps {
   scheduleList: Schedule[];
@@ -31,6 +32,16 @@ export default function ScheduleSection({ scheduleList, isAdmin }: ScheduleSecti
   const currentScheduleList = scheduleList.find(
     (schedule) => schedule.date === festivalDateArray[numberOfDay - 1]
   );
+  const router = useRouter();
+  const handleEditSchedule = async () => {
+    if (!currentScheduleList) {
+      await postData('schedule', { date: festivalDateArray[numberOfDay - 1] });
+      alert('스케줄을 추가했습니다. 다시 시도해주세요');
+      router.refresh();
+      return;
+    }
+    router.push(`/admin/write?category=schedule&id=${currentScheduleList?.id}`);
+  };
 
   return (
     <section className="relative px-30 py-20">
@@ -52,10 +63,10 @@ export default function ScheduleSection({ scheduleList, isAdmin }: ScheduleSecti
         </div>
 
         <div className="absolute right-80 top-100 flex gap-20">
-          <button onClick={handlePrev} className={cn({ 'opacity-20': !hasPrev })}>
+          <button onClick={handlePrev} className={cn('z-10', { 'opacity-20': !hasPrev })}>
             <Icon id="arrow_left" />
           </button>
-          <button onClick={handleNext} className={cn({ 'opacity-20': !hasNext })}>
+          <button onClick={handleNext} className={cn('z-10', { 'opacity-20': !hasNext })}>
             <Icon id="arrow_right" fill="white" />
           </button>
         </div>
@@ -64,27 +75,25 @@ export default function ScheduleSection({ scheduleList, isAdmin }: ScheduleSecti
       <article className="relative flex h-200 flex-col justify-center">
         <div className="flex h-60 items-center">Day {numberOfDay}</div>
         {isAdmin && (
-          <Link
-            className="absolute right-0 top-60"
-            href={`/admin/write?category=schedule&id=${currentScheduleList?.id}`}
-          >
+          <button className="absolute right-0 top-60" onClick={handleEditSchedule}>
             수정하기
-          </Link>
+          </button>
         )}
         <div className="flex h-80 justify-center gap-40">
-          {currentScheduleList?.scheduleList.map((schedule) => (
-            <div className="flex items-center border bg-white px-10 py-10" key={schedule.time}>
-              <Avatar className="h-80 w-80">
-                <AvatarImage src={schedule.imageUrl} />
-              </Avatar>
-              <Spacing size={10} direction="horizontal" />
-              <p className="text-subtitle1">
-                {schedule.time}
-                <br />
-                {schedule.place}
-              </p>
-            </div>
-          ))}
+          {currentScheduleList?.scheduleList &&
+            currentScheduleList?.scheduleList.map((schedule) => (
+              <div className="flex items-center border bg-white px-10 py-10" key={schedule.time}>
+                <Avatar className="h-80 w-80">
+                  <AvatarImage src={schedule.imageUrl} />
+                </Avatar>
+                <Spacing size={10} direction="horizontal" />
+                <p className="text-subtitle1">
+                  {schedule.time}
+                  <br />
+                  {schedule.place}
+                </p>
+              </div>
+            ))}
         </div>
       </article>
     </section>

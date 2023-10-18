@@ -53,7 +53,7 @@ export default function ScheduleForm({ category, postingItem }: FormProps) {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        {/* <div>{postingItem.date}</div> */}
+        <div>{postingItem.date}</div>
         {fields.map((field, index) => {
           return (
             <div key={field.id}>
