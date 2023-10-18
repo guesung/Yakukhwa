@@ -12,9 +12,10 @@ import { deleteData } from '@/utils';
 
 interface SignSectionProps {
   mainImageList: GalleryType[];
+  isAdmin: boolean;
 }
 
-export default function SignSection({ mainImageList }: SignSectionProps) {
+export default function SignSection({ mainImageList, isAdmin }: SignSectionProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const handleDelete = async (id: string) => {
     await deleteData('main-image', id);
