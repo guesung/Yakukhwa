@@ -24,7 +24,7 @@ export default async function page({ searchParams: { category, id } }: PageProps
       {type === 'board' && <BoardForm category={category} postingItem={postingItem} />}
       {type === 'card' && <CardForm category={category} />}
       {type === 'gallery' && <GalleryForm category={category} />}
-      {type === 'schedule' && <ScheduleForm category={category} />}
+      {type === 'schedule' && <ScheduleForm category={category} postingItem={postingItem} />}
     </main>
   );
 }

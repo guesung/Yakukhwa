@@ -16,7 +16,6 @@ export default function BoardForm({ category, postingItem }: FormProps) {
     defaultValues: postingItem,
   });
   const router = useRouter();
-  console.log(postingItem);
 
   const onSubmit = (data: Posting) => {
     postData(category, data);
@@ -36,7 +35,7 @@ export default function BoardForm({ category, postingItem }: FormProps) {
       <div className="whitespace-pre-wrap py-30 text-subtitle1">
         내용 <textarea {...register('content')} className="h-600 w-full border" required />
       </div>
-      <button className="h-50 w-100 border bg-slate-400">제출</button>
+      <button className="h-50 w-100 border">제출</button>
     </form>
   );
 }

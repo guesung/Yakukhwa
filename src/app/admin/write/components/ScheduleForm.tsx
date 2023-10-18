@@ -1,4 +1,6 @@
 'use client';
+import { Schedule } from '@/app/type';
+import Button from '@/components/Button';
 import Input from '@/components/Input';
 import { postData, uploadImage } from '@/utils';
 import { useRouter } from 'next/navigation';
@@ -6,6 +8,7 @@ import { useFieldArray, useForm } from 'react-hook-form';
 
 interface FormProps {
   category: string;
+  postingItem: Schedule;
 }
 
 interface FormValues {
@@ -14,20 +17,24 @@ interface FormValues {
     time: string;
     place: string;
     image: FileList;
+    imageUrl?: string;
   }>;
 }
 
-export default function ScheduleForm({ category }: FormProps) {
+export default function ScheduleForm({ category, postingItem }: FormProps) {
   const router = useRouter();
-  const { register, control, handleSubmit } = useForm<FormValues>();
+  const { register, control, handleSubmit } = useForm<FormValues>({
+    defaultValues: postingItem,
+  });
   const { fields, append, remove } = useFieldArray({
     name: 'scheduleList',
     control,
   });
+
   const onSubmit = async (data: FormValues) => {
     const imageUrlList = await Promise.all(
       data.scheduleList.map(async (schedule) => {
-        if (!schedule.image) return;
+        if (!schedule.image && schedule.imageUrl) return schedule.imageUrl;
         return await uploadImage(schedule.time, schedule.image[0]);
       })
     );
@@ -46,7 +53,7 @@ export default function ScheduleForm({ category }: FormProps) {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register('date')} className="border" />
+        {/* <div>{postingItem.date}</div> */}
         {fields.map((field, index) => {
           return (
             <div key={field.id}>
@@ -74,21 +81,22 @@ export default function ScheduleForm({ category }: FormProps) {
             </div>
           );
         })}
-
-        <button
-          type="button"
-          className="block"
-          onClick={() =>
-            append({
-              time: '',
-              place: '',
-              image: FileList as any,
-            })
-          }
-        >
-          추가
-        </button>
-        <input type="submit" />
+        <div className="flex">
+          <Button
+            type="button"
+            className="block border"
+            onClick={() =>
+              append({
+                time: '',
+                place: '',
+                image: FileList as any,
+              })
+            }
+          >
+            항목 추가하기
+          </Button>
+          <Button type="submit">수정하기</Button>
+        </div>
       </form>
     </div>
   );
