@@ -92,18 +92,6 @@
 
 
 
-@media (max-width: 1000px) {
-  * {
-    font-size: 16px;
-  }
-}
-
-@media (min-width:450px) and (max-width: 1000px) {
-  * {
-    font-size: 1.8vw;
-  }
-}
-
 
 ::-webkit-scrollbar {
   display: none;
