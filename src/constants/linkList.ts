@@ -34,8 +34,7 @@ export const MAIN_LINK_LIST: MainLinkListType = [
   {
     mainTitle: { name: '사전신청', path: 'pre-application' },
     subTitle: [
-      { name: '축제프로그램', path: 'festival-program', banner: '축제프로그램' },
-      { name: '사전 신청', path: 'pre-registration', banner: '사전신청' },
+      { name: '축제프로그램', path: 'festival-program', banner: '축제프로그램', type: 'card' },
     ],
   },
   {

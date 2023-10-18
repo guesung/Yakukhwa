@@ -12,6 +12,7 @@ export type CardType = {
   place: string;
   content: string;
   imageUrl?: string;
+  googleFormUrl?: string;
 };
 
 export interface GalleryType {

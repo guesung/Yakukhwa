@@ -4,6 +4,7 @@ import Spacing from '@/components/Spacing';
 import { deleteData } from '@/utils';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 interface CardListProps {
   cardList: CardType[];
@@ -28,7 +29,8 @@ interface CardItemProps {
 }
 
 function CardItem({ card, isAdmin, category }: CardItemProps) {
-  const { id, title, date, place, content, imageUrl } = card;
+  const router = useRouter();
+  const { id, title, date, place, content, imageUrl, googleFormUrl } = card;
   const handleDeleteCard = async (id: string) => {
     if (confirm('정말로 삭제하시겠습니까?')) {
       await deleteData(category, id);
@@ -36,7 +38,10 @@ function CardItem({ card, isAdmin, category }: CardItemProps) {
     }
   };
   return (
-    <article className="flex w-380 shrink flex-col rounded-t-xl rounded-bl-xl shadow-xl">
+    <article
+      className="flex w-380 shrink flex-col rounded-t-xl rounded-bl-xl shadow-xl"
+      onClick={() => googleFormUrl && router.push(googleFormUrl)}
+    >
       {!!imageUrl && (
         <div className="relative h-200">
           <Image src={imageUrl} alt={title} fill className="rounded-t-xl" />

@@ -12,14 +12,8 @@ interface FormProps {
   postingItem: CardType;
 }
 
-interface InputType {
-  title: string;
-  id: string;
-  date: string;
-  place: string;
-  content: string;
+interface InputType extends CardType {
   image: FileList;
-  imageUrl?: string;
 }
 
 export default function CardForm({ category, postingItem }: FormProps) {
@@ -47,16 +41,20 @@ export default function CardForm({ category, postingItem }: FormProps) {
     <form className="px-50" onSubmit={handleSubmit(onSubmit)}>
       <Spacing size={30} />
       <div className="text-title1">
-        제목 : <Input register={register('title')} required />
+        *제목 : <Input register={register('title')} required />
       </div>
       <p className="text-subtitle2">
-        일시 : <Input register={register('date')} required />
+        *일시 : <Input register={register('date')} required />
       </p>
       <p className="text-subtitle2">
-        장소 : <Input register={register('place')} required />
+        *장소 : <Input register={register('place')} required />
+      </p>
+      <p className="text-subtitle2">
+        구글폼 URL(https를 포함하여 풀 url을 작성해주세요.) :
+        <Input register={register('googleFormUrl')} />
       </p>
       <div className="whitespace-pre-wrap py-30 text-subtitle1">
-        내용 <textarea {...register('content')} className="w-full border" required />
+        *내용 <textarea {...register('content')} className="h-100 w-full border" required />
       </div>
       <div>
         사진 <Input register={register('image')} type="file" />

@@ -16,7 +16,7 @@ export default async function page() {
 
   return (
     <main>
-      <SignSection mainImageList={mainImageList} />
+      <SignSection mainImageList={mainImageList} isAdmin={isAdmin} />
       {device === 'pc' && <ScheduleSection scheduleList={scheduleList} isAdmin={isAdmin} />}
       {device === 'mobile' && <MobileScheduleSection />}
       <InfoSection galleryList={galleryList} announcementList={announcementList} />
