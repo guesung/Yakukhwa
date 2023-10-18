@@ -50,11 +50,14 @@ export default function ScheduleSection({ scheduleList, isAdmin }: ScheduleSecti
           {festivalDateArray.map((date, index) => (
             <p
               key={date}
-              className={cn('cursor-pointer whitespace-nowrap text-title4 text-gray-6', {
-                'text-black': numberOfDay === index + 1,
-                'row-start-1': index < 8,
-                'row-start-2': index >= 8,
-              })}
+              className={cn(
+                'cursor-pointer whitespace-nowrap text-center text-title4 text-gray-6',
+                {
+                  'text-black': numberOfDay === index + 1,
+                  'row-start-1': index < 8,
+                  'row-start-2': index >= 8,
+                }
+              )}
               onClick={() => handleDate(date)}
             >
               {date + ' '}
