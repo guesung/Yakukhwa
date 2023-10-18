@@ -21,6 +21,7 @@ export interface GalleryType {
 }
 
 export interface Schedule {
+  id: string;
   date: string;
   scheduleList: Array<{
     time: string;

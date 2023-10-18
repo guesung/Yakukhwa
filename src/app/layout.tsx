@@ -61,8 +61,12 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <Header />
         {device === 'pc' && <MainLinkSection />}
         {device === 'mobile' && <SideLinkSection />}
-        <div className="w-screen mobile:overflow-hidden pc-overflow:flex pc-overflow:justify-center">
-          <div className="pc:min-w-1000 pc:max-w-1400">{children}</div>
+        <div
+          className={cn('w-screen pc-overflow:flex pc-overflow:justify-center', {
+            'overflow-hidden': device === 'mobile',
+          })}
+        >
+          <div className="min-w-1000 pc:max-w-1400">{children}</div>
         </div>
         <Footer />
       </body>

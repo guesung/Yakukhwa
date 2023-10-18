@@ -10,3 +10,4 @@ export * from './PageList';
 export * from './Posting';
 export * from './Spacing';
 export * from './ui';
+export * from './Button';

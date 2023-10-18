@@ -37,12 +37,9 @@ export const getData = async (table: string) => {
 
 export const postData = async (table: string, data: any) => {
   const ref = collection(db, table);
-
-  if (data.id) await setDoc(doc(ref, data.id), data);
-  else {
-    delete data.id;
-    await setDoc(doc(ref), data);
-  }
+  const { id, ...dataWithoutId } = data;
+  if (id) await setDoc(doc(ref, id), dataWithoutId);
+  else await setDoc(doc(ref), dataWithoutId);
 };
 
 export const deleteData = async (table: string, key: string) => {

@@ -100,7 +100,7 @@ export default function InfoSection({ galleryList, announcementList }: InfoSecti
               {galleryList.map((gallery) => (
                 <SwiperSlide key={gallery.id}>
                   <Link
-                    className="relative block cursor-pointer mobile:min-h-150 pc:h-250 pc:w-330"
+                    className="relative block cursor-pointer mobile:min-h-200 pc:h-250 pc:w-330"
                     href="/chrysanthemum-festival/gallery?page=1"
                   >
                     <Image src={gallery.imageUrl} fill alt={gallery.title} className="rounded-xl" />
