@@ -1,9 +1,5 @@
-import NoContent from '@/components/NoContent';
+import CardContainer from '@/components/CardContainer';
 
 export default function page() {
-  return (
-    <div>
-      <NoContent />
-    </div>
-  );
+  return <CardContainer />;
 }
