@@ -1,9 +1,5 @@
-import NoContent from '@/components/NoContent';
+import Image from 'next/image';
 
 export default function page() {
-  return (
-    <div>
-      <NoContent />
-    </div>
-  );
+  return <Image src="/images/schedule_table.jpeg" width={1400} height={1000} alt="schedule" />;
 }
