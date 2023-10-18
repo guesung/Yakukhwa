@@ -29,9 +29,13 @@ export default function CardForm({ category, postingItem }: FormProps) {
   const router = useRouter();
 
   const onSubmit = async ({ image, title, ...props }: InputType) => {
-    if (image.length === 0 && postingItem.imageUrl) {
+    if (image.length === 0 && postingItem?.imageUrl) {
       await postData(category, { title, ...props });
       router.back();
+    }
+
+    if (image.length === 0) {
+      await postData(category, { title, ...props });
     }
 
     const imageUrl = await uploadImage(title, image[0]);

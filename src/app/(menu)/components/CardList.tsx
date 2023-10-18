@@ -35,19 +35,20 @@ function CardItem({ card, isAdmin, category }: CardItemProps) {
       alert('삭제되었습니다.');
     }
   };
-
   return (
-    <article className="flex w-380 flex-col rounded-t-xl rounded-bl-xl shadow-xl">
-      <div className="relative h-200">
-        {imageUrl && <Image src={imageUrl} alt={title} fill className="rounded-t-xl" />}
-        {isAdmin && (
-          <div className="absolute right-10 top-10 flex gap-10 text-title3">
-            <Link href={`/admin/write?category=${category}&id=${id}`}>수정</Link>
-            <span onClick={() => handleDeleteCard(id)}>X</span>
-          </div>
-        )}
-      </div>
-      <div className="h-200 p-20">
+    <article className="flex w-380 shrink flex-col rounded-t-xl rounded-bl-xl shadow-xl">
+      {!!imageUrl && (
+        <div className="relative h-200">
+          <Image src={imageUrl} alt={title} fill className="rounded-t-xl" />
+          {isAdmin && (
+            <div className="absolute right-10 top-10 flex gap-10 text-title3">
+              <Link href={`/admin/write?category=${category}&id=${id}`}>수정</Link>
+              <span onClick={() => handleDeleteCard(id)}>X</span>
+            </div>
+          )}
+        </div>
+      )}
+      <div className="p-20">
         <h1 className="text-subtitle1">{title}</h1>
         <Spacing size={10} />
         <div className="flex flex-col gap-10">
