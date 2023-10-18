@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { GalleryType } from '@/app/type';
+import { deleteData } from '@/utils';
 
 interface SignSectionProps {
   mainImageList: GalleryType[];
@@ -15,6 +16,9 @@ interface SignSectionProps {
 
 export default function SignSection({ mainImageList }: SignSectionProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const handleDelete = async (id: string) => {
+    await deleteData('main-image', id);
+  };
 
   return (
     <section>
@@ -35,6 +39,12 @@ export default function SignSection({ mainImageList }: SignSectionProps) {
               height={1400}
               className="mx-auto"
             />
+            <div
+              className="absolute right-10 top-10 cursor-pointer text-title1 text-[#42f34d]"
+              onClick={() => handleDelete(mainImage.id)}
+            >
+              X
+            </div>
           </SwiperSlide>
         ))}
 

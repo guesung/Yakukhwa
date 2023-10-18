@@ -20,7 +20,7 @@ export default function LogoSection() {
 
   return (
     <Link
-      className="items-center px-20 py-20 mobile:w-200 mobile:justify-start pc:flex pc:justify-center"
+      className="items-center gap-10 px-20 py-20 mobile:w-200 mobile:justify-start pc:flex pc:justify-center"
       href="/"
     >
       <Image
