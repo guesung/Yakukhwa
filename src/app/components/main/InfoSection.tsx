@@ -20,6 +20,7 @@ import { Autoplay } from 'swiper/modules';
 interface InfoSectionProps {
   galleryList: GalleryType[];
   announcementList: Posting[];
+  device: 'mobile' | 'pc';
 }
 
 interface AnnouncementProps {
@@ -28,13 +29,14 @@ interface AnnouncementProps {
 
 interface GalleryProps {
   galleryList: InfoSectionProps['galleryList'];
+  device: InfoSectionProps['device'];
 }
 
-export default function InfoSection({ galleryList, announcementList }: InfoSectionProps) {
+export default function InfoSection({ galleryList, announcementList, device }: InfoSectionProps) {
   return (
     <section>
       <Announcement announcementList={announcementList} />
-      <Gallery galleryList={galleryList} />
+      <Gallery galleryList={galleryList} device={device} />
     </section>
   );
 }
@@ -82,7 +84,7 @@ function Announcement({ announcementList }: AnnouncementProps) {
   );
 }
 
-function Gallery({ galleryList }: GalleryProps) {
+function Gallery({ galleryList, device }: GalleryProps) {
   const { slideRef, handlePrev, handleNext } = useSwiperController({ maxPage: Infinity });
   const [open, setOpen] = useState(false);
   const { width = 1400 } = useWindowSize();
@@ -90,7 +92,11 @@ function Gallery({ galleryList }: GalleryProps) {
   return (
     <article className="bg-yellow py-30 mobile:px-20 pc:px-40">
       <div className="flex">
-        <div className="text-start mobile:min-w-150 pc:min-w-250">
+        <div
+          className={cn('text-start pc:min-w-250', {
+            'min-w-150': device === 'mobile',
+          })}
+        >
           <p className="mobile:text-subtitle1 pc:text-title2">월출산국화축제</p>
           <p className="mobile:text-title3 pc:text-title1">둘러보기</p>
           <p className="mobile:text-subtitle2 pc:text-subtitle1">
@@ -120,9 +126,9 @@ function Gallery({ galleryList }: GalleryProps) {
         </div>
 
         <div
-          className={cn('mx-auto mobile:min-w-400 pc:min-w-700 ', {
-            'pc:max-w-700': width < 1400,
-            'pc:max-w-1200': width > 1400,
+          className={cn('mx-auto', {
+            'min-w-700 max-w-700': device === 'mobile',
+            'min-w-400 max-w-1200': device === 'pc',
           })}
         >
           <Swiper
@@ -140,7 +146,9 @@ function Gallery({ galleryList }: GalleryProps) {
             {galleryList.map((gallery) => (
               <SwiperSlide key={gallery.id}>
                 <Link
-                  className="relative block cursor-pointer mobile:min-h-200 pc:h-250 pc:w-330"
+                  className={cn('relative block cursor-pointer mobile:min-h-200', {
+                    'h-250 w-330': device === 'pc',
+                  })}
                   href="/chrysanthemum-festival/gallery?page=1"
                 >
                   <Image src={gallery.imageUrl} fill alt={gallery.title} className="rounded-xl" />
@@ -153,7 +161,13 @@ function Gallery({ galleryList }: GalleryProps) {
 
       <Spacing size={30} />
 
-      <div className="flex items-center gap-20 whitespace-nowrap rounded-xl bg-white px-30 mobile:flex-col mobile:overflow-x-scroll mobile:py-20 pc:h-80">
+      <div
+        className={cn(
+          'flex items-center gap-20 whitespace-nowrap rounded-xl bg-white px-30 py-20',
+          { 'h-80': device === 'pc' },
+          { 'flex-col overflow-x-scroll ': device === 'mobile' }
+        )}
+      >
         <p className="flex gap-20">
           <span className="text-title4 text-orange">문의전화</span>
           <span className="text-title4">061-470-2346</span>
