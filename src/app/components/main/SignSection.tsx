@@ -40,12 +40,14 @@ export default function SignSection({ mainImageList, isAdmin }: SignSectionProps
               height={1400}
               className="mx-auto"
             />
-            <div
-              className="absolute right-10 top-10 cursor-pointer text-title1 text-[#42f34d]"
-              onClick={() => handleDelete(mainImage.id)}
-            >
-              X
-            </div>
+            {isAdmin && (
+              <div
+                className="absolute right-10 top-10 cursor-pointer text-title1 text-[#42f34d]"
+                onClick={() => handleDelete(mainImage.id)}
+              >
+                X
+              </div>
+            )}
           </SwiperSlide>
         ))}
 
