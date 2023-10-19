@@ -1,9 +1,5 @@
-import NoContent from '@/components/NoContent';
+import BoardContainer from '@/components/Board/BoardContainer';
 
 export default function page() {
-  return (
-    <div>
-      <NoContent />
-    </div>
-  );
+  return <BoardContainer />;
 }

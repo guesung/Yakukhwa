@@ -34,7 +34,7 @@ export default function MainLinkSection() {
         <div key={index} className="z-20 flex">
           <Link
             href={
-              linkItem.subTitle[0].outLink
+              linkItem.subTitle[0].type === 'outLink'
                 ? linkItem.subTitle[0].path
                 : `/${linkItem.mainTitle.path}/${linkItem.subTitle[0].path}?page=1`
             }
@@ -65,7 +65,7 @@ export default function MainLinkSection() {
                         'w-120': linkItem.mainTitle.name.length > 5,
                       })}
                       href={
-                        subTitle.outLink
+                        subTitle.type === 'outLink'
                           ? subTitle.path
                           : `/${linkItem.mainTitle.path}/${subTitle.path}?page=1`
                       }
