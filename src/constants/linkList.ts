@@ -2,7 +2,7 @@ type LinkType = {
   name: string;
   path: string;
   banner?: string;
-  type?: string;
+  type?: 'gallery' | 'card' | 'board' | 'schedule' | 'outLink';
 };
 
 type MainLinkListType = Array<{
