@@ -29,30 +29,44 @@ export default function InfoSection({ galleryList, announcementList }: InfoSecti
 
   return (
     <section>
-      {announcementList.length > 0 && (
-        <article className="flex h-70 items-center bg-orange text-center text-white">
-          <Link
-            href="/festival-news/announcement?page=1"
-            className="text-subtitle1 mobile:w-100 pc:w-200"
-          >
-            행사소식
-          </Link>
-          <Link
-            href={`/festival-news/announcement/${announcementList[0].id}`}
-            className="grow text-subtitle2"
-          >
-            {announcementList[0].title}
-          </Link>
-          <span className="w-100 text-subtitle2">{announcementList[0].date}</span>
-          <Link
-            className="text-title4 mobile:w-30 pc:w-50"
-            href="/festival-news/announcement?page=1"
-          >
-            +
-          </Link>
-        </article>
-      )}
-
+      <article className="relative h-70 bg-orange text-white">
+        <Swiper
+          direction="vertical"
+          loop={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          autoHeight={true}
+          modules={[Autoplay]}
+        >
+          {announcementList.map((announcement) => (
+            <SwiperSlide key={announcement.id} className="!h-70">
+              <div className="relative flex !h-70 items-center justify-around px-50 text-center">
+                <Link
+                  href="/festival-news/announcement?page=1"
+                  className="text-start text-subtitle1 mobile:w-100 pc:w-200"
+                >
+                  행사소식
+                </Link>
+                <Link
+                  href={`/festival-news/announcement/${announcement.id}`}
+                  className="grow text-subtitle2"
+                >
+                  {announcement.title}
+                </Link>
+                <span className="w-100 text-end text-subtitle2">{announcement.date}</span>
+                <Link
+                  className="absolute inset-y-0 right-15 my-auto flex items-center text-title4"
+                  href="/festival-news/announcement?page=1"
+                >
+                  +
+                </Link>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </article>
       <article className="bg-yellow py-30 mobile:px-20 pc:px-40">
         <div className="flex">
           <div className="text-start mobile:min-w-150 pc:min-w-250">
