@@ -1,7 +1,6 @@
 type LinkType = {
   name: string;
   path: string;
-  outLink?: boolean;
   banner?: string;
   type?: string;
 };
@@ -41,7 +40,7 @@ export const MAIN_LINK_LIST: MainLinkListType = [
     mainTitle: { name: '축제소식', path: 'festival-news' },
     subTitle: [
       { name: '공지사항', path: 'announcement', banner: '축제소식', type: 'board' },
-      { name: '이벤트', path: 'event', banner: '이벤트' },
+      { name: '이벤트', path: 'event', banner: '이벤트', type: 'board' },
       { name: '축제FAQ', path: 'faq', banner: '축제FAQ', type: 'board' },
       { name: '보도자료', path: 'press-release', banner: '보도자료', type: 'board' },
     ],
@@ -52,22 +51,22 @@ export const MAIN_LINK_LIST: MainLinkListType = [
       {
         name: '영양맛지도',
         path: 'https://www.yeongam.go.kr/home/tour/food/food_03_02/yeongam.go',
-        outLink: true,
+        type: 'outLink',
       },
       {
         name: '먹거리',
         path: 'https://www.yeongam.go.kr/home/tour/food/yeongam.go',
-        outLink: true,
+        type: 'outLink',
       },
       {
         name: '살거리',
         path: 'https://www.yeongam.go.kr/home/tour/shopping/yeongam.go',
-        outLink: true,
+        type: 'outLink',
       },
       {
         name: '즐길거리',
         path: 'https://www.yeongam.go.kr/home/tour/enjoy/yeongam.go',
-        outLink: true,
+        type: 'outLink',
       },
     ],
   },
