@@ -9,9 +9,8 @@ import 'swiper/css/pagination';
 
 import { Schedule } from '@/app/type';
 import Icon from '@/components/Icon';
-import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import Spacing from '@/components/Spacing';
-import Link from 'next/link';
+import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { useRouter } from 'next/navigation';
 
 interface ScheduleSectionProps {
@@ -31,18 +30,17 @@ const useDateContext = () => useContext(DateContext);
 
 export default function ScheduleSection({ scheduleList, isAdmin }: ScheduleSectionProps) {
   const [numberOfDay, setNumberOfDay] = useState(1);
+  const context = useMemo(() => ({ numberOfDay, setNumberOfDay }), [numberOfDay, setNumberOfDay]);
 
   const currentScheduleList = scheduleList.find(
     (schedule) => schedule.date === festivalDateArray[numberOfDay - 1]
   );
 
-  const context = useMemo(() => ({ numberOfDay, setNumberOfDay }), [numberOfDay, setNumberOfDay]);
-
   return (
     <section className="relative px-30 py-20">
       <DateContext.Provider value={context}>
         <FestivalDate />
-        <Schedule scheduleList={currentScheduleList} isAdmin={isAdmin} />
+        <Schedule currentScheduleList={currentScheduleList} isAdmin={isAdmin} />
       </DateContext.Provider>
     </section>
   );
@@ -90,21 +88,21 @@ function FestivalDate() {
 }
 
 interface ScheduleProps {
-  scheduleList?: Schedule;
+  currentScheduleList?: Schedule;
   isAdmin: boolean;
 }
 
-function Schedule({ scheduleList, isAdmin }: ScheduleProps) {
+function Schedule({ currentScheduleList, isAdmin }: ScheduleProps) {
   const router = useRouter();
   const { numberOfDay } = useDateContext();
   const handleEditSchedule = async () => {
-    if (!scheduleList) {
+    if (!currentScheduleList) {
       await postData('schedule', { date: festivalDateArray[numberOfDay - 1] });
       alert('스케줄을 추가했습니다. 다시 시도해주세요');
       router.refresh();
       return;
     }
-    router.push(`/admin/write?category=schedule&id=${scheduleList?.id}`);
+    router.push(`/admin/write?category=schedule&id=${currentScheduleList?.id}`);
   };
 
   return (
@@ -115,21 +113,20 @@ function Schedule({ scheduleList, isAdmin }: ScheduleProps) {
           수정하기
         </button>
       )}
-      <div className="flex h-80 justify-center gap-40">
-        {scheduleList?.scheduleList &&
-          scheduleList?.scheduleList.map((schedule) => (
-            <div className="flex items-center border bg-white px-10 py-10" key={schedule.time}>
-              <Avatar className="h-80 w-80">
-                <AvatarImage src={schedule.imageUrl} />
-              </Avatar>
-              <Spacing size={10} direction="horizontal" />
-              <p className="text-subtitle1">
-                {schedule.time}
-                <br />
-                {schedule.place}
-              </p>
-            </div>
-          ))}
+      <div className="flex justify-center gap-40">
+        {currentScheduleList?.scheduleList.map((schedule) => (
+          <div className="flex items-center border bg-white px-20 py-10" key={schedule.time}>
+            <Avatar className="h-80 w-80">
+              <AvatarImage src={schedule.imageUrl} />
+            </Avatar>
+            <Spacing size={10} direction="horizontal" />
+            <p className="text-subtitle1">
+              {schedule.time}
+              <br />
+              {schedule.place}
+            </p>
+          </div>
+        ))}
       </div>
     </article>
   );
