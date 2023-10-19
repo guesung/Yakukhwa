@@ -114,19 +114,20 @@ function Schedule({ currentScheduleList, isAdmin }: ScheduleProps) {
         </button>
       )}
       <div className="flex justify-center gap-40">
-        {currentScheduleList?.scheduleList.map((schedule) => (
-          <div className="flex items-center border bg-white px-20 py-10" key={schedule.time}>
-            <Avatar className="h-80 w-80">
-              <AvatarImage src={schedule.imageUrl} />
-            </Avatar>
-            <Spacing size={10} direction="horizontal" />
-            <p className="text-subtitle1">
-              {schedule.time}
-              <br />
-              {schedule.place}
-            </p>
-          </div>
-        ))}
+        {currentScheduleList?.scheduleList &&
+          currentScheduleList?.scheduleList.map((schedule) => (
+            <div className="flex items-center border bg-white px-20 py-10" key={schedule.time}>
+              <Avatar className="h-80 w-80">
+                <AvatarImage src={schedule.imageUrl} />
+              </Avatar>
+              <Spacing size={10} direction="horizontal" />
+              <p className="text-subtitle1">
+                {schedule.time}
+                <br />
+                {schedule.place}
+              </p>
+            </div>
+          ))}
       </div>
     </article>
   );
