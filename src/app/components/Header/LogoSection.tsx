@@ -1,3 +1,4 @@
+import { cn } from '@/utils';
 import { getDevice } from '@/utils/getdevice';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -20,7 +21,10 @@ export default function LogoSection() {
 
   return (
     <Link
-      className="items-center gap-10 px-20 py-20 mobile:w-200 mobile:justify-start pc:flex pc:justify-center"
+      className={cn('flex items-center gap-10 px-20 py-20 ', {
+        'w-200 justify-start': device === 'mobile',
+        'justify-center': device === 'pc',
+      })}
       href="/"
     >
       <Image

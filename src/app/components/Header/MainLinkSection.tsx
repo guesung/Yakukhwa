@@ -34,17 +34,21 @@ export default function MainLinkSection() {
         <div key={index} className="z-20 flex">
           <Link
             href={
-              linkItem.subTitle[0].outLink
+              linkItem.subTitle[0].type === 'outLink'
                 ? linkItem.subTitle[0].path
                 : `/${linkItem.mainTitle.path}/${linkItem.subTitle[0].path}?page=1`
             }
-            className="flex h-50 cursor-pointer items-center justify-center text-title4"
+            className={cn('flex h-50 w-80 cursor-pointer items-center justify-center text-title4', {
+              'w-120': linkItem.mainTitle.name.length > 5,
+            })}
             onMouseEnter={() => setIsActive(true)}
           >
             {linkItem.mainTitle.name}
           </Link>
           {index < MAIN_LINK_LIST.length - 1 && (
-            <p className="inset-y-0 mx-20 flex items-center text-title4 text-gray-6">/</p>
+            <p className="inset-y-0 flex w-40 items-center justify-center text-title4 text-gray-6">
+              /
+            </p>
           )}
           <AnimatePresence>
             {isActive && (
@@ -55,19 +59,21 @@ export default function MainLinkSection() {
                 exit={{ opacity: 0 }}
               >
                 {linkItem.subTitle.map((subTitle, i) => (
-                  <Link
-                    key={i}
-                    className={cn('flex h-40 items-center justify-center text-center', {
-                      'ml-25': index === 0,
-                    })}
-                    href={
-                      subTitle.outLink
-                        ? subTitle.path
-                        : `/${linkItem.mainTitle.path}/${subTitle.path}?page=1`
-                    }
-                  >
-                    {subTitle.name}
-                  </Link>
+                  <div className="flex" key={i}>
+                    <Link
+                      className={cn('flex h-40 w-80 items-center justify-center text-center', {
+                        'w-120': linkItem.mainTitle.name.length > 5,
+                      })}
+                      href={
+                        subTitle.type === 'outLink'
+                          ? subTitle.path
+                          : `/${linkItem.mainTitle.path}/${subTitle.path}?page=1`
+                      }
+                    >
+                      {subTitle.name}
+                    </Link>
+                    <div className="w-40" />
+                  </div>
                 ))}
               </motion.ul>
             )}
