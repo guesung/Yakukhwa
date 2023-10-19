@@ -64,7 +64,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <div
           className={cn('w-screen', {
             'overflow-hidden': device === 'mobile',
-            'overflow:flex overflow:justify-center': device === 'pc',
+            'flex justify-center': device === 'pc',
           })}
         >
           <div className={cn({ 'min-w-1000 max-w-1400': device === 'pc' })}>{children}</div>
