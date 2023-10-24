@@ -47,7 +47,14 @@ function CardItem({ card, isAdmin, category }: CardItemProps) {
           <Image src={imageUrl} alt={title} fill className="rounded-t-xl" />
           {isAdmin && (
             <div className="absolute right-10 top-10 flex gap-10 text-title3">
-              <Link href={`/admin/write?category=${category}&id=${id}`}>수정</Link>
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  router.push(`/admin/write?category=${category}&id=${id}`);
+                }}
+              >
+                수정
+              </div>
               <span onClick={() => handleDeleteCard(id)}>X</span>
             </div>
           )}
