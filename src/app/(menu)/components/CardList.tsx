@@ -39,25 +39,25 @@ function CardItem({ card, isAdmin, category }: CardItemProps) {
   };
   return (
     <article
-      className="flex w-380 shrink flex-col rounded-t-xl rounded-bl-xl shadow-xl"
+      className="relative flex w-380 shrink flex-col rounded-t-xl rounded-bl-xl shadow-xl"
       onClick={() => googleFormUrl && router.push(googleFormUrl)}
     >
       {!!imageUrl && (
         <div className="relative h-200">
           <Image src={imageUrl} alt={title} fill className="rounded-t-xl" />
-          {isAdmin && (
-            <div className="absolute right-10 top-10 flex gap-10 text-title3">
-              <div
-                onClick={(e) => {
-                  e.stopPropagation();
-                  router.push(`/admin/write?category=${category}&id=${id}`);
-                }}
-              >
-                수정
-              </div>
-              <span onClick={() => handleDeleteCard(id)}>X</span>
-            </div>
-          )}
+        </div>
+      )}
+      {isAdmin && (
+        <div className="absolute right-10 top-10 flex gap-10 text-title3">
+          <div
+            onClick={(e) => {
+              e.stopPropagation();
+              router.push(`/admin/write?category=${category}&id=${id}`);
+            }}
+          >
+            수정
+          </div>
+          <span onClick={() => handleDeleteCard(id)}>X</span>
         </div>
       )}
       <div className="p-20">
