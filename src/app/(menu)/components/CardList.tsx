@@ -3,7 +3,6 @@ import { CardType } from '@/app/type';
 import Spacing from '@/components/Spacing';
 import { cn, deleteData } from '@/utils';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 interface CardListProps {

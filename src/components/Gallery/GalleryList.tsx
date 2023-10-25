@@ -2,6 +2,7 @@
 import { GalleryType } from '@/app/type';
 import { deleteData } from '@/utils';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 interface GallerySectionProps {
   galleryList: GalleryType[];
@@ -27,10 +28,12 @@ interface GalleryItemProps {
 
 function GalleryItem({ gallery, isAdmin, category }: GalleryItemProps) {
   const { id, title, imageUrl } = gallery;
+  const router = useRouter();
   const handleDeleteCard = async (id: string) => {
     if (confirm('정말로 삭제하시겠습니까?')) {
       await deleteData(category, id);
       alert('삭제되었습니다.');
+      router.refresh();
     }
   };
 
@@ -43,7 +46,7 @@ function GalleryItem({ gallery, isAdmin, category }: GalleryItemProps) {
         <Image src="/images/frame.png" fill alt="frame" className="z-10" />
         {isAdmin && (
           <span
-            className="absolute right-10 top-10 z-30 text-title3"
+            className="absolute right-10 top-10 z-[100] cursor-pointer text-title3"
             onClick={() => handleDeleteCard(id)}
           >
             X
