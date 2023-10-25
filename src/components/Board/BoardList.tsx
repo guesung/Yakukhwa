@@ -53,6 +53,7 @@ function BoardItem({ board, isAdmin, index }: BoardItemProps) {
     if (confirm('정말로 삭제하시겠습니까?')) {
       await deleteData(subTitle, id);
       alert('삭제되었습니다.');
+      router.refresh();
     }
   };
   const pathname = usePathname();

@@ -34,6 +34,7 @@ function CardItem({ card, isAdmin, category }: CardItemProps) {
     if (confirm('정말로 삭제하시겠습니까?')) {
       await deleteData(category, id);
       alert('삭제되었습니다.');
+      router.refresh();
     }
   };
   return (

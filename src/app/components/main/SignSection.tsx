@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { GalleryType } from '@/app/type';
 import { deleteData } from '@/utils';
+import { useRouter } from 'next/navigation';
 
 interface SignSectionProps {
   mainImageList: GalleryType[];
@@ -17,8 +18,13 @@ interface SignSectionProps {
 
 export default function SignSection({ mainImageList, isAdmin }: SignSectionProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
   const handleDelete = async (id: string) => {
-    await deleteData('main-image', id);
+    if (confirm('정말로 삭제하시겠습니까?')) {
+      await deleteData('main-image', id);
+      alert('삭제되었습니다.');
+      router.refresh();
+    }
   };
 
   return (
