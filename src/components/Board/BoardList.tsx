@@ -11,7 +11,7 @@ import {
 import { useGetPath } from '@/hooks';
 import { deleteData } from '@/utils/firebaseController';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 interface BoardListProps {
   boardList: Posting[];
@@ -49,6 +49,7 @@ interface BoardItemProps {
 function BoardItem({ board, isAdmin, index }: BoardItemProps) {
   const { id, title, date } = board;
   const { subTitle } = useGetPath();
+  const router = useRouter();
   const handleDelete = async (id: string) => {
     if (confirm('정말로 삭제하시겠습니까?')) {
       await deleteData(subTitle, id);
