@@ -1,7 +1,7 @@
 'use client';
 import { CardType } from '@/app/type';
 import Spacing from '@/components/Spacing';
-import { deleteData } from '@/utils';
+import { cn, deleteData } from '@/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -14,7 +14,7 @@ interface CardListProps {
 
 export default function CardList({ cardList, ...props }: CardListProps) {
   return (
-    <section className="flex flex-wrap justify-center gap-30">
+    <section className="flex flex-wrap items-center justify-center gap-30">
       {cardList.map((card) => (
         <CardItem key={card.id} card={card} {...props} />
       ))}
@@ -39,7 +39,10 @@ function CardItem({ card, isAdmin, category }: CardItemProps) {
   };
   return (
     <article
-      className="relative flex w-380 shrink flex-col rounded-t-xl rounded-bl-xl shadow-xl"
+      className={cn('relative flex w-380 shrink flex-col rounded-t-xl rounded-bl-xl shadow-xl', {
+        'h-400': !!imageUrl,
+        'h-200': !imageUrl,
+      })}
       onClick={() => googleFormUrl && router.push(googleFormUrl)}
     >
       {!!imageUrl && (
