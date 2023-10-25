@@ -106,14 +106,14 @@ function Schedule({ currentScheduleList, isAdmin }: ScheduleProps) {
   };
 
   return (
-    <article className="relative flex h-200 flex-col justify-center">
+    <article className="relative flex flex-col justify-center">
       <div className="flex h-60 items-center">Day {numberOfDay}</div>
       {isAdmin && (
         <button className="absolute right-0 top-60" onClick={handleEditSchedule}>
           수정하기
         </button>
       )}
-      <div className="flex justify-center gap-40">
+      <div className="flex flex-wrap justify-center gap-40">
         {currentScheduleList?.scheduleList &&
           currentScheduleList?.scheduleList.map((schedule) => (
             <div className="flex items-center border bg-white px-20 py-10" key={schedule.time}>
