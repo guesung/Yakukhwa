@@ -4,15 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 function daysUntilNovember28() {
-  const today = new Date();
-  const currentYear = today.getFullYear();
-  const november28 = new Date(currentYear, 9, 28);
-  if (today > november28) {
-    november28.setFullYear(currentYear + 1);
-  }
-  const diffTime = Math.abs(+november28 - +today);
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  return diffDays;
+  const past = new Date('2023-10-28');
+  const now = new Date();
+
+  const timeDiff = +now - +past;
+  const daysDiff = timeDiff / (1000 * 60 * 60 * 24);
+  console.log(daysDiff);
+  return Math.floor(daysDiff);
 }
 
 export default function LogoSection() {
@@ -33,7 +31,7 @@ export default function LogoSection() {
         height={100}
         alt="로고"
       />
-      <p className="rounded-md bg-[#f75454] px-5 text-subtitle1 text-white ">D-{leftDay}</p>
+      <p className="rounded-md bg-[#f75454] px-5 text-subtitle1 text-white ">D+{leftDay}</p>
     </Link>
   );
 }
