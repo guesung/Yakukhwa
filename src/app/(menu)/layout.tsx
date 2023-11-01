@@ -7,6 +7,7 @@ import { PropsWithChildren } from 'react';
 export default async function layout({ children }: PropsWithChildren) {
   const device = getDevice();
   const isAdmin = await getServerIsAdmin();
+
   return (
     <>
       {device === 'pc' && <MenuLayout isAdmin={isAdmin} />}
