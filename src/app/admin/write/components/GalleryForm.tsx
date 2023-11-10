@@ -25,7 +25,7 @@ export default function CardForm({ category }: FormProps) {
   };
 
   return (
-    <form className="px-50" onSubmit={handleSubmit(onSubmit)}>
+    <form className="px-50 py-100" onSubmit={handleSubmit(onSubmit)}>
       <Spacing size={30} />
       <div className="text-title1">
         제목 : <Input register={register('title')} required />
