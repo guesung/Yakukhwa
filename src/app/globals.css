@@ -89,8 +89,6 @@
   @apply mb-60;
 }
 
-
 ::-webkit-scrollbar {
   display: none;
 }
-
