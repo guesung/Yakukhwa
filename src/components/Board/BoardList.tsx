@@ -68,7 +68,7 @@ function BoardItem({ board, isAdmin, index }: BoardItemProps) {
       <TableCell className="w-40">{date}</TableCell>
       {isAdmin && (
         <td
-          className="absolute inset-y-0 right-0 my-auto flex w-30 cursor-pointer items-center"
+          className="inset-y-0 my-auto flex h-40 w-30 cursor-pointer items-center"
           onClick={() => handleDelete(id)}
         >
           삭제
