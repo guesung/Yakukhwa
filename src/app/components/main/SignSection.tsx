@@ -43,7 +43,7 @@ export default function SignSection({ mainImageList, isAdmin }: SignSectionProps
               src={mainImage.imageUrl}
               alt={mainImage.title}
               width={1400}
-              height={1400}
+              height={500}
               className="mx-auto"
             />
             {isAdmin && (
